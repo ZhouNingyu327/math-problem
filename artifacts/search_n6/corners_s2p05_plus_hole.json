@@ -1,0 +1,59 @@
+{
+  "s": 2.05,
+  "n": 6,
+  "area": 4.2025,
+  "poses": [
+    {
+      "cx": 0.5,
+      "cy": 0.5,
+      "theta": 0.0,
+      "theta_deg": 0.0
+    },
+    {
+      "cx": 1.5499999999999998,
+      "cy": 0.5,
+      "theta": 0.0,
+      "theta_deg": 0.0
+    },
+    {
+      "cx": 1.5499999999999998,
+      "cy": 1.5499999999999998,
+      "theta": 0.0,
+      "theta_deg": 0.0
+    },
+    {
+      "cx": 0.5,
+      "cy": 1.5499999999999998,
+      "theta": 0.0,
+      "theta_deg": 0.0
+    },
+    {
+      "cx": 1.025,
+      "cy": 1.025,
+      "theta": 0.0,
+      "theta_deg": 0.0
+    },
+    {
+      "cx": 1.025,
+      "cy": 1.025,
+      "theta": 0.39269908169872414,
+      "theta_deg": 22.5
+    }
+  ],
+  "coverage": {
+    "s": 2.05,
+    "n": 6,
+    "uncovered_area": 0.09676077997076024,
+    "uncovered_boundary": 0.1999999999999993,
+    "sample_uncovered_frac": 0.02375,
+    "sample_n_points": 25600,
+    "sample_n_uncovered": 608,
+    "boundary_sample_uncovered": 40,
+    "corners_uncovered": 0,
+    "max_outside": 0.02243107769423558,
+    "covered": false,
+    "covered_strict": false,
+    "notes": "uncovered_area=9.676e-02; uncovered_boundary=2.000e-01; sample_uncovered=608/25600"
+  },
+  "construction": "four_corners_plus_center_on_s_gt_2"
+}

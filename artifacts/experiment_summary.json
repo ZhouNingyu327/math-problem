@@ -1,0 +1,144 @@
+{
+  "seed": 0,
+  "budget": "default",
+  "checks": {
+    "baseline_n6_s2": {
+      "s": 2.0,
+      "n": 6,
+      "uncovered_area": 0.0,
+      "uncovered_boundary": 0.0,
+      "sample_uncovered_frac": 0.0,
+      "sample_n_points": 25600,
+      "sample_n_uncovered": 0,
+      "boundary_sample_uncovered": 0,
+      "corners_uncovered": 0,
+      "max_outside": 0.0,
+      "covered": true,
+      "covered_strict": true,
+      "notes": ""
+    },
+    "trivial_n6_s2p05_should_fail": {
+      "s": 2.05,
+      "n": 6,
+      "uncovered_area": 0.15249999999999947,
+      "uncovered_boundary": 3.1999999999999993,
+      "sample_uncovered_frac": 0.0371875,
+      "sample_n_points": 25600,
+      "sample_n_uncovered": 952,
+      "boundary_sample_uncovered": 623,
+      "corners_uncovered": 3,
+      "max_outside": 0.04999999999999982,
+      "covered": false,
+      "covered_strict": false,
+      "notes": "uncovered_area=1.525e-01; uncovered_boundary=3.200e+00; sample_uncovered=952/25600"
+    },
+    "baseline_n4_s2": {
+      "s": 2.0,
+      "n": 4,
+      "uncovered_area": 0.0,
+      "uncovered_boundary": 0.0,
+      "sample_uncovered_frac": 0.0,
+      "sample_n_points": 25600,
+      "sample_n_uncovered": 0,
+      "boundary_sample_uncovered": 0,
+      "corners_uncovered": 0,
+      "max_outside": 0.0,
+      "covered": true,
+      "covered_strict": true,
+      "notes": ""
+    },
+    "n4_s2p02_should_fail": {
+      "s": 2.02,
+      "n": 4,
+      "uncovered_area": 0.08040000000000003,
+      "uncovered_boundary": 4.08,
+      "sample_uncovered_frac": 0.02484375,
+      "sample_n_points": 25600,
+      "sample_n_uncovered": 636,
+      "boundary_sample_uncovered": 805,
+      "corners_uncovered": 3,
+      "max_outside": 0.020000000000000018,
+      "covered": false,
+      "covered_strict": false,
+      "notes": "uncovered_area=8.040e-02; uncovered_boundary=4.080e+00; sample_uncovered=636/25600"
+    },
+    "dudeney_n3": {
+      "s": 1.272019649514069,
+      "n": 3,
+      "uncovered_area": 1.5228545232933195e-31,
+      "uncovered_boundary": 4.996003610813204e-16,
+      "sample_uncovered_frac": 0.0,
+      "sample_n_points": 25600,
+      "sample_n_uncovered": 0,
+      "boundary_sample_uncovered": 0,
+      "corners_uncovered": 0,
+      "max_outside": 1.1102230246251565e-16,
+      "covered": true,
+      "covered_strict": true,
+      "notes": ""
+    },
+    "green7_seed": {
+      "s": 2.2071067811865475,
+      "n": 7,
+      "uncovered_area": 0.1861576445150182,
+      "uncovered_boundary": 0.18321171062239117,
+      "sample_uncovered_frac": 0.0380078125,
+      "sample_n_points": 25600,
+      "sample_n_uncovered": 973,
+      "boundary_sample_uncovered": 37,
+      "corners_uncovered": 4,
+      "max_outside": 0.12992203775475786,
+      "covered": false,
+      "covered_strict": false,
+      "notes": "uncovered_area=1.862e-01; uncovered_boundary=1.832e-01; sample_uncovered=973/25600"
+    },
+    "corners_n6_s2p05": {
+      "s": 2.05,
+      "n": 6,
+      "uncovered_area": 0.09676077997076024,
+      "uncovered_boundary": 0.1999999999999993,
+      "sample_uncovered_frac": 0.02375,
+      "sample_n_points": 25600,
+      "sample_n_uncovered": 608,
+      "boundary_sample_uncovered": 40,
+      "corners_uncovered": 0,
+      "max_outside": 0.02243107769423558,
+      "covered": false,
+      "covered_strict": false,
+      "notes": "uncovered_area=9.676e-02; uncovered_boundary=2.000e-01; sample_uncovered=608/25600"
+    }
+  },
+  "searches": {
+    "n6_grow": {
+      "max_covered_s": 2.0,
+      "last_s": 2.01,
+      "last_uncovered_area": 0.08900228928794328,
+      "last_covered": false,
+      "n_steps": 2
+    },
+    "n6": {
+      "best_covered_s": 2.0,
+      "any_s_gt_2_covered": false,
+      "n_trials": 96,
+      "best_trial_s": 2.0,
+      "best_trial_uncovered_area": 0.0,
+      "best_trial_covered": true,
+      "min_uncovered_by_s": {
+        "2.0": 0.0,
+        "2.02": 0.02448989818885279,
+        "2.05": 0.07401906623221112,
+        "2.1": 0.15423910788035022
+      }
+    },
+    "n7": {
+      "best_covered_s": 2.0,
+      "any_s_gt_2_covered": false,
+      "n_trials": 84,
+      "best_trial_s": 2.0,
+      "best_trial_uncovered_area": 0.0,
+      "best_trial_covered": true,
+      "published_green_s": 2.2071067811865475
+    }
+  },
+  "elapsed_sec": 852.0803360939026
+}

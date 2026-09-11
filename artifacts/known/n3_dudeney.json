@@ -1,0 +1,42 @@
+{
+  "s": 1.272019649514069,
+  "n": 3,
+  "area": 1.618033988749895,
+  "poses": [
+    {
+      "cx": 0.7020926832536591,
+      "cy": 1.1879609550103047,
+      "theta": 0.6662394324925153,
+      "theta_deg": 38.17270762701225
+    },
+    {
+      "cx": 0.772019649514069,
+      "cy": 0.5,
+      "theta": 0.0,
+      "theta_deg": 0.0
+    },
+    {
+      "cx": 0.08405869450376385,
+      "cy": 0.5699269662604098,
+      "theta": 0.904556894302381,
+      "theta_deg": 51.82729237298773
+    }
+  ],
+  "coverage": {
+    "s": 1.272019649514069,
+    "n": 3,
+    "uncovered_area": 1.5228545232933195e-31,
+    "uncovered_boundary": 4.996003610813204e-16,
+    "sample_uncovered_frac": 0.0,
+    "sample_n_points": 25600,
+    "sample_n_uncovered": 0,
+    "boundary_sample_uncovered": 0,
+    "corners_uncovered": 0,
+    "max_outside": 1.1102230246251565e-16,
+    "covered": true,
+    "covered_strict": true,
+    "notes": ""
+  },
+  "construction": "dudeney",
+  "theory_s": 1.272019649514069
+}
