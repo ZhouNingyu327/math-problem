@@ -11,11 +11,15 @@ Largest square coverable by 6 unit squares (rigid motions, overlaps allowed).
 **Main object:** a rigorous proof attempt that \(S(6)=2\), in
 [`PROOF/ATTEMPT.md`](PROOF/ATTEMPT.md) and [`PROOF/GAPS.md`](PROOF/GAPS.md).
 
-Those notes do **not** contain a complete proof. G1 (\(k=0\)) is closed for
-\(a>a_\diamond\approx 2.0918\) (FarPair, CycleSum, Cascade, OppFar); residual
-G1 is 2-meet/3-meet on \((2,a_\diamond]\). One G2 subcase is closed for
-\(a>2^{5/4}\); one G4 representative for \(a>\sqrt{5}\). G2–G5 remain open
-down to \(a=2^+\), and G3 globally.
+Those notes do **not** contain a complete proof. \(S(6)=2\) is **not** proved.
+
+G1 (\(k=0\)): 0-/1-/4-meet die for all \(a>2\); Cascade for \(a>a_\varphi\);
+local Open B C-on-top for \(a>a_{\mathrm{top}}\approx 2.0361747746\) and
+C-on-right for \(a>a_{\mathrm{cr}}\approx 2.0036185600\) (R2TopDiam / FHeight
+do not lower those cuts). Residual: meet deep-\(\delta\) \((2,a_\varphi]\),
+C-on-top \((2,a_{\mathrm{top}}]\), C-on-right \((2,a_{\mathrm{cr}}]\), Open C
+razor \((2,a_\psi]\). One G2 subcase for \(a>2^{5/4}\); one G4 representative
+for \(a>\sqrt{5}\). G2–G5 otherwise open. Ledger: [`PROOF/LOCAL_SYNC.md`](PROOF/LOCAL_SYNC.md).
 
 ### Known facts
 

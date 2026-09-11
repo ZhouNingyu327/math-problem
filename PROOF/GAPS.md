@@ -1,10 +1,9 @@
 # Remaining gaps for \(S(6)=2\)
 
 **None of G1–G5 is closed on the whole interval \((2,\sqrt{6}]\).** Until they
-are, \(S(6)=2\) is not proved. Large-\(a\) fragments and the new G1 lemmas
-(FarPair, CycleSum, Cascade, OppFar) proved in [`ATTEMPT.md`](ATTEMPT.md) are
-recorded here so they are not rediscovered, and so the residual statements are
-exact.
+are, \(S(6)=2\) is not proved. Fragments in [`ATTEMPT.md`](ATTEMPT.md) include
+FarPair, CycleSum, Cascade, OppFar, OpenB-R2TopDiam, OpenB-FHeight, and
+CLobeFat. Local Open A/B/C cuts are recorded so they are not rediscovered.
 
 Throughout: \(S\) has side \(a\in(2,\sqrt{6}]\), \(\lambda=a/2\), extras \(C\ni c\)
 and \(F\), and
@@ -17,17 +16,18 @@ Thresholds (exact characterising equations; isolating brackets certified in
 
 | symbol | value | role |
 |---|---|---|
+| \(a_{\mathrm{cr}}\) | \(\approx 2.0036185600\) | local Open B C-on-right; **not** lowered by R2TopDiam/FHeight |
 | \(a_\varphi\) | \(\approx 2.00910069\) | Cascade: \(\ell(a-\ell(\lambda))=a-\sqrt{2}\); adjacent meets die above |
-| \(a_\diamond\) | \(\approx 2.09180768\) | OppFar: centre misses cascade leftover far-end |
+| \(a_{\mathrm{top}}\) | \(\approx 2.0361747746\) | local Open B C-on-top; **not** lowered by R2TopDiam/FHeight |
+| \(a_\diamond\) | \(\approx 2.09180768\) | in-repo OppFar: centre misses cascade leftover far-end |
 | \(a_M\) | \(\approx 2.11195454\) | long+short vertex-meet limit \(\sqrt{2}+\ell(\lambda)=a\) |
 | \(\sqrt{5}\) | \(\approx 2.236\) | T8 L-gap \(2\ell(\lambda)<\lambda\) |
 | \(8\sqrt{2}/5\) | \(\approx 2.263\) | opposite stub escapes a \(\lambda\)-chord through \(c\) |
 | \(2^{5/4}\) | \(\approx 2.378\) | far leftover outruns centre-reach; \(\lambda^4=2\) (G2/G5) |
 | \(\sqrt{6}\) | \(\approx 2.449\) | area bound |
 
-Local unpublished cuts (not proved in this repository): \(a_{\mathrm{top}}\approx 2.036\),
-\(a_{\mathrm{cr}}\approx 2.0036\), \(a_B\approx 2.002\), and an Open C razor
-\(a_\psi\). They are recorded only as targets; nothing below treats them as theorems.
+Retracted: \(a_{\mathrm{top}}^F\approx 2.0265\) (\(\delta\ge 2g_0\) is invalid under
+R1Exclusive). Local \(a_\psi\) (Open C razor) is not given a decimal here.
 
 ---
 
@@ -45,29 +45,35 @@ Local unpublished cuts (not proved in this repository): \(a_{\mathrm{top}}\appro
 - **Cascade.** Unique \(a_\varphi\); adjacent meets and 3-meet die for \(a>a_\varphi\).
 - **OppFar.** Opposite-meet leftovers die for \(a>a_\diamond\) (centre cannot
   contain either cascade far-end; \(F\) takes at most one).
+- **OpenB-R2TopDiam.** \(\lvert p^\ast-r^\ast\rvert^2=2\mu^4>2\) on \(R_2\)
+  (`prove_openb_r2_top_diam`). **OpenB-FHeight** (local analytic):
+  \(F\cap R_2\subseteq(\mu,Y_b]\) with \(Y_b<\mu+g_0\). These do **not** lower
+  \(a_{\mathrm{top}}\) or \(a_{\mathrm{cr}}\).
+- **CLobeFat.** Remaining room past \(c\) still reaches the height-bound hole
+  on \(a<a_\ast\approx 2.288\), so deep-\(\delta\) \(C\)-moduli stay fat
+  (`prove_clobe_fat_remaining_room`). Explains the MES/B&B stall; not a kill.
 - G1.large centre-reach remains available for G2/G5 at \(a>2^{5/4}\).
 
-G1 is therefore closed on \((a_\diamond,\sqrt{6}]\).
+In-repo combinatorial G1 is closed on \((a_\diamond,\sqrt{6}]\). Local Open B
+already cuts C-on-top at \(a_{\mathrm{top}}\) and C-on-right at \(a_{\mathrm{cr}}\).
 
-**Open (residual G1).** There is no covering with \(k=0\) and
-\(a\in(2,a_\diamond]\) of one of the following types:
+**Open (sharpest remaining).** \(S(6)=2\) is not proved. Residual G1:
 
-1. **2-opposite meets** (C-on-top / C-on-right) on the whole \((2,a_\diamond]\).
-   Local work claims cuts at \(a_{\mathrm{top}}\approx 2.036\) and
-   \(a_{\mathrm{cr}}\approx 2.0036\); this repository only reaches \(a_\diamond\).
-2. **2-adjacent meets** on the meet band \((2,a_\varphi]\).
-3. **3-meet** (one leftover side) on \((2,a_\varphi]\).
+1. **Meet deep-\(\delta\)** on \((2,a_\varphi]\). Point-MES stalled (~0.072%
+   under \(\delta_{\mathrm{force}}\)). Pose-space B&B ~95% product kill, joint
+   \(+0.03\%\); survivors are fat non-rigid \(C\)-moduli lobes. \(V_3\)-couple /
+   \(U(\theta,s)\) sampling certificates failed to empty cells. CLobeFat shows
+   why a one-pose lemma is not available.
+2. **Open B C-on-top** on \((2,a_{\mathrm{top}}]\). R2TopDiam + FHeight do not
+   shrink this interval.
+3. **Open B C-on-right** on \((2,a_{\mathrm{cr}}]\). Same.
+4. **Open C razor** on \((2,a_\psi]\).
 
-The meet band is blocked under MES of a forced \(C\)-set and under perimeter
-reach bookkeeping: after several meets there is little or no leftover on
-\(\partial S\), and the uncovered set is an interior hinge neighbourhood of
-\(c\). CycleSum kills the 4-meet extreme of that picture. What remains is
-2-meet/3-meet, for which a computer-assisted interior-witness plan is §CAP.
-
-Needed for a hand proof: a hinge / linking lemma that a unit square through
-\(c\) covering one leftover tip cannot cover the interior pocket created by
-two meeting L-legs at an adjacent vertex (or the 3-meet unique leftover plus
-the diagonal gap of length \((a-2)\sqrt{2}\)).
+Needed for a hand proof of (1): a hinge / linking lemma that cuts the fat
+\(C\)-moduli by a second contact (leftover tip plus an inward meet-hypotenuse)
+so the pose set becomes rigid, *or* a pair of interior witnesses that no
+single lobe pose and \(F\) can split. CLobeFat rules out θ-independent
+one-point MES.
 
 ---
 
@@ -158,64 +164,38 @@ Perimeter-only is independently impossible: \(S_{\mathrm{bd}}(6)>2\).
 
 ---
 
-## CAP — interval certificates for residual G1 (meet band and 2-opp)
+## CAP — interval certificates (stalled on fat \(C\)-moduli)
 
-Hand lemmas above do **not** close 2-meet/3-meet on \((2,a_\diamond]\). The
-following is a computer-assisted plan whose output would be checked in CI
-(`python3 -m proof` already certifies the threshold brackets and will load
-`artifacts/proof/meet_band_certificates.json` if present).
+Hand lemmas do **not** close meet deep-\(\delta\) or Open B below
+\(a_{\mathrm{top}}\) / \(a_{\mathrm{cr}}\). Local computer-assisted attempts:
 
-**Configuration space.** For each residual type (`G1-2opp`, `G1-2adj`,
-`G1-3meet`), a covering is a tuple of six unit squares. Parametrize each by
-centre \((x,y)\) and edge-angle \(\theta\), so a pose is a point of
-\([0,a]^2\times\mathbb{R}/(\pi/2)\) (square symmetry). With \(a\in(2,a_\diamond]\)
-this is a compact 19-dimensional set (18 pose coordinates plus \(a\)). Type
-constraints (which sides are vertex-meets, \(k=0\) matching, \(c\in C\)) cut
-out a closed subset \(K_{\mathrm{type}}\).
+| Attempt | Outcome |
+|---|---|
+| Point-MES, deep small-\(\delta\) | STALLED (~0.072% under \(\delta_{\mathrm{force}}\)) |
+| Pose-space B&B | ~95% product kill; joint \(+0.03\%\) |
+| Survivors | fat non-rigid \(C\)-moduli lobes — no clean one-pose lemma |
+| \(V_3\) couple / \(U(\theta,s)\) sampling | failed to empty cells |
 
-**Predicate.** A box \(B\subset K_{\mathrm{type}}\) is *impossible* if there
-exists a witness point \(p\in S\) such that the interval evaluation of every
-square in \(B\) misses \(p\) (the Minkowski sum of a unit square with the pose
-uncertainty does not contain \(p\)). Alternative cheap predicates, already
-exact on a box: FarPair (two leftover tips in one square), triangle area
-\(>1/2\), diameter \(>\sqrt{2}\).
+CLobeFat is the structural reason: remaining room past \(c\) still covers the
+height-bound hole, so \(\{C\ni c\}\cap\{\text{leftover tip}\}\) is a fat body.
+A future certificate must use **two** interior witnesses per box, or a joint
+\((C,F)\) predicate, not a single MES point. Schema remains in
+`proof/certificates.py`; `meet_band_certificates.json` is still absent.
 
-**Search.** Branch-and-bound: subdivide \(K_{\mathrm{type}}\) until every leaf
-is impossible or smaller than a declared \(\varepsilon\) (then fail, do not
-claim a proof). Prefer interior witnesses — the hinge vertex of two meeting
-L-legs, or a point on the diagonal gap of length \((a-2)\sqrt{2}\) — rather
-than MES of a leftover on \(\partial S\).
+**CI.** `certify_published_brackets` pins \(a_\varphi,a_\diamond,a_M\). Local
+decimals \(a_{\mathrm{top}},a_{\mathrm{cr}}\) are constants, not isolating
+brackets. Do not check in a fake \(a_{\mathrm{top}}^F\).
 
-**Certificate format.** JSON list of rows, schema in
-`proof/certificates.py` / `artifacts/proof/cap_schema.json`:
-
-```json
-{
-  "type": "G1-2opp",
-  "a": [2.01, 2.02],
-  "box": [[lo, hi], "... 18 pairs"],
-  "witness": [x, y],
-  "reason": "point-miss"
-}
-```
-
-**CI.** `certify_published_brackets` already uses mpmath interval arithmetic
-to pin \(a_\varphi,a_\diamond,a_M\). A covering-certificate file is optional;
-when present, `load_and_check_optional_certificates` checks types and
-\(a\)-intervals. A future verifier should interval-evaluate each witness
-against each pose box (no floating-point search at check time).
-
-**What this is not.** It is not a replacement for G2–G5. It is only proposed
-for residual G1. Until a covering-certificate file exists and verifies, the
-meet band and 2-opp on \((2,a_\diamond]\) remain **open**.
+Until a covering-certificate file exists and verifies, meet deep-\(\delta\)
+and Open B below the local cuts remain **open**.
 
 ---
 
 ## Success criterion
 
-A finished proof in this folder would be: residual G1 (2-meet/3-meet on
-\((2,a_\diamond]\)), G2 (both subcases), G3, G4 (T8 remainder + sisters), and G5,
-each closed on the interval where it is still listed as open, with every
-inequality either classical, checked in `python3 -m proof`, or supplied as a
-verified interval certificate. Until then the title of this file remains
-accurate: **gaps**.
+A finished proof in this folder would close: meet deep-\(\delta\) on
+\((2,a_\varphi]\), Open B C-on-top on \((2,a_{\mathrm{top}}]\), C-on-right on
+\((2,a_{\mathrm{cr}}]\), Open C razor on \((2,a_\psi]\), plus residual G2, G3,
+G4, and G5, with every inequality classical, checked in `python3 -m proof`, or
+a verified interval certificate. Until then: **gaps**. \(S(6)=2\) is **not**
+proved.

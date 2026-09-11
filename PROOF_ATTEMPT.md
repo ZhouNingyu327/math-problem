@@ -2,8 +2,9 @@
 
 **Status: incomplete.** The live case tree and remaining lemmas are
 
-- [`PROOF/ATTEMPT.md`](PROOF/ATTEMPT.md) — architecture \(k=|\{m_i\}\cap(C\cup F)|\), G1 FarPair/CycleSum/Cascade/OppFar, large-\(a\) fragments
-- [`PROOF/GAPS.md`](PROOF/GAPS.md) — residual G1 (2-meet/3-meet on \((2,a_\diamond]\)), G2–G5, CAP plan
+- [`PROOF/ATTEMPT.md`](PROOF/ATTEMPT.md) — case tree, FarPair/CycleSum/Cascade/OppFar/OpenB-R2TopDiam/CLobeFat
+- [`PROOF/GAPS.md`](PROOF/GAPS.md) — sharpest remaining: meet deep-\(\delta\), C-on-top, C-on-right, razor
+- [`PROOF/LOCAL_SYNC.md`](PROOF/LOCAL_SYNC.md) — local cuts and retracted \(a_{\mathrm{top}}^F\)
 
 Do not claim \(S(6)=2\) from this repository. The Python package `proof/`
 enumerates the 74 midpoint assignments and checks the algebraic identities used

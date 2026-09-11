@@ -31,6 +31,12 @@ A_PHI_BRACKET = ("2.00910069", "2.00910070")
 A_DIAMOND_BRACKET = ("2.09180768", "2.09180769")
 A_MEET_MAX_BRACKET = ("2.11195453", "2.11195454")
 
+# Local Open B cuts (not isolating roots of a repo-proved equation).
+# Do not invent a_top^F ≈ 2.0265; that cut is retracted (δ≥2g0 invalid
+# under R1Exclusive). These values do not move after OpenB-R2TopDiam / FHeight.
+A_TOP_LOCAL = 2.0361747746
+A_CR_LOCAL = 2.0036185600
+
 RESIDUAL_TYPES = (
     "G1-2adj",   # two adjacent vertex-meets, leftovers on the other two sides
     "G1-2opp",   # two opposite vertex-meets (C-on-top / C-on-right)

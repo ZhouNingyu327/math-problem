@@ -57,7 +57,7 @@ def main(argv: list[str] | None = None) -> int:
     print(json.dumps({"proved_lemmas": len(proved), "n_orbits": cen["n_orbits"],
                       "n_raw": cen["n_raw_assignments"], "figures": [str(f) for f in figs],
                       "thresholds": brackets, "covering_certificates": cap["present"]}, indent=2))
-    print("STATUS: G1 residual is 2-meet/3-meet on (2, a_♦]; not a proof of S(6)=2.")
+    print("STATUS: residual meet deep-δ / Open B C-on-top / C-on-right / razor; not a proof of S(6)=2.")
     return 0
 
 

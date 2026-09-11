@@ -58,7 +58,7 @@ covering by 6 unit squares, a > 2
 │     ├── 4-meet (no leftovers)            DONE all a>2   Lemma CycleSum
 │     ├── 2-adj / 3-meet                   DONE a>a_φ     Lemma Cascade
 │     ├── 2-opp leftovers                  DONE a>a_♦     Lemma OppFar
-│     └── residual                         2-meet / 3-meet on (2, a_♦]
+│     └── residual                         meet deep-δ (2,a_φ]; Open B (2,a_top], (2,a_cr]; razor (2,a_ψ]
 ├── k = 1                                  G2  (eject F from the critical quarter)
 │     └── C hosts the extra midpoint
 │           closed for a > 2^{5/4}         Lemma G2.large
@@ -76,8 +76,11 @@ covering by 6 unit squares, a > 2
 ```
 
 A complete proof is: G1 + G2 + G3 + G4 + G5, each on the whole interval \((2,\sqrt{6}]\).
-G1 is now closed on \((a_\diamond,\sqrt{6}]\) with \(a_\diamond\approx 2.0918\); the
-meet-band residue is GAPS §G1.
+Combinatorial G1 is closed on \((a_\diamond,\sqrt{6}]\); local Open B already
+cuts 2-opp leftovers at \(a_{\mathrm{top}}\) / \(a_{\mathrm{cr}}\). Sharpest
+remaining: meet deep-\(\delta\) \((2,a_\varphi]\), C-on-top \((2,a_{\mathrm{top}}]\),
+C-on-right \((2,a_{\mathrm{cr}}]\), razor \((2,a_\psi]\). \(S(6)=2\) is **not**
+proved.
 
 ---
 
@@ -117,7 +120,7 @@ is now a G2/G5 tool rather than the bottleneck for G1.
 
 ---
 
-## 2A. Refined G1: FarPair, CycleSum, Cascade, OppFar
+## 2A. Refined G1: FarPair, Cascade, Open B, CLobeFat
 
 Clockwise matching. On side \(E_i\), write \(x_i\) for the long-leg of \(V_i\)
 (\(\ge\lambda\), since \(m_i\in V_i\)) and \(\ell(x_{i+1})\) for the maximal short-leg
@@ -131,6 +134,8 @@ Thresholds (unique roots, isolating brackets in
 | symbol | equation | value |
 |---|---|---|
 | \(a_\varphi\) | \(\ell\bigl(a-\ell(\lambda)\bigr)=a-\sqrt{2}\) | \(\approx 2.00910069\) |
+| \(a_{\mathrm{cr}}\) | local Open B C-on-right cut (not lowered by R2TopDiam/FHeight) | \(\approx 2.0036185600\) |
+| \(a_{\mathrm{top}}\) | local Open B C-on-top cut (not lowered by R2TopDiam/FHeight) | \(\approx 2.0361747746\) |
 | \(a_\diamond\) | \(\lvert c-P\rvert=\sqrt{2}\) for cascade far-end \(P=(\ell(\alpha),a)\), \(\alpha=a-\ell(\lambda)\) | \(\approx 2.09180768\) |
 | \(a_M\) | \(\sqrt{2}+\ell(\lambda)=a\) (long+short vertex-meet limit) | \(\approx 2.11195454\) |
 
@@ -178,22 +183,48 @@ labelling; BT-meet / C-on-right is the D4 image) satisfies
 at \(a=a_M\), with unique crossing \(a_\diamond\). For \(a>a_\diamond\), \(C\)
 contains neither leftover far-end (both are cascade-far from \(c\)). \(F\)
 contains at most one (FarPair / opposite sides). At least one leftover tip is
-uncovered. (`prove_cascade_far_end_centre_reach`.)
+uncovered. (`prove_cascade_far_end_centre_reach`.) Local Open B work already
+cuts C-on-top at \(a_{\mathrm{top}}<a_\diamond\) and C-on-right at
+\(a_{\mathrm{cr}}\); OppFar is the in-repo fallback, not the sharp cut.
 
-**G1 summary.** Closed on \((a_\diamond,\sqrt{6}]\). Residual, all on
-\((2,a_\diamond]\):
+**Lemma OpenB-R2TopDiam.** In the Open B C-on-top rectangle \(R_2\), the forced
+tips \(p^\ast,r^\ast\) satisfy \(\lvert p^\ast-r^\ast\rvert^2=2\mu^4>2\) for
+\(\mu=\lambda>1\). Same polynomial as FarPair (`prove_openb_r2_top_diam`).
+**Lemma OpenB-FHeight (local analytic).** \(F\cap R_2\subseteq(\mu,Y_b]\) with
+\(Y_b<\mu+g_0\). Together these constrain \(F\) in \(R_2\) but **do not** lower
+\(a_{\mathrm{top}}\approx 2.0361747746\) or \(a_{\mathrm{cr}}\approx 2.0036185600\).
 
-- 2-opposite meets (C-on-top / C-on-right leftovers), including
-  \((a_\varphi,a_\diamond]\) where Cascade has already killed 2-adj/3-meet;
-- 2-adjacent meets and 3-meet on the meet band \((2,a_\varphi]\).
+A claimed cut \(a_{\mathrm{top}}^F\approx 2.0265\) using \(\delta\ge 2g_0\) is
+**retracted**: that hypothesis is invalid under R1Exclusive.
 
-Local unpublished work claims stronger C-on-top / C-on-right cuts
-(\(a_{\mathrm{top}}\approx 2.036\), \(a_{\mathrm{cr}}\approx 2.0036\)) and a
-BridgeKill at \(a_B\approx 2.002\). Those bounds are **not** reproduced here.
-FarPair already kills the 0-meet/1-meet bridge for all \(a>2\). The meet band
-under MES/reach remains blocked; the replacement lemmas above kill everything
-in G1 except 2-meet/3-meet. A computer-assisted plan for that residue is
-GAPS §CAP.
+**Lemma CLobeFat.** On \((2,a_\varphi]\) (and through \(a_{\mathrm{top}}\)),
+every unit square containing \(c\) and a leftover tip still reaches past the
+height-bound inner edge of an opposite vertex square:
+\(\sqrt{2}-\lambda\ge\lambda-1/\lambda\) iff \(a\le a_\ast=(\sqrt{2}+\sqrt{10})/2\approx 2.288\).
+(`prove_clobe_fat_remaining_room`.) So the \(C\)-moduli covering a deep-\(\delta\)
+leftover is a fat positive-dimensional body, not a rigid pose. This is why
+point-MES on meet deep-\(\delta\) stalled (~0.072% under \(\delta_{\mathrm{force}}\))
+and why pose-space B&B survivors are fat non-rigid lobes (~95% product kill,
+joint \(+0.03\%\); \(V_3\)-couple / \(U(\theta,s)\) sampling failed to empty
+cells). CLobeFat **explains** the stall; it does **not** kill the lobes.
+
+**G1 / Open A–C summary.** In-repo combinatorial G1 is closed on
+\((a_\diamond,\sqrt{6}]\). Matching **local** status (authoritative for what
+remains):
+
+| Local name | Closed on | Residual |
+|---|---|---|
+| Open A Cascade | \(a>a_\varphi\) | **meet deep-\(\delta\)** on \((2,a_\varphi]\) |
+| Open B C-on-top | \(a>a_{\mathrm{top}}\) | \((2,a_{\mathrm{top}}]\) |
+| Open B C-on-right | \(a>a_{\mathrm{cr}}\) | \((2,a_{\mathrm{cr}}]\) |
+| Open C | \(a>a_\psi\) (local) | **razor** \((2,a_\psi]\) |
+| Bridge | all \(a>2\) (FarPair) | — |
+
+Sharpest remaining: meet deep-\(\delta\) \((2,a_\varphi]\); Open B C-on-top
+\((2,a_{\mathrm{top}}]\); C-on-right \((2,a_{\mathrm{cr}}]\); razor
+\((2,a_\psi]\). \(S(6)=2\) is **not** proved.
+
+See [`LOCAL_SYNC.md`](LOCAL_SYNC.md) for the local/repo ledger.
 
 ---
 
@@ -290,14 +321,16 @@ The strongest global statement:
 
 > Any covering of a square of side \(a\in(2,\sqrt{6}]\) by six unit squares has
 > type \(k\in\{0,1,2\}\) as above, extras meet \(\partial S\), and:
-> - if \(k=0\), then \(a\le a_\diamond\approx 2.0918\), and the covering is a
->   2-meet or a 3-meet (0-meet, 1-meet, and 4-meet are impossible for all \(a>2\));
+> - if \(k=0\), then the covering is a 2-meet or a 3-meet, and locally
+>   \(a\le a_{\mathrm{top}}\) in C-on-top, \(a\le a_{\mathrm{cr}}\) in C-on-right,
+>   and \(a\le a_\varphi\) in meet deep-\(\delta\) (0-meet, 1-meet, and 4-meet
+>   are impossible for all \(a>2\));
 > - if \(k=1\) in the T8-adjacent \(C\)-midpoint orbit, then \(a\le 2^{5/4}\);
 > - if \(k=2\) adjacent in the T8 labeling, then \(a\le\sqrt{5}\).
 >
-> Coverings on \((2,a_\diamond]\) are not ruled out in G1 (2-meet/3-meet), nor in
-> G2, G3, G4, or G5. Coverings on \((a_\diamond,2^{5/4}]\) are not ruled out in
-> G2-\(F\), G3, G4-sisters, or G5. \(S(6)=2\) is **not** proved.
+> Coverings on \((2,a_{\mathrm{top}}]\) are not ruled out in Open B C-on-top,
+> nor on \((2,a_{\mathrm{cr}}]\) in C-on-right, nor on \((2,a_\varphi]\) in meet
+> deep-\(\delta\), nor in G2, G3, G4, or G5. \(S(6)=2\) is **not** proved.
 
 ---
 

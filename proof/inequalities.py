@@ -378,6 +378,79 @@ def prove_cascade_far_end_centre_reach() -> None:
         raise AssertionError("standing λ < √2")
 
 
+def prove_openb_r2_top_diam() -> None:
+    """Local OpenB-R2TopDiam: |p* − r*|² = 2μ⁴ > 2 for μ = λ > 1.
+
+    Same polynomial as FarPair. In the Open B C-on-top labelling the two
+    forced tips p*, r* on the boundary of the rectangle R2 are a D4 image
+    of the adjacent leftover far-ends, so the identity is identical.
+    This does *not* lower a_top or a_cr.
+    """
+    prove_far_pair_distance()
+    mu = LAM
+    if sp.simplify(2 * mu**4 - 2 - 2 * (mu**4 - 1)) != 0:
+        raise AssertionError("OpenB-R2TopDiam 2μ⁴>2 iff μ>1")
+
+
+def prove_clobe_fat_remaining_room() -> None:
+    """On the meet band, C containing c and a boundary leftover tip still
+    reaches past the height-bound inner edge of an opposite vertex square.
+
+    Remaining opposite room after a chord of length ≥ λ is at most √2−λ
+    (and at least that along the diagonal). The height bound for a vertex
+    square with a λ-leg puts its inner edge at distance λ−1/λ from c.
+    Then √2−λ ≥ λ−1/λ iff 2λ² − √2 λ − 1 ≤ 0. The positive root is
+    λ_* = (√2+√10)/4, i.e. a_* = (√2+√10)/2 ≈ 2.288. The quadratic is
+    negative on [1, λ_*], which contains the whole meet band (a ≤ a_φ < 2.02
+    < a_*) and the local Open B cuts a_top, a_cr.
+
+    Consequence: the moduli of unit squares containing {c} ∪ {leftover tip}
+    is a fat positive-dimensional body throughout (2, a_φ], not a rigid
+    pose. A θ-independent point witness cannot empty it. This *explains*
+    the local stall (point-MES ~0.072% under δ_force; pose B&B survivors
+    are fat lobes). It does **not** kill those coverings.
+    """
+    lam = LAM
+    poly = 2 * lam**2 - SQRT2 * lam - 1
+    # disc = 2 + 8 = 10, roots (√2 ± √10)/4
+    disc = SQRT2**2 + 8
+    if sp.simplify(disc - 10) != 0:
+        raise AssertionError("CLobeFat discriminant")
+    lam_star = (SQRT2 + sp.sqrt(10)) / 4
+    a_star = 2 * lam_star
+    # a_* > 2.02 > a_φ (a_φ < 2.02 by cascade_gap(2.02)<0, certified)
+    # Prove (√2+√10)/2 > 201/100  ⇔  √2+√10 > 401/100
+    # ⇔ 100√2 + 100√10 > 401. Compare by isolating √10.
+    # √10 > 401/100 − √2. RHS positive because √2 < 2 < 4.01.
+    rhs = sp.Rational(401, 100) - SQRT2
+    # 10 > (401/100 − √2)² = 401²/10000 − 2·401/100·√2 + 2
+    gap = 10 - rhs**2
+    # gap = 8 - 401²/10000 + 8.02√2
+    # Direct: (√2+√10)² = 2+2√20+10 = 12+4√5 > (401/100)² = 160801/10000 = 16.0801?
+    # 12+4√5 ≈ 12+8.94 = 20.94 > 16.08, but that's squares of the sum vs 4.01².
+    left_sq = sp.expand((SQRT2 + sp.sqrt(10)) ** 2)
+    right_sq = sp.Rational(401, 100) ** 2
+    if sp.simplify(left_sq - (12 + 4 * sp.sqrt(5))) != 0:
+        raise AssertionError("CLobeFat (√2+√10)² rewrite")
+    # 12+4√5 > 401²/10000  ⇔  (12·10000 − 401²) + 40000√5 > 0
+    # 120000 − 160801 = −40801, so need 40000√5 > 40801 ⇔ √5 > 40801/40000
+    # 5 > 40801² / 40000². Both positive.
+    num = 40801**2
+    den = 40000**2
+    if not (5 * den - num > 0):
+        raise AssertionError("CLobeFat a_* > 2.02")
+    if not (a_star > sp.Rational(201, 100)):
+        raise AssertionError("a_* should exceed 2.02")
+    # poly at λ=1: 2−√2−1 = 1−√2 < 0
+    if not (1 - SQRT2 < 0):
+        raise AssertionError("CLobeFat at λ=1")
+    # leading coeff > 0, so poly < 0 on [1, λ_*)
+    if sp.simplify(poly.subs(lam, 1) - (1 - SQRT2)) != 0:
+        raise AssertionError("CLobeFat poly(1)")
+    # silence unused if the expansion of gap was not needed
+    _ = gap
+
+
 def prove_opposite_stub_escapes_centre_chord() -> None:
     """If C contains a segment [c, m] of length λ, the remaining room on the
     same line past c is at most √2−λ. The inner-star stub on the opposite ray
@@ -499,6 +572,8 @@ def run_all_proofs() -> dict[str, str]:
     prove_cycle_sum_four_meet()
     prove_cascade_threshold_unique()
     prove_cascade_far_end_centre_reach()
+    prove_openb_r2_top_diam()
+    prove_clobe_fat_remaining_room()
     prove_opposite_stub_escapes_centre_chord()
     # l(1)=1, l(√2)=0
     if sp.simplify(LFunction.formula(1)) != 1:
@@ -526,6 +601,8 @@ def run_all_proofs() -> dict[str, str]:
         "CycleSum: clockwise 4-meet impossible for a>2",
         "Cascade: unique a_φ in (2, a_M) for ℓ(a−ℓ(λ))=a−√2; adjacent meets die above it",
         "cascade far-end: |c P|<√2 at a_φ, |c P|>√2 at a_M, unique a_♦ in between",
+        "OpenB-R2TopDiam: |p*-r*|²=2μ⁴>2 for μ=λ>1 (does not lower a_top/a_cr)",
+        "CLobeFat: remaining room reaches the height-bound hole on a<a_*; lobes stay fat",
         "opposite inner stub escapes a λ-chord through c iff a>8√2/5",
         "l(1)=1 and l(√2)=0",
     ]

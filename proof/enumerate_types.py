@@ -196,9 +196,10 @@ def _status_note(info: dict) -> tuple[str, str]:
         if chiral in {"cw", "ccw"}:
             return (
                 "partial",
-                "G1 (k_extra=0): 0-/1-/4-meet closed for all a>2 (FarPair, CycleSum); "
-                "2-adj/3-meet closed for a>a_φ; 2-opp closed for a>a_♦≈2.0918; "
-                "residual 2-meet/3-meet on (2, a_♦].",
+                "G1 (k_extra=0): 0-/1-/4-meet closed for all a>2; 2-adj/3-meet "
+                "closed for a>a_φ; 2-opp closed for a>a_♦ in-repo / a>a_top "
+                "(C-on-top) and a>a_cr (C-on-right) locally. Residual: meet "
+                "deep-δ (2,a_φ], Open B C-on-top (2,a_top], C-on-right (2,a_cr].",
             )
         return "closed", "k_extra=0 matching on C4 is only cw or ccw (proved)"
     if gap == "G2":

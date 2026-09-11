@@ -53,7 +53,7 @@
       "t8_adjacent": null,
       "orbit_size": 2,
       "status": "partial",
-      "note": "G1 (k_extra=0): 0-/1-/4-meet closed for all a>2 (FarPair, CycleSum); 2-adj/3-meet closed for a>a_\u03c6; 2-opp closed for a>a_\u2666\u22482.0918; residual 2-meet/3-meet on (2, a_\u2666]."
+      "note": "G1 (k_extra=0): 0-/1-/4-meet closed for all a>2; 2-adj/3-meet closed for a>a_\u03c6; 2-opp closed for a>a_\u2666 in-repo / a>a_top (C-on-top) and a>a_cr (C-on-right) locally. Residual: meet deep-\u03b4 (2,a_\u03c6], Open B C-on-top (2,a_top], C-on-right (2,a_cr]."
     },
     {
       "assignment": {

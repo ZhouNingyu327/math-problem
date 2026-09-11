@@ -33,6 +33,8 @@ def test_run_all_proofs():
     assert all(v == "proved" for v in proved.values())
     assert any("FarPair" in k for k in proved)
     assert any("CycleSum" in k for k in proved)
+    assert any("OpenB-R2TopDiam" in k for k in proved)
+    assert any("CLobeFat" in k for k in proved)
 
 
 def test_l_endpoints_and_monotonicity_samples():
@@ -178,6 +180,24 @@ def test_interval_threshold_certificates():
         __import__("pathlib").Path("artifacts/proof/meet_band_certificates.json")
     )
     assert cap["present"] is False
+
+
+def test_openb_r2_top_diam_and_clobe_fat():
+    # OpenB-R2TopDiam is 2μ⁴>2; it does not move the local Open B cuts.
+    from proof.certificates import A_CR_LOCAL, A_TOP_LOCAL
+
+    assert 2.0 < A_CR_LOCAL < A_TOP_LOCAL < 2.09
+    for a in (2.001, A_CR_LOCAL, A_TOP_LOCAL, 2.05):
+        mu = a / 2.0
+        assert 2.0 * mu**4 > 2.0
+    # CLobeFat quadratic 2λ² − √2 λ − 1 < 0 on the meet band.
+    a_phi = a_phi_numeric()
+    for a in (2.001, a_phi, A_CR_LOCAL, A_TOP_LOCAL):
+        lam = a / 2.0
+        assert 2.0 * lam * lam - math.sqrt(2.0) * lam - 1.0 < 0.0
+        remaining = math.sqrt(2.0) - lam
+        hole_depth = lam - 1.0 / lam
+        assert remaining > hole_depth
 
 
 def test_sqrt5_left_gap_threshold():
