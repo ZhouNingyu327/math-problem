@@ -5,9 +5,22 @@ import math
 import pytest
 import sympy as sp
 
+from proof.certificates import (
+    A_DIAMOND_BRACKET,
+    A_PHI_BRACKET,
+    brackets_contain_numeric_roots,
+    certify_published_brackets,
+    covering_certificate_schema,
+    load_and_check_optional_certificates,
+)
 from proof.enumerate_types import all_assignments, census, orbit_representatives
 from proof.inequalities import (
     LFunction,
+    a_diamond_numeric,
+    a_meet_max_numeric,
+    a_phi_numeric,
+    cascade_far_centre_numeric,
+    cascade_gap_numeric,
     l_numeric,
     numeric_table,
     run_all_proofs,
@@ -16,8 +29,10 @@ from proof.inequalities import (
 
 def test_run_all_proofs():
     proved = run_all_proofs()
-    assert len(proved) >= 13
+    assert len(proved) >= 18
     assert all(v == "proved" for v in proved.values())
+    assert any("FarPair" in k for k in proved)
+    assert any("CycleSum" in k for k in proved)
 
 
 def test_l_endpoints_and_monotonicity_samples():
@@ -101,6 +116,68 @@ def test_g1_far_leftover_threshold():
     assert lam2 - l_numeric(lam2) > math.sqrt(2.0 - lam2 * lam2)
     assert a_star < math.sqrt(6.0)
     assert a_star > math.sqrt(5.0)
+
+
+def test_far_pair_distance_identity():
+    # |p1 p2| = λ² √2; at a=2 this is √2, strictly larger for a>2.
+    for a in (2.0, 2.0091, 2.1, math.sqrt(6.0)):
+        lam = a / 2.0
+        ell = l_numeric(lam)
+        p1 = (a - ell, 0.0)
+        p2 = (a, a - ell)
+        d = math.hypot(p1[0] - p2[0], p1[1] - p2[1])
+        assert abs(d - lam * lam * math.sqrt(2.0)) < 1e-12
+        if a > 2.0:
+            assert d > math.sqrt(2.0)
+
+
+def test_far_centre_triangle_area():
+    for a in (2.0, 2.001, 2.05):
+        lam = a / 2.0
+        ell = l_numeric(lam)
+        p1 = (a - ell, 0.0)
+        p2 = (a, a - ell)
+        c = (lam, lam)
+        twice = (
+            p1[0] * p2[1]
+            + p2[0] * c[1]
+            + c[0] * p1[1]
+            - (p1[1] * p2[0] + p2[1] * c[0] + c[1] * p1[0])
+        )
+        area = abs(twice) / 2.0
+        assert abs(area - lam**4 / 2.0) < 1e-12
+        if a > 2.0:
+            assert area > 0.5
+
+
+def test_cascade_and_diamond_thresholds():
+    a_phi = a_phi_numeric()
+    a_d = a_diamond_numeric()
+    a_m = a_meet_max_numeric()
+    assert 2.0 < a_phi < a_d < a_m < math.sqrt(6.0)
+    assert abs(cascade_gap_numeric(a_phi)) < 1e-12
+    assert cascade_gap_numeric(2.0) > 0
+    assert cascade_gap_numeric(a_m) < 0
+    assert abs(cascade_far_centre_numeric(a_d)) < 1e-12
+    assert cascade_far_centre_numeric(a_phi) < 0
+    assert cascade_far_centre_numeric(a_m) > 0
+    # long+short meet limit
+    assert abs(math.sqrt(2.0) + l_numeric(a_m / 2.0) - a_m) < 1e-12
+    # published 8-decimal brackets
+    assert float(A_PHI_BRACKET[0]) <= a_phi <= float(A_PHI_BRACKET[1])
+    assert float(A_DIAMOND_BRACKET[0]) <= a_d <= float(A_DIAMOND_BRACKET[1])
+
+
+def test_interval_threshold_certificates():
+    brackets = certify_published_brackets()
+    assert set(brackets) == {"a_phi", "a_diamond", "a_meet_max"}
+    brackets_contain_numeric_roots()
+    schema = covering_certificate_schema()
+    assert "G1-2opp" in schema["residual_types"]
+    cap = load_and_check_optional_certificates(
+        __import__("pathlib").Path("artifacts/proof/meet_band_certificates.json")
+    )
+    assert cap["present"] is False
 
 
 def test_sqrt5_left_gap_threshold():

@@ -254,6 +254,130 @@ def prove_centre_cannot_cover_far_leftover() -> None:
         raise AssertionError("2^{5/4} > 2")
 
 
+def prove_far_pair_distance() -> None:
+    """Clockwise leftover far-ends on adjacent sides of S are at distance λ²√2.
+
+    On side E_i the leftover, when nonempty, ends at the inner tip of V_{i+1}'s
+    short L-leg. For a maximal short-leg that tip is
+        p1 = (2λ − ℓ(λ), 0),   p2 = (2λ, 2λ − ℓ(λ))
+    (bottom / right; the other pairs are D4 images). Then |p1 p2|² = 2λ⁴, so
+    |p1 p2| = λ²√2 > √2 iff λ > 1 iff a > 2. No unit square contains two of
+    them. Opposite far-ends are still farther: distance at least a > √2.
+    """
+    lam = LAM
+    ell = LFunction.formula(lam)
+    s = sp.sqrt(lam**2 - 1)
+    # ℓ = λ(1−s),  2λ−ℓ = λ(1+s)
+    if sp.simplify(ell - lam * (1 - s)) != 0:
+        raise AssertionError("ell rewrite")
+    if sp.simplify(2 * lam - ell - lam * (1 + s)) != 0:
+        raise AssertionError("2λ−ℓ rewrite")
+    d2 = ell**2 + (2 * lam - ell) ** 2
+    if sp.simplify(d2 - 2 * lam**4) != 0:
+        raise AssertionError("FarPair polynomial 2λ⁴")
+    # opposite pair p1=(2λ−ℓ, 0) and p3=(ℓ, 2λ):
+    # dx = 2λ−2ℓ, dy = −2λ, dist² = 4(λ−ℓ)² + 4λ² = 4λ² ( (1−(1−s))² + 1 ) > 4λ²
+    opp = (2 * lam - 2 * ell) ** 2 + (2 * lam) ** 2
+    if sp.simplify(opp - 4 * (lam - ell) ** 2 - 4 * lam**2) != 0:
+        raise AssertionError("opposite far-end expansion")
+    # (λ−ℓ) = λ s > 0 for λ>1, so opp = 4λ² s² + 4λ² = 4λ²(s²+1) = 4λ⁴ > 4
+    if sp.simplify(sp.expand(opp) - 4 * lam**4) != 0:
+        raise AssertionError("opposite far-end = 4λ⁴")
+
+
+def prove_far_centre_triangle() -> None:
+    """Triangle △(c, p1, p2) with adjacent leftover far-ends has area λ⁴/2.
+
+    This is > 1/2 iff a > 2. Redundant with FarPair (two far-ends already do
+    not fit in a unit square) but records the parallelogram obstruction
+    through c explicitly. Shoelace on p1=(2λ−ℓ,0), p2=(2λ, 2λ−ℓ), c=(λ,λ).
+    """
+    lam = LAM
+    ell = LFunction.formula(lam)
+    p1x, p1y = 2 * lam - ell, 0
+    p2x, p2y = 2 * lam, 2 * lam - ell
+    cx, cy = lam, lam
+    twice = p1x * p2y + p2x * cy + cx * p1y - (p1y * p2x + p2y * cx + cy * p1x)
+    area = sp.simplify(twice / 2)
+    if sp.simplify(area - lam**4 / 2) != 0:
+        raise AssertionError("FarCentre area λ⁴/2")
+
+
+def prove_cycle_sum_four_meet() -> None:
+    """A clockwise 4-meet is impossible for a > 2.
+
+    If every side of S is covered by the two incident vertex squares, then
+    x_i + ℓ(x_{i+1}) ≥ a for the four long-leg lengths x_i ∈ [λ, √2]. Summing
+        Σ (x_i + ℓ(x_i)) ≥ 4a > 8.
+    But x ↦ x+ℓ(x) is decreasing on [1, √2] (already proved) with value 2 at
+    x=1, hence x+ℓ(x) ≤ 2 and the left-hand side is ≤ 8, contradiction.
+    Equality would require a=2 and every x_i=1 (the trivial 2×2 tiling).
+    """
+    x = X
+    s = sp.sqrt(x**2 - 1)
+    tot = x + LFunction.formula(x)  # 2x − x s = x(2−s)
+    if sp.simplify(tot - x * (2 - s)) != 0:
+        raise AssertionError("x+ℓ rewrite")
+    # tot(1) = 2. For x>1, tot < 2 because the map is strictly decreasing.
+    if sp.simplify(tot.subs(x, 1) - 2) != 0:
+        raise AssertionError("x+ℓ at 1")
+    LFunction.prove_sum_decreasing_on_1_sqrt2()
+
+
+def prove_cascade_threshold_unique() -> None:
+    """The cascade gap function f(a) = ℓ(a − ℓ(λ)) − (a − √2) has a unique
+    root a_φ in (2, a_M), where a_M is the unique root of √2 + ℓ(λ) = a.
+
+    Domain: α(a) := a − ℓ(λ) runs from α(2)=1 to α(a_M)=√2. On that interval
+    α is strictly increasing (ℓ(λ) strictly decreasing in a), so ℓ(α(a)) is
+    strictly decreasing, while a−√2 is strictly increasing, hence f is
+    strictly decreasing. Signs: f(2) = 1 − (2−√2) = √2−1 > 0, and
+    f(a_M) = 0 − (a_M−√2) = −ℓ(λ) < 0. Unique root, and the vertex-uncoverable
+    leftover on the previous side after a meet appears iff a > a_φ.
+
+    Adjacent meets are then impossible for a > a_φ: the common vertex square
+    would need a short-leg at least a−√2 and a long-leg at least α(a), which
+    is exactly f(a) ≥ 0.
+    """
+    # f(2) = √2 − 1 > 0
+    if not (SQRT2 - 1 > 0):
+        raise AssertionError("√2−1 > 0")
+    # α(2) = 2 − ℓ(1) = 1
+    if sp.simplify(2 - LFunction.formula(1) - 1) != 0:
+        raise AssertionError("α(2)=1")
+    # Meet-possibility: max long+short = √2 + ℓ(λ). At λ=1 this is √2+1 > 2.
+    if not (SQRT2 + 1 > 2):
+        raise AssertionError("√2+1 > 2")
+    LFunction.prove_decreasing_on_1_sqrt2()
+
+
+def prove_cascade_far_end_centre_reach() -> None:
+    """After a meet, the previous-side vertex-uncoverable gap (a > a_φ) has
+    far end P = (ℓ(α), a) on the top in the LR-meet labeling, α = a − ℓ(λ).
+
+    At the cascade threshold itself, ℓ(α) = a − √2, so P = (a−√2, a) and
+        |c P|² = (λ − (a−√2))² + λ² = (√2 − λ)² + λ² = 2λ² − 2λ√2 + 2.
+    This is < 2 iff λ < √2, which holds on the standing interval. Hence C
+    still reaches P at a = a_φ. As a increases, α increases, ℓ(α) decreases,
+    P moves away from c, and |c P| is strictly increasing. At the long+short
+    meet limit a_M (α=√2, ℓ(α)=0) one has P=(0,a) and |c P| = λ√2 > √2
+    because λ > 1. So there is a unique a_♦ ∈ (a_φ, a_M) with |c P| = √2;
+    for a > a_♦ the centre-square cannot contain the cascade far-end.
+
+    The same distance appears for the BT-meet (C-on-right) far-end by D4.
+    """
+    lam = LAM
+    # hypot(√2−λ, λ)² − 2 = 2λ² − 2λ√2 = 2λ(λ−√2) < 0 on λ ∈ (1, √2)
+    diff = (SQRT2 - lam) ** 2 + lam**2 - 2
+    if sp.simplify(diff - 2 * lam * (lam - SQRT2)) != 0:
+        raise AssertionError("cascade-threshold centre-reach rewrite")
+    # at the meet limit, P=(0,a), |cP|² = λ²+λ² = 2λ² > 2 iff λ>1
+    if sp.simplify(2 * lam**2 - 2 - 2 * (lam**2 - 1)) != 0:
+        raise AssertionError("meet-limit centre-reach rewrite")
+    if not (SQRT6 / 2 < SQRT2):
+        raise AssertionError("standing λ < √2")
+
+
 def prove_opposite_stub_escapes_centre_chord() -> None:
     """If C contains a segment [c, m] of length λ, the remaining room on the
     same line past c is at most √2−λ. The inner-star stub on the opposite ray
@@ -310,6 +434,49 @@ def delta_numeric(a: float) -> float:
     return a / 2.0 - math.sqrt(2.0 - a * a / 4.0)
 
 
+def _bisect_root(f, lo: float, hi: float, n: int = 80) -> float:
+    a, b = lo, hi
+    fa = f(a)
+    for _ in range(n):
+        m = 0.5 * (a + b)
+        if fa * f(m) <= 0.0:
+            b = m
+        else:
+            a = m
+    return 0.5 * (a + b)
+
+
+def cascade_gap_numeric(a: float) -> float:
+    """ℓ(a − ℓ(λ)) − (a − √2). Positive iff adjacent meets are still possible."""
+    lam = a / 2.0
+    alpha = a - l_numeric(lam)
+    return l_numeric(alpha) - (a - math.sqrt(2.0))
+
+
+def cascade_far_centre_numeric(a: float) -> float:
+    """|c − (ℓ(α), a)| − √2 for α = a − ℓ(λ). Positive iff C misses the cascade far-end."""
+    lam = a / 2.0
+    alpha = a - l_numeric(lam)
+    p0 = l_numeric(alpha)
+    dist = math.hypot(p0 - lam, a - lam)
+    return dist - math.sqrt(2.0)
+
+
+def a_meet_max_numeric() -> float:
+    """Unique root of √2 + ℓ(λ) = a on (2, 2√2): long+short vertex-meet limit."""
+    return _bisect_root(lambda a: math.sqrt(2.0) + l_numeric(a / 2.0) - a, 2.0, 2.3)
+
+
+def a_phi_numeric() -> float:
+    """Unique cascade threshold a_φ ≈ 2.00910069."""
+    return _bisect_root(cascade_gap_numeric, 2.0, a_meet_max_numeric())
+
+
+def a_diamond_numeric() -> float:
+    """Unique a_♦ ∈ (a_φ, a_M) with |c P| = √2 for the cascade far-end P."""
+    return _bisect_root(cascade_far_centre_numeric, a_phi_numeric(), a_meet_max_numeric())
+
+
 def run_all_proofs() -> dict[str, str]:
     """Execute every exact lemma. Returns a dict of lemma name → 'proved'."""
     LFunction.prove_decreasing_on_1_sqrt2()
@@ -327,6 +494,11 @@ def run_all_proofs() -> dict[str, str]:
     prove_right_side_diameter_no_gap()
     prove_left_side_L_gap_at_sqrt5()
     prove_centre_cannot_cover_far_leftover()
+    prove_far_pair_distance()
+    prove_far_centre_triangle()
+    prove_cycle_sum_four_meet()
+    prove_cascade_threshold_unique()
+    prove_cascade_far_end_centre_reach()
     prove_opposite_stub_escapes_centre_chord()
     # l(1)=1, l(√2)=0
     if sp.simplify(LFunction.formula(1)) != 1:
@@ -349,6 +521,11 @@ def run_all_proofs() -> dict[str, str]:
         "2√(2-λ²)≥λ on standing interval (no forced inner-side gap)",
         "2l(λ)<λ iff a>√5; λ+l(λ)>√2 on standing interval",
         "centre cannot cover far leftover iff a>2^{5/4}",
+        "FarPair: adjacent leftover far-ends at distance λ²√2 > √2 iff a>2",
+        "FarCentre: △(c,p1,p2) has area λ⁴/2 > 1/2 iff a>2",
+        "CycleSum: clockwise 4-meet impossible for a>2",
+        "Cascade: unique a_φ in (2, a_M) for ℓ(a−ℓ(λ))=a−√2; adjacent meets die above it",
+        "cascade far-end: |c P|<√2 at a_φ, |c P|>√2 at a_M, unique a_♦ in between",
         "opposite inner stub escapes a λ-chord through c iff a>8√2/5",
         "l(1)=1 and l(√2)=0",
     ]
@@ -374,6 +551,9 @@ def numeric_table(values_a=(2.01, 2.05, 2.10, 2.20, math.sqrt(6))) -> list[dict]
                 "reach_from_endpoints": math.sqrt(2.0 - lam * lam),
                 "leftover_past_mid": lam - l_numeric(lam),
                 "centre_reach_past_mid": math.sqrt(max(2.0 - lam * lam, 0.0)),
+                "far_pair_distance": (lam**2) * math.sqrt(2.0),
+                "cascade_gap": cascade_gap_numeric(a),
+                "cascade_far_centre": cascade_far_centre_numeric(a),
             }
         )
     return rows

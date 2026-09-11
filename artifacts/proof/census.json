@@ -53,7 +53,7 @@
       "t8_adjacent": null,
       "orbit_size": 2,
       "status": "partial",
-      "note": "G1 (k_extra=0): closed for a>2^{5/4}; open on (2, 2^{5/4}]."
+      "note": "G1 (k_extra=0): 0-/1-/4-meet closed for all a>2 (FarPair, CycleSum); 2-adj/3-meet closed for a>a_\u03c6; 2-opp closed for a>a_\u2666\u22482.0918; residual 2-meet/3-meet on (2, a_\u2666]."
     },
     {
       "assignment": {

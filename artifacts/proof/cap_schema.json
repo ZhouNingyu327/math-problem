@@ -1,0 +1,18 @@
+{
+  "residual_types": [
+    "G1-2adj",
+    "G1-2opp",
+    "G1-3meet"
+  ],
+  "a_interval": "(2, a_diamond]",
+  "pose_dim": 18,
+  "witness_dim": 2,
+  "reasons": [
+    "point-miss",
+    "far-pair",
+    "triangle",
+    "diameter"
+  ],
+  "ci": "python3 -m proof  # certifies a_\u03c6, a_\u2666 brackets; checks schema if file present",
+  "certificate_path": "artifacts/proof/meet_band_certificates.json"
+}

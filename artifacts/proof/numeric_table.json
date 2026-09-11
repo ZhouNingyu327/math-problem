@@ -11,7 +11,10 @@
     "sliver_width": 0.40921356237309525,
     "reach_from_endpoints": 0.9949748740546166,
     "leftover_past_mid": 0.10062554658236511,
-    "centre_reach_past_mid": 0.9949748740546166
+    "centre_reach_past_mid": 0.9949748740546166,
+    "far_pair_distance": 1.428391053335885,
+    "cascade_gap": -0.011575410084846416,
+    "cascade_far_centre": -0.32467771654597866
   },
   {
     "a": 2.05,
@@ -25,7 +28,10 @@
     "sliver_width": 0.38921356237309523,
     "reach_from_endpoints": 0.9743587634952539,
     "leftover_past_mid": 0.23062499999999975,
-    "centre_reach_past_mid": 0.9743587634952539
+    "centre_reach_past_mid": 0.9743587634952539,
+    "far_pair_distance": 1.485808123968233,
+    "cascade_gap": -0.3336051662381331,
+    "cascade_far_centre": -0.1599839524407063
   },
   {
     "a": 2.1,
@@ -39,7 +45,10 @@
     "sliver_width": 0.3642135623730951,
     "reach_from_endpoints": 0.9473647660748208,
     "leftover_past_mid": 0.3361640224652247,
-    "centre_reach_past_mid": 0.9473647660748208
+    "centre_reach_past_mid": 0.9473647660748208,
+    "far_pair_distance": 1.5591704525163375,
+    "cascade_gap": -0.6302320816322422,
+    "cascade_far_centre": 0.03196144048139682
   },
   {
     "a": 2.2,
@@ -53,7 +62,10 @@
     "sliver_width": 0.31421356237309506,
     "reach_from_endpoints": 0.8888194417315588,
     "leftover_past_mid": 0.5040833264451426,
-    "centre_reach_past_mid": 0.8888194417315588
+    "centre_reach_past_mid": 0.8888194417315588,
+    "far_pair_distance": 1.7111984104714455,
+    "cascade_gap": -0.785786437626905,
+    "cascade_far_centre": 0.14142135623730945
   },
   {
     "a": 2.449489742783178,
@@ -67,6 +79,9 @@
     "sliver_width": 0.1894686909815062,
     "reach_from_endpoints": 0.7071067811865477,
     "leftover_past_mid": 0.8660254037844384,
-    "centre_reach_past_mid": 0.7071067811865477
+    "centre_reach_past_mid": 0.7071067811865477,
+    "far_pair_distance": 2.1213203435596424,
+    "cascade_gap": -1.0352761804100827,
+    "cascade_far_centre": 0.31783724519578205
   }
 ]

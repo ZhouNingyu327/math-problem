@@ -1,9 +1,10 @@
 # Remaining gaps for \(S(6)=2\)
 
 **None of G1–G5 is closed on the whole interval \((2,\sqrt{6}]\).** Until they
-are, \(S(6)=2\) is not proved. Large-\(a\) fragments proved in
-[`ATTEMPT.md`](ATTEMPT.md) are recorded here so they are not rediscovered, and
-so the residual statements are exact.
+are, \(S(6)=2\) is not proved. Large-\(a\) fragments and the new G1 lemmas
+(FarPair, CycleSum, Cascade, OppFar) proved in [`ATTEMPT.md`](ATTEMPT.md) are
+recorded here so they are not rediscovered, and so the residual statements are
+exact.
 
 Throughout: \(S\) has side \(a\in(2,\sqrt{6}]\), \(\lambda=a/2\), extras \(C\ni c\)
 and \(F\), and
@@ -11,37 +12,62 @@ and \(F\), and
 k=\bigl|\{m_1,m_2,m_3,m_4\}\cap(C\cup F)\bigr|.
 \]
 
-Thresholds (exact, see `proof/inequalities.py`):
+Thresholds (exact characterising equations; isolating brackets certified in
+`proof/certificates.py` and written by `python3 -m proof`):
 
 | symbol | value | role |
 |---|---|---|
+| \(a_\varphi\) | \(\approx 2.00910069\) | Cascade: \(\ell(a-\ell(\lambda))=a-\sqrt{2}\); adjacent meets die above |
+| \(a_\diamond\) | \(\approx 2.09180768\) | OppFar: centre misses cascade leftover far-end |
+| \(a_M\) | \(\approx 2.11195454\) | long+short vertex-meet limit \(\sqrt{2}+\ell(\lambda)=a\) |
 | \(\sqrt{5}\) | \(\approx 2.236\) | T8 L-gap \(2\ell(\lambda)<\lambda\) |
 | \(8\sqrt{2}/5\) | \(\approx 2.263\) | opposite stub escapes a \(\lambda\)-chord through \(c\) |
-| \(2^{5/4}\) | \(\approx 2.378\) | far leftover outruns centre-reach; \(\lambda^4=2\) |
+| \(2^{5/4}\) | \(\approx 2.378\) | far leftover outruns centre-reach; \(\lambda^4=2\) (G2/G5) |
 | \(\sqrt{6}\) | \(\approx 2.449\) | area bound |
+
+Local unpublished cuts (not proved in this repository): \(a_{\mathrm{top}}\approx 2.036\),
+\(a_{\mathrm{cr}}\approx 2.0036\), \(a_B\approx 2.002\), and an Open C razor
+\(a_\psi\). They are recorded only as targets; nothing below treats them as theorems.
 
 ---
 
 ## G1 — \(k=0\), extras meet \(\partial S\)
 
-**Proved.** Extras miss \(\partial S\) is already impossible (perimeter bound P).
-For \(a>2^{5/4}\), four far leftovers on \(\partial S\) cannot be covered:
-centre-squares cannot reach them, a non-central extra meets at most two sides
-(Lemma G1.large).
+**Proved.**
+
+- Extras miss \(\partial S\) is already impossible (perimeter bound P).
+- **FarPair / NoMeet / OneMeet.** Adjacent leftover far-ends are at distance
+  \(\lambda^2\sqrt{2}>\sqrt{2}\). 0-meet (four leftovers) and 1-meet (three)
+  die for all \(a>2\). This includes the **bridge** (extra covering a leftover
+  gap between two vertex L-legs on a non-meet side).
+- **CycleSum.** Clockwise 4-meet dies for all \(a>2\)
+  (\(\sum(x_i+\ell(x_i))\ge 4a>8\ge 4\max(x+\ell(x))\)).
+- **Cascade.** Unique \(a_\varphi\); adjacent meets and 3-meet die for \(a>a_\varphi\).
+- **OppFar.** Opposite-meet leftovers die for \(a>a_\diamond\) (centre cannot
+  contain either cascade far-end; \(F\) takes at most one).
+- G1.large centre-reach remains available for G2/G5 at \(a>2^{5/4}\).
+
+G1 is therefore closed on \((a_\diamond,\sqrt{6}]\).
 
 **Open (residual G1).** There is no covering with \(k=0\) and
-\(a\in(2,2^{5/4}]\).
+\(a\in(2,a_\diamond]\) of one of the following types:
 
-On this range a square through \(c\) *can* cover an entire leftover on each
-side it meets. Two extras, each meeting at most two adjacent sides, can cover
-all four leftovers by taking complementary pairs (SW vs NE, or SE vs NW).
-The two-item quarter kill via \(S_{\mathrm{bd}}(2)=1\) fails: each quarter
-boundary meets at least one extra *and* two vertex squares, and \(C\) contains
-no midpoint so no inner side of a quarter is fully in \(C\).
+1. **2-opposite meets** (C-on-top / C-on-right) on the whole \((2,a_\diamond]\).
+   Local work claims cuts at \(a_{\mathrm{top}}\approx 2.036\) and
+   \(a_{\mathrm{cr}}\approx 2.0036\); this repository only reaches \(a_\diamond\).
+2. **2-adjacent meets** on the meet band \((2,a_\varphi]\).
+3. **3-meet** (one leftover side) on \((2,a_\varphi]\).
 
-Needed: a surplus argument that complementary leftover-coverers cannot also
-cover the inner star, or a genuine two-item reduction after ejecting one vertex
-square from a quarter.
+The meet band is blocked under MES of a forced \(C\)-set and under perimeter
+reach bookkeeping: after several meets there is little or no leftover on
+\(\partial S\), and the uncovered set is an interior hinge neighbourhood of
+\(c\). CycleSum kills the 4-meet extreme of that picture. What remains is
+2-meet/3-meet, for which a computer-assisted interior-witness plan is §CAP.
+
+Needed for a hand proof: a hinge / linking lemma that a unit square through
+\(c\) covering one leftover tip cannot cover the interior pocket created by
+two meeting L-legs at an adjacent vertex (or the 3-meet unique leftover plus
+the diagonal gap of length \((a-2)\sqrt{2}\)).
 
 ---
 
@@ -132,10 +158,64 @@ Perimeter-only is independently impossible: \(S_{\mathrm{bd}}(6)>2\).
 
 ---
 
+## CAP — interval certificates for residual G1 (meet band and 2-opp)
+
+Hand lemmas above do **not** close 2-meet/3-meet on \((2,a_\diamond]\). The
+following is a computer-assisted plan whose output would be checked in CI
+(`python3 -m proof` already certifies the threshold brackets and will load
+`artifacts/proof/meet_band_certificates.json` if present).
+
+**Configuration space.** For each residual type (`G1-2opp`, `G1-2adj`,
+`G1-3meet`), a covering is a tuple of six unit squares. Parametrize each by
+centre \((x,y)\) and edge-angle \(\theta\), so a pose is a point of
+\([0,a]^2\times\mathbb{R}/(\pi/2)\) (square symmetry). With \(a\in(2,a_\diamond]\)
+this is a compact 19-dimensional set (18 pose coordinates plus \(a\)). Type
+constraints (which sides are vertex-meets, \(k=0\) matching, \(c\in C\)) cut
+out a closed subset \(K_{\mathrm{type}}\).
+
+**Predicate.** A box \(B\subset K_{\mathrm{type}}\) is *impossible* if there
+exists a witness point \(p\in S\) such that the interval evaluation of every
+square in \(B\) misses \(p\) (the Minkowski sum of a unit square with the pose
+uncertainty does not contain \(p\)). Alternative cheap predicates, already
+exact on a box: FarPair (two leftover tips in one square), triangle area
+\(>1/2\), diameter \(>\sqrt{2}\).
+
+**Search.** Branch-and-bound: subdivide \(K_{\mathrm{type}}\) until every leaf
+is impossible or smaller than a declared \(\varepsilon\) (then fail, do not
+claim a proof). Prefer interior witnesses — the hinge vertex of two meeting
+L-legs, or a point on the diagonal gap of length \((a-2)\sqrt{2}\) — rather
+than MES of a leftover on \(\partial S\).
+
+**Certificate format.** JSON list of rows, schema in
+`proof/certificates.py` / `artifacts/proof/cap_schema.json`:
+
+```json
+{
+  "type": "G1-2opp",
+  "a": [2.01, 2.02],
+  "box": [[lo, hi], "... 18 pairs"],
+  "witness": [x, y],
+  "reason": "point-miss"
+}
+```
+
+**CI.** `certify_published_brackets` already uses mpmath interval arithmetic
+to pin \(a_\varphi,a_\diamond,a_M\). A covering-certificate file is optional;
+when present, `load_and_check_optional_certificates` checks types and
+\(a\)-intervals. A future verifier should interval-evaluate each witness
+against each pose box (no floating-point search at check time).
+
+**What this is not.** It is not a replacement for G2–G5. It is only proposed
+for residual G1. Until a covering-certificate file exists and verifies, the
+meet band and 2-opp on \((2,a_\diamond]\) remain **open**.
+
+---
+
 ## Success criterion
 
-A finished proof in this folder would be: residual G1, G2 (both subcases), G3,
-G4 (T8 remainder + sisters), and G5, each closed on the interval where it is
-still listed as open, with every inequality either classical or checked in
-`python3 -m proof`. Until then the title of this file remains accurate:
-**gaps**.
+A finished proof in this folder would be: residual G1 (2-meet/3-meet on
+\((2,a_\diamond]\)), G2 (both subcases), G3, G4 (T8 remainder + sisters), and G5,
+each closed on the interval where it is still listed as open, with every
+inequality either classical, checked in `python3 -m proof`, or supplied as a
+verified interval certificate. Until then the title of this file remains
+accurate: **gaps**.

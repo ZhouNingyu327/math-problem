@@ -14,6 +14,11 @@
   "2\u221a(2-\u03bb\u00b2)\u2265\u03bb on standing interval (no forced inner-side gap)": "proved",
   "2l(\u03bb)<\u03bb iff a>\u221a5; \u03bb+l(\u03bb)>\u221a2 on standing interval": "proved",
   "centre cannot cover far leftover iff a>2^{5/4}": "proved",
+  "FarPair: adjacent leftover far-ends at distance \u03bb\u00b2\u221a2 > \u221a2 iff a>2": "proved",
+  "FarCentre: \u25b3(c,p1,p2) has area \u03bb\u2074/2 > 1/2 iff a>2": "proved",
+  "CycleSum: clockwise 4-meet impossible for a>2": "proved",
+  "Cascade: unique a_\u03c6 in (2, a_M) for \u2113(a\u2212\u2113(\u03bb))=a\u2212\u221a2; adjacent meets die above it": "proved",
+  "cascade far-end: |c P|<\u221a2 at a_\u03c6, |c P|>\u221a2 at a_M, unique a_\u2666 in between": "proved",
   "opposite inner stub escapes a \u03bb-chord through c iff a>8\u221a2/5": "proved",
   "l(1)=1 and l(\u221a2)=0": "proved"
 }

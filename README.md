@@ -11,10 +11,11 @@ Largest square coverable by 6 unit squares (rigid motions, overlaps allowed).
 **Main object:** a rigorous proof attempt that \(S(6)=2\), in
 [`PROOF/ATTEMPT.md`](PROOF/ATTEMPT.md) and [`PROOF/GAPS.md`](PROOF/GAPS.md).
 
-Those notes do **not** contain a complete proof. They use midpoint type
-\(k=|\{m_i\}\cap(C\cup F)|\) and record large-\(a\) fragments (G1 and one G2
-subcase for \(a>2^{5/4}\); one G4 representative for \(a>\sqrt{5}\)). Residual
-G1–G5 on \((2,2^{5/4}]\) (and G3 globally) remain open.
+Those notes do **not** contain a complete proof. G1 (\(k=0\)) is closed for
+\(a>a_\diamond\approx 2.0918\) (FarPair, CycleSum, Cascade, OppFar); residual
+G1 is 2-meet/3-meet on \((2,a_\diamond]\). One G2 subcase is closed for
+\(a>2^{5/4}\); one G4 representative for \(a>\sqrt{5}\). G2–G5 remain open
+down to \(a=2^+\), and G3 globally.
 
 ### Known facts
 

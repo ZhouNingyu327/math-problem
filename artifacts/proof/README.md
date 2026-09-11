@@ -7,6 +7,8 @@ They are **not** a proof of \(S(6)=2\).
 | File | Contents |
 |---|---|
 | `proved_lemmas.json` | Algebraic identities that `proof.inequalities.run_all_proofs` closed |
+| `threshold_brackets.json` | Interval-arithmetic isolating brackets for \(a_\varphi,a_\diamond,a_M\) |
+| `cap_schema.json` | Schema for optional meet-band covering certificates |
 | `census.json` | 74 midpoint assignments, 11 \(D_4\)-orbits, remaining-lemma tags |
 | `case_table.md` | Human-readable orbit table |
 | `numeric_table.json` | Decimal samples of \(\delta(a)\), \(l(a/2)\), sliver width. Not proof. |
