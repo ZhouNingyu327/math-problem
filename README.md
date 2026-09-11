@@ -30,3 +30,4 @@ python -m cover6 experiment --budget default --seed 0
 Budgets: `tiny` (smoke), `default` (the committed run), `serious` (longer annealing).
 
 See [`cover6/README.md`](cover6/README.md) for the module layout and extra commands.
+See [`RESULTS.md`](RESULTS.md) for the committed numbers, figures, and caveats.

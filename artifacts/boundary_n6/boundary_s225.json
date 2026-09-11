@@ -1,0 +1,59 @@
+{
+  "s": 2.25,
+  "n": 6,
+  "area": 5.0625,
+  "poses": [
+    {
+      "cx": 0.45060281803116764,
+      "cy": 0.2106746252395123,
+      "theta": 0.47829200746145806,
+      "theta_deg": 27.404113402381228
+    },
+    {
+      "cx": 1.8126483508985962,
+      "cy": 0.13646707127449753,
+      "theta": 0.9811909797587297,
+      "theta_deg": 56.2181020364814
+    },
+    {
+      "cx": 1.8006499722094698,
+      "cy": 2.038914783156147,
+      "theta": 0.47974744253979423,
+      "theta_deg": 27.48750368972518
+    },
+    {
+      "cx": 0.43581799651428815,
+      "cy": 2.11679100887268,
+      "theta": 0.9773846387285412,
+      "theta_deg": 56.00001476006412
+    },
+    {
+      "cx": 5.7245404832047617e-05,
+      "cy": 1.1378802160872112,
+      "theta": 0.7943902505610553,
+      "theta_deg": 45.51520864348844
+    },
+    {
+      "cx": 2.2265202393821286,
+      "cy": 1.1147156826757438,
+      "theta": 0.7943902505610553,
+      "theta_deg": 45.51520864348844
+    }
+  ],
+  "coverage": {
+    "s": 2.25,
+    "n": 6,
+    "uncovered_area": 1.5262676247233276,
+    "uncovered_boundary": 0.0,
+    "sample_uncovered_frac": 0.2972265625,
+    "sample_n_points": 25600,
+    "sample_n_uncovered": 7609,
+    "boundary_sample_uncovered": 0,
+    "corners_uncovered": 0,
+    "max_outside": 0.43175095212637804,
+    "covered": false,
+    "covered_strict": false,
+    "notes": "uncovered_area=1.526e+00; sample_uncovered=7609/25600"
+  },
+  "construction": "four_vertex_L_plus_two_side_diamonds"
+}

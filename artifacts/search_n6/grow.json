@@ -1,0 +1,16 @@
+{
+  "trials": [
+    {
+      "s": 2.0,
+      "uncovered_area": 0.0,
+      "covered": true,
+      "method": "grow"
+    },
+    {
+      "s": 2.01,
+      "uncovered_area": 0.08900228928794328,
+      "covered": false,
+      "method": "grow"
+    }
+  ]
+}

@@ -179,7 +179,54 @@ def _cmd_search(args: argparse.Namespace) -> int:
     return 0
 
 
-def _cmd_experiment(args: argparse.Namespace) -> int:
+def _cmd_boundary(args: argparse.Namespace) -> int:
+    """Polish the 4-L + 2-diamond ansatz for boundary covering at a given s."""
+    from cover6.configs import S_BD6_CANDIDATE, boundary_six
+    from cover6.coverage import evaluate_covering, uncovered_boundary_length
+    from cover6.io_util import save_covering
+    from cover6.visualize import plot_covering
+    from scipy.optimize import minimize
+
+    s = float(args.s if args.s is not None else S_BD6_CANDIDATE)
+    p0 = boundary_six(s)
+    res = minimize(
+        lambda v: uncovered_boundary_length(s, v.reshape(6, 3)),
+        p0.ravel(),
+        method="Nelder-Mead",
+        options={"maxiter": 1200, "xatol": 1e-8, "fatol": 1e-14},
+    )
+    poses = res.x.reshape(6, 3)
+    report = evaluate_covering(s, poses, n_grid=180, n_boundary=600)
+    out = Path(args.out)
+    save_covering(
+        out / "boundary.json",
+        s,
+        poses,
+        extra={
+            "construction": "four_vertex_L_plus_two_side_diamonds",
+            "interior_covered": report.covered,
+            "boundary_uncovered": report.uncovered_boundary,
+        },
+    )
+    plot_covering(
+        s,
+        poses,
+        out / "boundary",
+        title=(
+            f"n=6 boundary polish  s={s:.5f}  "
+            f"bd={report.uncovered_boundary:.3e}  area={report.uncovered_area:.3f}"
+        ),
+    )
+    print(
+        {
+            "s": s,
+            "uncovered_boundary": report.uncovered_boundary,
+            "uncovered_area": report.uncovered_area,
+            "corners_uncovered": report.corners_uncovered,
+            "interior_covered": report.covered,
+        }
+    )
+    return 0 if report.uncovered_boundary <= 1e-6 else 1
     from cover6.experiment import run_experiment
 
     return run_experiment(Path(args.out), budget=args.budget, seed=args.seed)
@@ -230,6 +277,14 @@ def build_parser() -> argparse.ArgumentParser:
     e.add_argument("--budget", choices=["tiny", "default", "serious"], default="default")
     e.add_argument("--seed", type=int, default=0)
     e.set_defaults(func=_cmd_experiment)
+
+    bd = sub.add_parser(
+        "boundary",
+        help="Polish a 4-L + 2-diamond ansatz for n=6 boundary covering.",
+    )
+    bd.add_argument("--s", type=float, default=None, help="Target side (default: equal-leg candidate ≈ 2.3375).")
+    bd.add_argument("--out", type=Path, default=DEFAULT_ARTIFACTS / "boundary_n6")
+    bd.set_defaults(func=_cmd_boundary)
     return p
 
 

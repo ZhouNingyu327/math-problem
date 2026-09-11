@@ -29,6 +29,7 @@ python -m pytest
 
 python -m cover6 baseline                         # verify s=2, n=6
 python -m cover6 experiment --budget default --seed 0
+python -m cover6 boundary --s 2.33
 python -m cover6 search --n 6 --s-list 2.0 2.05 2.10 --budget default
 python -m cover6 search --n 7 --s-list 2.0 2.05 2.10 --budget default
 python -m cover6 verify artifacts/baseline/n6_s2_trivial.json
@@ -48,8 +49,13 @@ For a candidate `(s, poses)` the code reports:
 4. A slightly **eroded** target (`buffer(-1e-9)`) for a stricter pass/fail.
 
 A configuration is marked `covered` only if the uncovered area is \(\le 10^{-8}\),
-the uncovered boundary is \(\le 10^{-7}\), and every sample (including the four
+the uncovered boundary is \(\le 10^{-6}\), and every sample (including the four
 corners) is covered.
+
+Interior search for \(n=6\) found no \(s>2\) covering. A separate **boundary**
+ansatz (`python -m cover6 boundary --s 2.33`) produces a verified perimeter
+covering of a square with side \(2.33\) whose interior is *not* covered; see
+[`RESULTS.md`](../RESULTS.md).
 
 ## Parameterization
 

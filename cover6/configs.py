@@ -14,6 +14,97 @@ S7_GREEN = 1.5 + 0.5 * math.sqrt(2.0)  # side of Trevor Green's n=7 covering
 S7_GREEN_AREA = S7_GREEN**2  # 11/4 + 3/sqrt(2)
 
 
+def l_leg(x: float) -> float:
+    """Maximal second L-leg in a unit square when the first leg has length x>1.
+
+    Lemma 2.2 of Dósa–Lángi–Tuza: l(x) = x - x sqrt(x^2-1) for x in [1, sqrt(2)].
+    """
+    if x <= 1.0:
+        return 1.0
+    if x >= math.sqrt(2.0):
+        return 0.0
+    return x - x * math.sqrt(x * x - 1.0)
+
+
+def _s_bd6_equal_legs() -> float:
+    """Side length at which 2 long legs = 2 short legs + sqrt(2).
+
+    Solve x^2 (x^2-1) = 1/2, then s = 2x. This is the natural equal-side
+    candidate for a 4-vertex + 2-side-square boundary covering.
+    """
+    x2 = (1.0 + math.sqrt(3.0)) / 2.0
+    return 2.0 * math.sqrt(x2)
+
+
+S_BD6_CANDIDATE = _s_bd6_equal_legs()  # ≈ 2.33754
+
+
+def _pose_from_vertex_and_edges(
+    vertex: np.ndarray, e1: np.ndarray, e2: np.ndarray
+) -> np.ndarray:
+    center = np.asarray(vertex, dtype=float) + 0.5 * e1 + 0.5 * e2
+    theta = wrap_theta(math.atan2(e1[1], e1[0]))
+    return np.array([center[0], center[1], theta], dtype=float)
+
+
+def embed_L_square(
+    corner: np.ndarray, long_dir: np.ndarray, inward_dir: np.ndarray, x: float
+) -> np.ndarray:
+    """Unit square maximally containing an L of legs x and l(x).
+
+    ``corner`` is the L-corner; ``long_dir`` is the world direction of the
+    long leg. The far endpoint of the long leg is a vertex of the unit
+    square (Lemma 2.2).
+    """
+    from cover6.geometry import min_outside
+
+    corner = np.asarray(corner, dtype=float)
+    long_dir = np.asarray(long_dir, dtype=float)
+    long_dir = long_dir / np.linalg.norm(long_dir)
+    inward_dir = np.asarray(inward_dir, dtype=float)
+    inward_dir = inward_dir / np.linalg.norm(inward_dir)
+    t = math.sqrt(max(x * x - 1.0, 0.0))
+    p = corner + x * long_dir
+    q = corner + l_leg(x) * inward_dir
+    src_ang = math.atan2(t, 1.0)
+    dst = -x * long_dir
+    dst_ang = math.atan2(dst[1], dst[0])
+    rot = dst_ang - src_ang
+    e1 = np.array([math.cos(rot), math.sin(rot)])
+    pts = np.vstack([corner, q])
+    best = None
+    best_score = 1e9
+    for e2 in (np.array([-e1[1], e1[0]]), np.array([e1[1], -e1[0]])):
+        pose = _pose_from_vertex_and_edges(p, e1, e2)
+        score = float(np.sum(np.maximum(min_outside(pts, pose.reshape(1, 3)), 0.0)))
+        if score < best_score:
+            best_score = score
+            best = pose
+    return best
+
+
+def boundary_six(s: float | None = None) -> np.ndarray:
+    """4 vertex L-squares + 2 side diamonds aimed at covering the boundary.
+
+    Opposite sides are the "long" pair (two long L-legs) and the remaining
+    pair is the "short" pair plus a 45-degree side-square of chord sqrt(2).
+    At s = S_BD6_CANDIDATE ≈ 2.3375 the two pair lengths match. This is a
+    *boundary* construction: the interior is not expected to be covered.
+    """
+    if s is None:
+        s = S_BD6_CANDIDATE
+    x = s / 2.0
+    x = min(max(x, 1.0 + 1e-9), math.sqrt(2.0) - 1e-9)
+    bl = embed_L_square((0.0, 0.0), (1.0, 0.0), (0.0, 1.0), x)
+    br = embed_L_square((s, 0.0), (-1.0, 0.0), (0.0, 1.0), x)
+    tr = embed_L_square((s, s), (-1.0, 0.0), (0.0, -1.0), x)
+    tl = embed_L_square((0.0, s), (1.0, 0.0), (0.0, -1.0), x)
+    th = math.pi / 4.0
+    left = np.array([0.0, s / 2.0, th])
+    right = np.array([s, s / 2.0, th])
+    return np.vstack([bl, br, tr, tl, left, right])
+
+
 def trivial_grid(s: float = 2.0, n: int = 6) -> np.ndarray:
     """Axis-aligned 2x2 covering of a side-2 square, plus unused extras.
 
