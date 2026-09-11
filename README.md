@@ -1,33 +1,44 @@
 # math-problem
 
-Research notes and computational experiments for open mathematical problems.
+Research notes on open mathematical problems.
 
-## Current focus
+## Current focus: \(S(6)=2\)?
 
-Largest square coverable by 6 unit squares (side 1), allowing rotations and overlaps.
+Largest square coverable by 6 unit squares (rigid motions, overlaps allowed).
 
-Notation: \(S(n)\) = largest edge length of a square coverable by \(n\) unit squares.
+\(S(n)\) = largest edge length of a square coverable by \(n\) unit squares.
 
-Known facts:
+**Main object:** a rigorous proof attempt that \(S(6)=2\), in
+[`PROOF_ATTEMPT.md`](PROOF_ATTEMPT.md).
 
-- \(S(5)=2\) is proved, so \(S(6)\ge 2\) (area \(\ge 4\)).
-- Area upper bound: \(S(6)\le\sqrt{6}\approx 2.449\).
-- Best published construction for \(n=6\) is the trivial side-2 covering (area 4).
-- Conjecture (Dósa–Lángi–Tuza, [arXiv:2601.16535](https://arxiv.org/abs/2601.16535), 2026): \(S(6)=2\).
-- For \(n=7\) there is a known covering of area \(\approx 4.871\) (Trevor Green), side \(3/2+1/\sqrt{2}\approx 2.207\).
+That document does **not** contain a complete proof. It proves the distance
+and combinatorial classification, reduces the problem to five remaining lemmas
+(11 dihedral orbits of important-point assignments), and isolates a single
+bottleneck: a constrained 3-square covering of a quadrant of side \(a/2>1\).
 
-Numerical experiments for this problem live in [`cover6/`](cover6/). Results, figures, and honest conclusions are in [`RESULTS.md`](RESULTS.md). **Numerics are not a proof.**
+### Known facts
 
-### Run
+- \(S(5)=2\) is proved (Januszewski; Dósa–Lángi–Tuza), so \(S(6)\ge 2\).
+- Area: \(S(6)\le\sqrt{6}\approx 2.449\).
+- Best published construction for \(n=6\): trivial side 2 (area 4).
+- Conjecture: Dósa–Lángi–Tuza, [arXiv:2601.16535](https://arxiv.org/abs/2601.16535), Conjecture 1.1: \(S(6)=2\).
+- \(S_{\mathrm{bd}}(6)>2\) is expected (and supported numerically at \(s=2.33\)); a proof cannot go through “the boundary is uncoverable”.
+
+### Proof-attempt checks
 
 ```bash
-python -m pip install -r requirements.txt
-python -m pytest
-python -m cover6 baseline
-python -m cover6 experiment --budget default --seed 0
+python3 -m pip install -r requirements.txt
+python3 -m pytest
+python3 -m proof
 ```
 
-Budgets: `tiny` (smoke), `default` (the committed run), `serious` (longer annealing).
+### Numerical toolkit (secondary)
 
-See [`cover6/README.md`](cover6/README.md) for the module layout and extra commands.
-See [`RESULTS.md`](RESULTS.md) for the committed numbers, figures, and caveats.
+Code in [`cover6/`](cover6/) searches for counterexample constructions with
+\(s>2\). Results: [`RESULTS.md`](RESULTS.md). **Numerics are not a proof.**
+No \(s>2\) interior covering survived the polygon check in the committed run.
+
+```bash
+python3 -m cover6 baseline
+python3 -m cover6 experiment --budget default --seed 0
+```

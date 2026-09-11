@@ -1,11 +1,12 @@
 # cover6
 
-Python package for numerical experiments on
+Numerical toolkit (secondary to the proof attempt in
+[`PROOF_ATTEMPT.md`](../PROOF_ATTEMPT.md)) for
 
 > \(S(n)\): the largest edge length of a square coverable by \(n\) unit squares,
 > allowing rigid motions (translation + rotation) and overlaps.
 
-The open case of interest is \(n=6\). The code **does not prove** \(S(6)=2\);
+The open case of interest is \(n=6\). This package **does not prove** \(S(6)=2\);
 it searches for counterexample constructions with \(s>2\) and records whether
 any candidate survives a polygon coverage check (shapely) plus dense sampling.
 

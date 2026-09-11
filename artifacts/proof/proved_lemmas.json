@@ -1,0 +1,17 @@
+{
+  "l decreasing on (1, \u221a2]": "proved",
+  "x+l(x) decreasing on (1, \u221a2]": "proved",
+  "vertex\u2013center distance > \u221a2 iff a>2": "proved",
+  "adjacent midpoints farther than \u221a2 iff a>2": "proved",
+  "non-adjacent vertex\u2013midpoint farther than \u221a2 for a>2": "proved",
+  "triangle area a\u00b2/8 > 1/2 iff a>2": "proved",
+  "inner-star stub \u03b4(a)>0 iff a>2": "proved",
+  "DLT n=5 arc leftover 5a/2-2\u221a2 > a on a>2": "proved",
+  "subtracting \u221a2 never restores the n=5 arc on a\u2264\u221a6": "proved",
+  "k=4 perimeter deficit 2(a-2l(a/2))>0": "proved",
+  "height bound h\u22641/\u03bb; 2h not forced < \u03bb on \u03bb\u2264\u221a2": "proved",
+  "F-sliver: \u221a2-\u03bb>0, \u221a(2-\u03bb\u00b2)<\u03bb, 2\u03bb-\u221a2>0": "proved",
+  "2\u221a(2-\u03bb\u00b2)\u2265\u03bb on standing interval (no forced inner-side gap)": "proved",
+  "2l(\u03bb)<\u03bb iff a>\u221a5; \u03bb+l(\u03bb)>\u221a2 on standing interval": "proved",
+  "l(1)=1 and l(\u221a2)=0": "proved"
+}

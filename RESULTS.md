@@ -1,5 +1,10 @@
 # Results: covering a square with 6 unit squares
 
+The primary research object is the proof attempt in
+[`PROOF_ATTEMPT.md`](PROOF_ATTEMPT.md). That write-up does **not** establish
+\(S(6)=2\); it proves a combinatorial classification and closes one
+combinatorial subfamily for sides \(a>\sqrt{5}\).
+
 **Numerics are not a proof.** This file records what the code in `cover6/` actually computed.
 
 Notation: \(S(n)\) is the largest edge length of a square that can be covered by \(n\) unit squares (rigid motions and overlaps allowed). \(S_{\mathrm{bd}}(n)\) is the analogous quantity for covering only the **boundary**.

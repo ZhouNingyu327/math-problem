@@ -1,0 +1,282 @@
+{
+  "n_raw_assignments": 74,
+  "n_orbits": 11,
+  "by_k": {
+    "2": 40,
+    "3": 32,
+    "4": 2
+  },
+  "by_status": {
+    "open": 74
+  },
+  "by_k_status": {
+    "k=2:open": 40,
+    "k=3:open": 32,
+    "k=4:open": 2
+  },
+  "orbits": [
+    {
+      "assignment": {
+        "m1": "V1",
+        "m2": "V2",
+        "m3": "E",
+        "m4": "F"
+      },
+      "k": 2,
+      "e_has_midpoint": true,
+      "f_has_midpoint": true,
+      "vertex_claimed": [
+        "m1",
+        "m2"
+      ],
+      "extra_claimed": [
+        "m3",
+        "m4"
+      ],
+      "vertex_midpoints_adjacent": true,
+      "chiral": null,
+      "orbit_size": 8,
+      "status": "open",
+      "note": "Remaining Lemma A_adj: vertex-squares host two adjacent midpoints."
+    },
+    {
+      "assignment": {
+        "m1": "V1",
+        "m2": "V2",
+        "m3": "F",
+        "m4": "E"
+      },
+      "k": 2,
+      "e_has_midpoint": true,
+      "f_has_midpoint": true,
+      "vertex_claimed": [
+        "m1",
+        "m2"
+      ],
+      "extra_claimed": [
+        "m3",
+        "m4"
+      ],
+      "vertex_midpoints_adjacent": true,
+      "chiral": null,
+      "orbit_size": 8,
+      "status": "open",
+      "note": "Remaining Lemma A_adj: vertex-squares host two adjacent midpoints."
+    },
+    {
+      "assignment": {
+        "m1": "V1",
+        "m2": "V3",
+        "m3": "E",
+        "m4": "F"
+      },
+      "k": 2,
+      "e_has_midpoint": true,
+      "f_has_midpoint": true,
+      "vertex_claimed": [
+        "m1",
+        "m2"
+      ],
+      "extra_claimed": [
+        "m3",
+        "m4"
+      ],
+      "vertex_midpoints_adjacent": true,
+      "chiral": null,
+      "orbit_size": 8,
+      "status": "open",
+      "note": "Remaining Lemma A_adj: vertex-squares host two adjacent midpoints."
+    },
+    {
+      "assignment": {
+        "m1": "V1",
+        "m2": "E",
+        "m3": "V3",
+        "m4": "F"
+      },
+      "k": 2,
+      "e_has_midpoint": true,
+      "f_has_midpoint": true,
+      "vertex_claimed": [
+        "m1",
+        "m3"
+      ],
+      "extra_claimed": [
+        "m2",
+        "m4"
+      ],
+      "vertex_midpoints_adjacent": false,
+      "chiral": null,
+      "orbit_size": 8,
+      "status": "open",
+      "note": "Remaining Lemma A_opp: vertex-squares host two opposite midpoints."
+    },
+    {
+      "assignment": {
+        "m1": "V1",
+        "m2": "E",
+        "m3": "V4",
+        "m4": "F"
+      },
+      "k": 2,
+      "e_has_midpoint": true,
+      "f_has_midpoint": true,
+      "vertex_claimed": [
+        "m1",
+        "m3"
+      ],
+      "extra_claimed": [
+        "m2",
+        "m4"
+      ],
+      "vertex_midpoints_adjacent": false,
+      "chiral": null,
+      "orbit_size": 4,
+      "status": "open",
+      "note": "Remaining Lemma A_opp: vertex-squares host two opposite midpoints."
+    },
+    {
+      "assignment": {
+        "m1": "V1",
+        "m2": "F",
+        "m3": "V4",
+        "m4": "E"
+      },
+      "k": 2,
+      "e_has_midpoint": true,
+      "f_has_midpoint": true,
+      "vertex_claimed": [
+        "m1",
+        "m3"
+      ],
+      "extra_claimed": [
+        "m2",
+        "m4"
+      ],
+      "vertex_midpoints_adjacent": false,
+      "chiral": null,
+      "orbit_size": 4,
+      "status": "open",
+      "note": "Remaining Lemma A_opp: vertex-squares host two opposite midpoints."
+    },
+    {
+      "assignment": {
+        "m1": "V1",
+        "m2": "V2",
+        "m3": "V3",
+        "m4": "E"
+      },
+      "k": 3,
+      "e_has_midpoint": true,
+      "f_has_midpoint": false,
+      "vertex_claimed": [
+        "m1",
+        "m2",
+        "m3"
+      ],
+      "extra_claimed": [
+        "m4"
+      ],
+      "vertex_midpoints_adjacent": null,
+      "chiral": null,
+      "orbit_size": 8,
+      "status": "open",
+      "note": "Remaining Lemma B1: E hosts c and the leftover midpoint; F has no midpoint."
+    },
+    {
+      "assignment": {
+        "m1": "V1",
+        "m2": "V2",
+        "m3": "V4",
+        "m4": "E"
+      },
+      "k": 3,
+      "e_has_midpoint": true,
+      "f_has_midpoint": false,
+      "vertex_claimed": [
+        "m1",
+        "m2",
+        "m3"
+      ],
+      "extra_claimed": [
+        "m4"
+      ],
+      "vertex_midpoints_adjacent": null,
+      "chiral": null,
+      "orbit_size": 8,
+      "status": "open",
+      "note": "Remaining Lemma B1: E hosts c and the leftover midpoint; F has no midpoint."
+    },
+    {
+      "assignment": {
+        "m1": "V1",
+        "m2": "V2",
+        "m3": "V3",
+        "m4": "F"
+      },
+      "k": 3,
+      "e_has_midpoint": false,
+      "f_has_midpoint": true,
+      "vertex_claimed": [
+        "m1",
+        "m2",
+        "m3"
+      ],
+      "extra_claimed": [
+        "m4"
+      ],
+      "vertex_midpoints_adjacent": null,
+      "chiral": null,
+      "orbit_size": 8,
+      "status": "open",
+      "note": "Remaining Lemma B2: E hosts only c; F hosts the leftover midpoint."
+    },
+    {
+      "assignment": {
+        "m1": "V1",
+        "m2": "V2",
+        "m3": "V4",
+        "m4": "F"
+      },
+      "k": 3,
+      "e_has_midpoint": false,
+      "f_has_midpoint": true,
+      "vertex_claimed": [
+        "m1",
+        "m2",
+        "m3"
+      ],
+      "extra_claimed": [
+        "m4"
+      ],
+      "vertex_midpoints_adjacent": null,
+      "chiral": null,
+      "orbit_size": 8,
+      "status": "open",
+      "note": "Remaining Lemma B2: E hosts only c; F hosts the leftover midpoint."
+    },
+    {
+      "assignment": {
+        "m1": "V1",
+        "m2": "V2",
+        "m3": "V3",
+        "m4": "V4"
+      },
+      "k": 4,
+      "e_has_midpoint": false,
+      "f_has_midpoint": false,
+      "vertex_claimed": [
+        "m1",
+        "m2",
+        "m3",
+        "m4"
+      ],
+      "extra_claimed": [],
+      "vertex_midpoints_adjacent": null,
+      "chiral": "cw",
+      "orbit_size": 2,
+      "status": "open",
+      "note": "Remaining Lemma C (k=4). One D4-orbit: cw and ccw are reflections."
+    }
+  ]
+}
