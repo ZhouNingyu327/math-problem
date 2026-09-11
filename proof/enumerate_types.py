@@ -92,13 +92,16 @@ def _key(assignment: dict[str, str]) -> tuple[tuple[str, str], ...]:
 @dataclass(frozen=True)
 class TypeRecord:
     assignment: dict[str, str]
-    k: int
+    k: int  # vertex-hosted midpoints (old index)
+    k_extra: int  # |{midpoints} ∩ (C ∪ F)|, the G1–G4 index
+    gap: str
     e_has_midpoint: bool
     f_has_midpoint: bool
     vertex_claimed: tuple[str, ...]
     extra_claimed: tuple[str, ...]
     vertex_midpoints_adjacent: bool | None
     chiral: str | None  # 'cw', 'ccw', or None
+    t8_adjacent: bool | None
     orbit_size: int
     status: str
     note: str
@@ -128,6 +131,19 @@ def _vertex_midpoints_adjacent(assignment: dict[str, str]) -> bool | None:
     return abs(i - j) % 2 == 1  # differ by 1 or 3 ⇒ adjacent; by 2 ⇒ opposite
 
 
+def _t8_adjacent(assignment: dict[str, str]) -> bool | None:
+    """True if C's unique extra-midpoint m_i has V_i hosting m_{i-1}.
+
+    That is the DLT Case-2 / Lemma T8 labeling (C ∋ m_i, V_i ∋ m_{i-1}).
+    """
+    extra_in_c = [m for m in MIDPOINTS if assignment[m] == "E"]
+    if len(extra_in_c) != 1:
+        return None
+    i = int(extra_in_c[0][1])
+    prev = f"m{((i - 2) % 4) + 1}"  # m_{i-1}
+    return assignment[prev] == f"V{i}"
+
+
 def classify(assignment: dict[str, str]) -> dict:
     hosts = [assignment[m] for m in MIDPOINTS]
     k = sum(1 for h in hosts if h in VERTEX_SQUARES)
@@ -137,62 +153,78 @@ def classify(assignment: dict[str, str]) -> dict:
     extra_claimed = tuple(m for m in MIDPOINTS if assignment[m] in EXTRAS)
     chiral = _chirality(assignment)
     adj = _vertex_midpoints_adjacent(assignment)
+    k_extra = 4 - k
+    if k_extra == 0:
+        gap = "G1"
+    elif k_extra == 1:
+        gap = "G2"
+    elif k_extra == 2 and adj is False:
+        gap = "G3"
+    elif k_extra == 2 and adj is True:
+        gap = "G4"
+    else:
+        gap = "?"
+    t8_adjacent = _t8_adjacent(assignment)
     return {
         "k": k,
+        "k_extra": k_extra,
+        "gap": gap,
         "e_has_midpoint": e_has,
         "f_has_midpoint": f_has,
         "vertex_claimed": vertex_claimed,
         "extra_claimed": extra_claimed,
         "vertex_midpoints_adjacent": adj,
         "chiral": chiral,
+        "t8_adjacent": t8_adjacent,
     }
 
 
 def _status_note(info: dict) -> tuple[str, str]:
-    """Proved / reduced / open, matching PROOF_ATTEMPT.md.
+    """partial / open / closed, matching PROOF/GAPS.md.
 
-    Combinatorial types k=0,1 are absent from the census (capacity).
-    k=4 extras-miss-boundary is a geometric lemma, not a type filter.
+    k here is the number of vertex-hosted midpoints. The G-index is k_extra.
+    G5 (c ∈ C ∩ F) is a geometric flag, not a midpoint assignment.
     """
     k = info["k"]
+    gap = info["gap"]
     e_has = info["e_has_midpoint"]
     f_has = info["f_has_midpoint"]
     chiral = info["chiral"]
     if k <= 1:
-        return "closed", "capacity: 4-k extras cannot host 4-k midpoints"
-    if k == 4:
+        return "closed", "capacity: extras cannot host 4 or 3 midpoints"
+    if gap == "G1":
         if chiral in {"cw", "ccw"}:
             return (
-                "open",
-                "Remaining Lemma C (k=4). One D4-orbit: cw and ccw are reflections.",
+                "partial",
+                "G1 (k_extra=0): closed for a>2^{5/4}; open on (2, 2^{5/4}].",
             )
-        return "closed", "k=4 matching on C4 is only cw or ccw (proved)"
-    if k == 3:
+        return "closed", "k_extra=0 matching on C4 is only cw or ccw (proved)"
+    if gap == "G2":
         if e_has and not f_has:
+            if info.get("t8_adjacent"):
+                return (
+                    "partial",
+                    "G2 (k_extra=1, C hosts extra midpoint, T8-adjacent). "
+                    "Closed for a>2^{5/4}; open on (2, 2^{5/4}].",
+                )
             return (
                 "open",
-                "Remaining Lemma B1: E hosts c and the leftover midpoint; F has no midpoint.",
+                "G2 (k_extra=1, C hosts extra midpoint, weak vertex adjacent to C). "
+                "L-gap side meets the weak vertex; open for all a>2.",
             )
-        if f_has and not e_has:
-            return (
-                "open",
-                "Remaining Lemma B2: E hosts only c; F hosts the leftover midpoint.",
-            )
-        return "closed", "k=3 requires exactly one extra-midpoint"
-    # k == 2
-    if not (e_has and f_has):
-        return "closed", "k=2 requires both extras to host a midpoint"
-    if info["vertex_midpoints_adjacent"] is True:
         return (
             "open",
-            "Remaining Lemma A_adj: vertex-squares host two adjacent midpoints.",
+            "G2 (k_extra=1, F hosts the extra midpoint). Need to eject F from the critical quarter.",
         )
-    if info["vertex_midpoints_adjacent"] is False:
+    if gap == "G3":
+        return "open", "G3 (k_extra=2, opposite extra-midpoints)."
+    if gap == "G4":
         return (
-            "open",
-            "Remaining Lemma A_opp: vertex-squares host two opposite midpoints.",
+            "partial",
+            "G4 (k_extra=2, adjacent extra-midpoints). DLT Case-2 representative "
+            "closed for a>√5 (Lemma T8); remaining a∈(2,√5] and sister orbits.",
         )
-    return "open", "k=2 unclassified"
+    return "open", "unclassified"
 
 
 def all_assignments() -> list[dict[str, str]]:
@@ -230,7 +262,7 @@ def orbit_representatives(assignments: list[dict[str, str]] | None = None) -> li
                 **info,
             )
         )
-    records.sort(key=lambda r: (r.k, r.status, r.note, _key(r.assignment)))
+    records.sort(key=lambda r: (r.k_extra, r.gap, r.status, r.note, _key(r.assignment)))
     return records
 
 
@@ -240,14 +272,18 @@ def census() -> dict:
     by_k: dict[int, int] = defaultdict(int)
     by_status: dict[str, int] = defaultdict(int)
     by_k_status: dict[str, int] = defaultdict(int)
+    by_gap: dict[str, int] = defaultdict(int)
     for r in orbs:
         by_k[r.k] += r.orbit_size
         by_status[r.status] += r.orbit_size
         by_k_status[f"k={r.k}:{r.status}"] += r.orbit_size
+        by_gap[r.gap] += r.orbit_size
     return {
         "n_raw_assignments": len(raw),
         "n_orbits": len(orbs),
         "by_k": dict(by_k),
+        "by_k_extra": {str(4 - int(k)): n for k, n in by_k.items()},
+        "by_gap": dict(by_gap),
         "by_status": dict(by_status),
         "by_k_status": dict(by_k_status),
         "orbits": [
@@ -263,8 +299,8 @@ def markdown_table(records: list[TypeRecord] | None = None) -> str:
     if records is None:
         records = orbit_representatives()
     lines = [
-        "| orbit rep (m1,m2,m3,m4) | k | |orb| | E has mid | F has mid | chiral / adj | status | remaining lemma |",
-        "|---|---:|---:|:---:|:---:|---|---|---|",
+        "| orbit (m1,m2,m3,m4) | k_extra | gap | |orb| | C mid | F mid | chiral/adj | status | note |",
+        "|---|---:|---|---:|:---:|:---:|---|---|---|",
     ]
     for r in records:
         asn = ",".join(r.assignment[m] for m in MIDPOINTS)
@@ -277,7 +313,7 @@ def markdown_table(records: list[TypeRecord] | None = None) -> str:
         else:
             extra = "—"
         lines.append(
-            f"| `{asn}` | {r.k} | {r.orbit_size} | {r.e_has_midpoint} | "
+            f"| `{asn}` | {r.k_extra} | {r.gap} | {r.orbit_size} | {r.e_has_midpoint} | "
             f"{r.f_has_midpoint} | {extra} | {r.status} | {r.note} |"
         )
     return "\n".join(lines)

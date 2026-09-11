@@ -1,9 +1,9 @@
 # Results: covering a square with 6 unit squares
 
 The primary research object is the proof attempt in
-[`PROOF_ATTEMPT.md`](PROOF_ATTEMPT.md). That write-up does **not** establish
-\(S(6)=2\); it proves a combinatorial classification and closes one
-combinatorial subfamily for sides \(a>\sqrt{5}\).
+[`PROOF/ATTEMPT.md`](PROOF/ATTEMPT.md) and [`PROOF/GAPS.md`](PROOF/GAPS.md).
+Those notes do **not** establish \(S(6)=2\); they close some types for
+\(a>2^{5/4}\) or \(a>\sqrt{5}\) and leave residual G1–G5.
 
 **Numerics are not a proof.** This file records what the code in `cover6/` actually computed.
 

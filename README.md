@@ -9,12 +9,12 @@ Largest square coverable by 6 unit squares (rigid motions, overlaps allowed).
 \(S(n)\) = largest edge length of a square coverable by \(n\) unit squares.
 
 **Main object:** a rigorous proof attempt that \(S(6)=2\), in
-[`PROOF_ATTEMPT.md`](PROOF_ATTEMPT.md).
+[`PROOF/ATTEMPT.md`](PROOF/ATTEMPT.md) and [`PROOF/GAPS.md`](PROOF/GAPS.md).
 
-That document does **not** contain a complete proof. It proves the distance
-and combinatorial classification, reduces the problem to five remaining lemmas
-(11 dihedral orbits of important-point assignments), and isolates a single
-bottleneck: a constrained 3-square covering of a quadrant of side \(a/2>1\).
+Those notes do **not** contain a complete proof. They use midpoint type
+\(k=|\{m_i\}\cap(C\cup F)|\) and record large-\(a\) fragments (G1 and one G2
+subcase for \(a>2^{5/4}\); one G4 representative for \(a>\sqrt{5}\)). Residual
+G1–G5 on \((2,2^{5/4}]\) (and G3 globally) remain open.
 
 ### Known facts
 

@@ -54,24 +54,27 @@ def test_census_capacity_and_k4_matching():
 def test_census_d4_orbits_and_open_remaining():
     cen = census()
     assert cen["n_raw_assignments"] == len(all_assignments())
-    # k=4 cw and ccw are D4-equivalent (reflection), so one orbit.
+    # k=4 cw and ccw are D4-equivalent (reflection), so one orbit. This is G1.
     k4_orbs = [r for r in cen["orbits"] if r["k"] == 4]
     assert len(k4_orbs) == 1
     assert k4_orbs[0]["orbit_size"] == 2
-    assert k4_orbs[0]["status"] == "open"
+    assert k4_orbs[0]["gap"] == "G1"
+    assert k4_orbs[0]["k_extra"] == 0
+    assert k4_orbs[0]["status"] == "partial"
     # Every raw assignment is accounted for in some orbit.
-    assert sum(r["orbit_size"] for r in cen["orbits"]) == cen["n_raw_assignments"]
-    # Open remaining lemmas are only A/B/C types.
-    open_notes = {r["note"] for r in cen["orbits"] if r["status"] == "open"}
-    assert any("Remaining Lemma C" in n for n in open_notes)
-    assert any("Remaining Lemma A_adj" in n for n in open_notes)
-    assert any("Remaining Lemma A_opp" in n for n in open_notes)
-    assert any("Remaining Lemma B1" in n for n in open_notes)
-    assert any("Remaining Lemma B2" in n for n in open_notes)
-    # Adjacent vs opposite is about the two vertex-hosted midpoints.
+    assert sum(r["orbit_size"] for r in cen["orbits"] if True) == cen["n_raw_assignments"]
+    gaps = {r["gap"] for r in cen["orbits"]}
+    assert gaps == {"G1", "G2", "G3", "G4"}
+    assert any(r["gap"] == "G3" and r["status"] == "open" for r in cen["orbits"])
+    assert any(r["gap"] == "G4" and r["status"] == "partial" for r in cen["orbits"])
+    g2 = [r for r in cen["orbits"] if r["gap"] == "G2"]
+    assert any(r.get("t8_adjacent") and r["status"] == "partial" for r in g2)
+    assert any(r["e_has_midpoint"] and not r["f_has_midpoint"] and not r.get("t8_adjacent") and r["status"] == "open" for r in g2)
     adj = [r for r in cen["orbits"] if r["k"] == 2 and r["vertex_midpoints_adjacent"] is True]
     opp = [r for r in cen["orbits"] if r["k"] == 2 and r["vertex_midpoints_adjacent"] is False]
     assert adj and opp
+    assert all(r["gap"] == "G4" for r in adj)
+    assert all(r["gap"] == "G3" for r in opp)
 
 
 def test_l_formula_matches_dlt():
@@ -84,6 +87,20 @@ def test_numeric_table_deficit_positive():
         if row["a"] > 2:
             assert row["deficit_k4"] > 0
             assert row["delta"] > 0
+
+
+def test_g1_far_leftover_threshold():
+    # λ⁴ = 2 at λ = 2^{1/4}, a = 2^{5/4}.
+    a_star = 2.0 ** 1.25
+    lam = a_star / 2.0
+    leftover = lam - l_numeric(lam)
+    reach = math.sqrt(2.0 - lam * lam)
+    assert abs(leftover - reach) < 1e-9
+    # Above the threshold, leftover outruns the centre-square.
+    lam2 = (a_star + 0.02) / 2.0
+    assert lam2 - l_numeric(lam2) > math.sqrt(2.0 - lam2 * lam2)
+    assert a_star < math.sqrt(6.0)
+    assert a_star > math.sqrt(5.0)
 
 
 def test_sqrt5_left_gap_threshold():

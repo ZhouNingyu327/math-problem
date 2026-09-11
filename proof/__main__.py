@@ -33,6 +33,8 @@ def main(argv: list[str] | None = None) -> int:
         "n_raw_assignments": cen["n_raw_assignments"],
         "n_orbits": cen["n_orbits"],
         "by_k": cen["by_k"],
+        "by_k_extra": cen.get("by_k_extra"),
+        "by_gap": cen.get("by_gap"),
         "by_status": cen["by_status"],
         "by_k_status": cen["by_k_status"],
         "orbits": cen["orbits"],
@@ -43,7 +45,7 @@ def main(argv: list[str] | None = None) -> int:
 
     print(json.dumps({"proved_lemmas": len(proved), "n_orbits": cen["n_orbits"],
                       "n_raw": cen["n_raw_assignments"], "figures": [str(f) for f in figs]}, indent=2))
-    print("STATUS: combinatorial census complete; Remaining Lemmas A/B/C are OPEN.")
+    print("STATUS: census tagged G1–G4; residual gaps listed in PROOF/GAPS.md. Not a proof of S(6)=2.")
     return 0
 
 

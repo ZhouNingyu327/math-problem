@@ -2,259 +2,33 @@
   "n_raw_assignments": 74,
   "n_orbits": 11,
   "by_k": {
-    "2": 40,
+    "4": 2,
     "3": 32,
-    "4": 2
+    "2": 40
+  },
+  "by_k_extra": {
+    "0": 2,
+    "1": 32,
+    "2": 40
+  },
+  "by_gap": {
+    "G1": 2,
+    "G2": 32,
+    "G3": 16,
+    "G4": 24
   },
   "by_status": {
-    "open": 74
+    "partial": 34,
+    "open": 40
   },
   "by_k_status": {
-    "k=2:open": 40,
-    "k=3:open": 32,
-    "k=4:open": 2
+    "k=4:partial": 2,
+    "k=3:open": 24,
+    "k=3:partial": 8,
+    "k=2:open": 16,
+    "k=2:partial": 24
   },
   "orbits": [
-    {
-      "assignment": {
-        "m1": "V1",
-        "m2": "V2",
-        "m3": "E",
-        "m4": "F"
-      },
-      "k": 2,
-      "e_has_midpoint": true,
-      "f_has_midpoint": true,
-      "vertex_claimed": [
-        "m1",
-        "m2"
-      ],
-      "extra_claimed": [
-        "m3",
-        "m4"
-      ],
-      "vertex_midpoints_adjacent": true,
-      "chiral": null,
-      "orbit_size": 8,
-      "status": "open",
-      "note": "Remaining Lemma A_adj: vertex-squares host two adjacent midpoints."
-    },
-    {
-      "assignment": {
-        "m1": "V1",
-        "m2": "V2",
-        "m3": "F",
-        "m4": "E"
-      },
-      "k": 2,
-      "e_has_midpoint": true,
-      "f_has_midpoint": true,
-      "vertex_claimed": [
-        "m1",
-        "m2"
-      ],
-      "extra_claimed": [
-        "m3",
-        "m4"
-      ],
-      "vertex_midpoints_adjacent": true,
-      "chiral": null,
-      "orbit_size": 8,
-      "status": "open",
-      "note": "Remaining Lemma A_adj: vertex-squares host two adjacent midpoints."
-    },
-    {
-      "assignment": {
-        "m1": "V1",
-        "m2": "V3",
-        "m3": "E",
-        "m4": "F"
-      },
-      "k": 2,
-      "e_has_midpoint": true,
-      "f_has_midpoint": true,
-      "vertex_claimed": [
-        "m1",
-        "m2"
-      ],
-      "extra_claimed": [
-        "m3",
-        "m4"
-      ],
-      "vertex_midpoints_adjacent": true,
-      "chiral": null,
-      "orbit_size": 8,
-      "status": "open",
-      "note": "Remaining Lemma A_adj: vertex-squares host two adjacent midpoints."
-    },
-    {
-      "assignment": {
-        "m1": "V1",
-        "m2": "E",
-        "m3": "V3",
-        "m4": "F"
-      },
-      "k": 2,
-      "e_has_midpoint": true,
-      "f_has_midpoint": true,
-      "vertex_claimed": [
-        "m1",
-        "m3"
-      ],
-      "extra_claimed": [
-        "m2",
-        "m4"
-      ],
-      "vertex_midpoints_adjacent": false,
-      "chiral": null,
-      "orbit_size": 8,
-      "status": "open",
-      "note": "Remaining Lemma A_opp: vertex-squares host two opposite midpoints."
-    },
-    {
-      "assignment": {
-        "m1": "V1",
-        "m2": "E",
-        "m3": "V4",
-        "m4": "F"
-      },
-      "k": 2,
-      "e_has_midpoint": true,
-      "f_has_midpoint": true,
-      "vertex_claimed": [
-        "m1",
-        "m3"
-      ],
-      "extra_claimed": [
-        "m2",
-        "m4"
-      ],
-      "vertex_midpoints_adjacent": false,
-      "chiral": null,
-      "orbit_size": 4,
-      "status": "open",
-      "note": "Remaining Lemma A_opp: vertex-squares host two opposite midpoints."
-    },
-    {
-      "assignment": {
-        "m1": "V1",
-        "m2": "F",
-        "m3": "V4",
-        "m4": "E"
-      },
-      "k": 2,
-      "e_has_midpoint": true,
-      "f_has_midpoint": true,
-      "vertex_claimed": [
-        "m1",
-        "m3"
-      ],
-      "extra_claimed": [
-        "m2",
-        "m4"
-      ],
-      "vertex_midpoints_adjacent": false,
-      "chiral": null,
-      "orbit_size": 4,
-      "status": "open",
-      "note": "Remaining Lemma A_opp: vertex-squares host two opposite midpoints."
-    },
-    {
-      "assignment": {
-        "m1": "V1",
-        "m2": "V2",
-        "m3": "V3",
-        "m4": "E"
-      },
-      "k": 3,
-      "e_has_midpoint": true,
-      "f_has_midpoint": false,
-      "vertex_claimed": [
-        "m1",
-        "m2",
-        "m3"
-      ],
-      "extra_claimed": [
-        "m4"
-      ],
-      "vertex_midpoints_adjacent": null,
-      "chiral": null,
-      "orbit_size": 8,
-      "status": "open",
-      "note": "Remaining Lemma B1: E hosts c and the leftover midpoint; F has no midpoint."
-    },
-    {
-      "assignment": {
-        "m1": "V1",
-        "m2": "V2",
-        "m3": "V4",
-        "m4": "E"
-      },
-      "k": 3,
-      "e_has_midpoint": true,
-      "f_has_midpoint": false,
-      "vertex_claimed": [
-        "m1",
-        "m2",
-        "m3"
-      ],
-      "extra_claimed": [
-        "m4"
-      ],
-      "vertex_midpoints_adjacent": null,
-      "chiral": null,
-      "orbit_size": 8,
-      "status": "open",
-      "note": "Remaining Lemma B1: E hosts c and the leftover midpoint; F has no midpoint."
-    },
-    {
-      "assignment": {
-        "m1": "V1",
-        "m2": "V2",
-        "m3": "V3",
-        "m4": "F"
-      },
-      "k": 3,
-      "e_has_midpoint": false,
-      "f_has_midpoint": true,
-      "vertex_claimed": [
-        "m1",
-        "m2",
-        "m3"
-      ],
-      "extra_claimed": [
-        "m4"
-      ],
-      "vertex_midpoints_adjacent": null,
-      "chiral": null,
-      "orbit_size": 8,
-      "status": "open",
-      "note": "Remaining Lemma B2: E hosts only c; F hosts the leftover midpoint."
-    },
-    {
-      "assignment": {
-        "m1": "V1",
-        "m2": "V2",
-        "m3": "V4",
-        "m4": "F"
-      },
-      "k": 3,
-      "e_has_midpoint": false,
-      "f_has_midpoint": true,
-      "vertex_claimed": [
-        "m1",
-        "m2",
-        "m3"
-      ],
-      "extra_claimed": [
-        "m4"
-      ],
-      "vertex_midpoints_adjacent": null,
-      "chiral": null,
-      "orbit_size": 8,
-      "status": "open",
-      "note": "Remaining Lemma B2: E hosts only c; F hosts the leftover midpoint."
-    },
     {
       "assignment": {
         "m1": "V1",
@@ -263,6 +37,8 @@
         "m4": "V4"
       },
       "k": 4,
+      "k_extra": 0,
+      "gap": "G1",
       "e_has_midpoint": false,
       "f_has_midpoint": false,
       "vertex_claimed": [
@@ -274,9 +50,280 @@
       "extra_claimed": [],
       "vertex_midpoints_adjacent": null,
       "chiral": "cw",
+      "t8_adjacent": null,
       "orbit_size": 2,
+      "status": "partial",
+      "note": "G1 (k_extra=0): closed for a>2^{5/4}; open on (2, 2^{5/4}]."
+    },
+    {
+      "assignment": {
+        "m1": "V1",
+        "m2": "V2",
+        "m3": "V3",
+        "m4": "E"
+      },
+      "k": 3,
+      "k_extra": 1,
+      "gap": "G2",
+      "e_has_midpoint": true,
+      "f_has_midpoint": false,
+      "vertex_claimed": [
+        "m1",
+        "m2",
+        "m3"
+      ],
+      "extra_claimed": [
+        "m4"
+      ],
+      "vertex_midpoints_adjacent": null,
+      "chiral": null,
+      "t8_adjacent": false,
+      "orbit_size": 8,
       "status": "open",
-      "note": "Remaining Lemma C (k=4). One D4-orbit: cw and ccw are reflections."
+      "note": "G2 (k_extra=1, C hosts extra midpoint, weak vertex adjacent to C). L-gap side meets the weak vertex; open for all a>2."
+    },
+    {
+      "assignment": {
+        "m1": "V1",
+        "m2": "V2",
+        "m3": "V3",
+        "m4": "F"
+      },
+      "k": 3,
+      "k_extra": 1,
+      "gap": "G2",
+      "e_has_midpoint": false,
+      "f_has_midpoint": true,
+      "vertex_claimed": [
+        "m1",
+        "m2",
+        "m3"
+      ],
+      "extra_claimed": [
+        "m4"
+      ],
+      "vertex_midpoints_adjacent": null,
+      "chiral": null,
+      "t8_adjacent": null,
+      "orbit_size": 8,
+      "status": "open",
+      "note": "G2 (k_extra=1, F hosts the extra midpoint). Need to eject F from the critical quarter."
+    },
+    {
+      "assignment": {
+        "m1": "V1",
+        "m2": "V2",
+        "m3": "V4",
+        "m4": "F"
+      },
+      "k": 3,
+      "k_extra": 1,
+      "gap": "G2",
+      "e_has_midpoint": false,
+      "f_has_midpoint": true,
+      "vertex_claimed": [
+        "m1",
+        "m2",
+        "m3"
+      ],
+      "extra_claimed": [
+        "m4"
+      ],
+      "vertex_midpoints_adjacent": null,
+      "chiral": null,
+      "t8_adjacent": null,
+      "orbit_size": 8,
+      "status": "open",
+      "note": "G2 (k_extra=1, F hosts the extra midpoint). Need to eject F from the critical quarter."
+    },
+    {
+      "assignment": {
+        "m1": "V1",
+        "m2": "V2",
+        "m3": "V4",
+        "m4": "E"
+      },
+      "k": 3,
+      "k_extra": 1,
+      "gap": "G2",
+      "e_has_midpoint": true,
+      "f_has_midpoint": false,
+      "vertex_claimed": [
+        "m1",
+        "m2",
+        "m3"
+      ],
+      "extra_claimed": [
+        "m4"
+      ],
+      "vertex_midpoints_adjacent": null,
+      "chiral": null,
+      "t8_adjacent": true,
+      "orbit_size": 8,
+      "status": "partial",
+      "note": "G2 (k_extra=1, C hosts extra midpoint, T8-adjacent). Closed for a>2^{5/4}; open on (2, 2^{5/4}]."
+    },
+    {
+      "assignment": {
+        "m1": "V1",
+        "m2": "E",
+        "m3": "V3",
+        "m4": "F"
+      },
+      "k": 2,
+      "k_extra": 2,
+      "gap": "G3",
+      "e_has_midpoint": true,
+      "f_has_midpoint": true,
+      "vertex_claimed": [
+        "m1",
+        "m3"
+      ],
+      "extra_claimed": [
+        "m2",
+        "m4"
+      ],
+      "vertex_midpoints_adjacent": false,
+      "chiral": null,
+      "t8_adjacent": false,
+      "orbit_size": 8,
+      "status": "open",
+      "note": "G3 (k_extra=2, opposite extra-midpoints)."
+    },
+    {
+      "assignment": {
+        "m1": "V1",
+        "m2": "E",
+        "m3": "V4",
+        "m4": "F"
+      },
+      "k": 2,
+      "k_extra": 2,
+      "gap": "G3",
+      "e_has_midpoint": true,
+      "f_has_midpoint": true,
+      "vertex_claimed": [
+        "m1",
+        "m3"
+      ],
+      "extra_claimed": [
+        "m2",
+        "m4"
+      ],
+      "vertex_midpoints_adjacent": false,
+      "chiral": null,
+      "t8_adjacent": false,
+      "orbit_size": 4,
+      "status": "open",
+      "note": "G3 (k_extra=2, opposite extra-midpoints)."
+    },
+    {
+      "assignment": {
+        "m1": "V1",
+        "m2": "F",
+        "m3": "V4",
+        "m4": "E"
+      },
+      "k": 2,
+      "k_extra": 2,
+      "gap": "G3",
+      "e_has_midpoint": true,
+      "f_has_midpoint": true,
+      "vertex_claimed": [
+        "m1",
+        "m3"
+      ],
+      "extra_claimed": [
+        "m2",
+        "m4"
+      ],
+      "vertex_midpoints_adjacent": false,
+      "chiral": null,
+      "t8_adjacent": true,
+      "orbit_size": 4,
+      "status": "open",
+      "note": "G3 (k_extra=2, opposite extra-midpoints)."
+    },
+    {
+      "assignment": {
+        "m1": "V1",
+        "m2": "V2",
+        "m3": "E",
+        "m4": "F"
+      },
+      "k": 2,
+      "k_extra": 2,
+      "gap": "G4",
+      "e_has_midpoint": true,
+      "f_has_midpoint": true,
+      "vertex_claimed": [
+        "m1",
+        "m2"
+      ],
+      "extra_claimed": [
+        "m3",
+        "m4"
+      ],
+      "vertex_midpoints_adjacent": true,
+      "chiral": null,
+      "t8_adjacent": false,
+      "orbit_size": 8,
+      "status": "partial",
+      "note": "G4 (k_extra=2, adjacent extra-midpoints). DLT Case-2 representative closed for a>\u221a5 (Lemma T8); remaining a\u2208(2,\u221a5] and sister orbits."
+    },
+    {
+      "assignment": {
+        "m1": "V1",
+        "m2": "V2",
+        "m3": "F",
+        "m4": "E"
+      },
+      "k": 2,
+      "k_extra": 2,
+      "gap": "G4",
+      "e_has_midpoint": true,
+      "f_has_midpoint": true,
+      "vertex_claimed": [
+        "m1",
+        "m2"
+      ],
+      "extra_claimed": [
+        "m3",
+        "m4"
+      ],
+      "vertex_midpoints_adjacent": true,
+      "chiral": null,
+      "t8_adjacent": false,
+      "orbit_size": 8,
+      "status": "partial",
+      "note": "G4 (k_extra=2, adjacent extra-midpoints). DLT Case-2 representative closed for a>\u221a5 (Lemma T8); remaining a\u2208(2,\u221a5] and sister orbits."
+    },
+    {
+      "assignment": {
+        "m1": "V1",
+        "m2": "V3",
+        "m3": "E",
+        "m4": "F"
+      },
+      "k": 2,
+      "k_extra": 2,
+      "gap": "G4",
+      "e_has_midpoint": true,
+      "f_has_midpoint": true,
+      "vertex_claimed": [
+        "m1",
+        "m2"
+      ],
+      "extra_claimed": [
+        "m3",
+        "m4"
+      ],
+      "vertex_midpoints_adjacent": true,
+      "chiral": null,
+      "t8_adjacent": true,
+      "orbit_size": 8,
+      "status": "partial",
+      "note": "G4 (k_extra=2, adjacent extra-midpoints). DLT Case-2 representative closed for a>\u221a5 (Lemma T8); remaining a\u2208(2,\u221a5] and sister orbits."
     }
   ]
 }

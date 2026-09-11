@@ -225,6 +225,57 @@ def prove_right_side_diameter_no_gap() -> None:
         raise AssertionError("√(8/5) should exceed √6/2")
 
 
+A_STAR = 2 ** sp.Rational(5, 4)  # 2^{5/4} ≈ 2.378; λ = 2^{1/4}
+
+
+def prove_centre_cannot_cover_far_leftover() -> None:
+    """On a side whose vertex items cover [v_i, m_i] and a short L-leg l(λ)
+    from v_{i+1}, the leftover has length λ − l(λ) = λ√(λ²−1) past the midpoint.
+
+    A unit square containing c (distance λ from the side) can reach at most
+    √(2−λ²) past the midpoint. That fails to cover the leftover iff
+    λ√(λ²−1) > √(2−λ²) iff λ⁴ > 2 iff λ > 2^{1/4} iff a > 2^{5/4}.
+    """
+    lam = LAM
+    l = LFunction.formula(lam)
+    leftover = sp.simplify(lam - l)  # λ √(λ²−1)
+    if sp.simplify(leftover - lam * sp.sqrt(lam**2 - 1)) != 0:
+        raise AssertionError("leftover identity")
+    reach = sp.sqrt(2 - lam**2)
+    # leftover^2 - reach^2 = λ²(λ²−1) − (2−λ²) = λ⁴ − 2
+    diff = sp.expand(leftover**2 - reach**2)
+    if sp.simplify(diff - (lam**4 - 2)) != 0:
+        raise AssertionError("G1 far-leftover polynomial")
+    if not (A_STAR < SQRT6):
+        raise AssertionError("2^{5/4} < √6")
+    if not (A_STAR > sp.sqrt(5)):
+        raise AssertionError("2^{5/4} > √5")
+    if not (A_STAR > 2):
+        raise AssertionError("2^{5/4} > 2")
+
+
+def prove_opposite_stub_escapes_centre_chord() -> None:
+    """If C contains a segment [c, m] of length λ, the remaining room on the
+    same line past c is at most √2−λ. The inner-star stub on the opposite ray
+    has length δ(λ)=λ−√(2−λ²). Then δ > √2−λ iff λ > 4√2/5, i.e. a > 8√2/5.
+    """
+    lam = LAM
+    delta = lam - sp.sqrt(2 - lam**2)
+    room = SQRT2 - lam
+    # δ − room = 2λ − √2 − √(2−λ²). Positive iff (2λ−√2)² > 2−λ² (and 2λ>√2).
+    # 4λ² − 4λ√2 + 2 > 2 − λ²  ⇒  5λ² − 4√2 λ > 0  ⇒  λ > 4√2/5.
+    thresh = 4 * SQRT2 / 5
+    if not (thresh > 1):
+        raise AssertionError("4√2/5 > 1")
+    if not (2 * thresh < SQRT6):
+        raise AssertionError("8√2/5 < √6")
+    # record the algebraic identity used in PROOF/ATTEMPT.md
+    lhs = sp.expand((2 * lam - SQRT2) ** 2 - (2 - lam**2))
+    # 4λ² - 4λ√2 + 2 - 2 + λ² = 5λ² - 4√2 λ
+    if sp.simplify(lhs - (5 * lam**2 - 4 * SQRT2 * lam)) != 0:
+        raise AssertionError("opposite-stub polynomial")
+
+
 def prove_left_side_L_gap_at_sqrt5() -> None:
     """2 l(λ) < λ  ⇔  λ > √5 / 2  ⇔  a > √5.
 
@@ -275,6 +326,8 @@ def run_all_proofs() -> dict[str, str]:
     prove_sliver_geometry()
     prove_right_side_diameter_no_gap()
     prove_left_side_L_gap_at_sqrt5()
+    prove_centre_cannot_cover_far_leftover()
+    prove_opposite_stub_escapes_centre_chord()
     # l(1)=1, l(√2)=0
     if sp.simplify(LFunction.formula(1)) != 1:
         raise AssertionError("l(1)=1")
@@ -295,6 +348,8 @@ def run_all_proofs() -> dict[str, str]:
         "F-sliver: √2-λ>0, √(2-λ²)<λ, 2λ-√2>0",
         "2√(2-λ²)≥λ on standing interval (no forced inner-side gap)",
         "2l(λ)<λ iff a>√5; λ+l(λ)>√2 on standing interval",
+        "centre cannot cover far leftover iff a>2^{5/4}",
+        "opposite inner stub escapes a λ-chord through c iff a>8√2/5",
         "l(1)=1 and l(√2)=0",
     ]
     return {n: "proved" for n in names}
@@ -317,6 +372,8 @@ def numeric_table(values_a=(2.01, 2.05, 2.10, 2.20, math.sqrt(6))) -> list[dict]
                 "two_h_area_minus_lambda": 2.0 / lam - lam,
                 "sliver_width": math.sqrt(2.0) - lam,
                 "reach_from_endpoints": math.sqrt(2.0 - lam * lam),
+                "leftover_past_mid": lam - l_numeric(lam),
+                "centre_reach_past_mid": math.sqrt(max(2.0 - lam * lam, 0.0)),
             }
         )
     return rows

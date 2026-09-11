@@ -9,7 +9,9 @@
     "h_area": 0.9950248756218907,
     "two_h_area_minus_lambda": 0.9850497512437815,
     "sliver_width": 0.40921356237309525,
-    "reach_from_endpoints": 0.9949748740546166
+    "reach_from_endpoints": 0.9949748740546166,
+    "leftover_past_mid": 0.10062554658236511,
+    "centre_reach_past_mid": 0.9949748740546166
   },
   {
     "a": 2.05,
@@ -21,7 +23,9 @@
     "h_area": 0.9756097560975611,
     "two_h_area_minus_lambda": 0.9262195121951222,
     "sliver_width": 0.38921356237309523,
-    "reach_from_endpoints": 0.9743587634952539
+    "reach_from_endpoints": 0.9743587634952539,
+    "leftover_past_mid": 0.23062499999999975,
+    "centre_reach_past_mid": 0.9743587634952539
   },
   {
     "a": 2.1,
@@ -33,7 +37,9 @@
     "h_area": 0.9523809523809523,
     "two_h_area_minus_lambda": 0.8547619047619046,
     "sliver_width": 0.3642135623730951,
-    "reach_from_endpoints": 0.9473647660748208
+    "reach_from_endpoints": 0.9473647660748208,
+    "leftover_past_mid": 0.3361640224652247,
+    "centre_reach_past_mid": 0.9473647660748208
   },
   {
     "a": 2.2,
@@ -45,7 +51,9 @@
     "h_area": 0.9090909090909091,
     "two_h_area_minus_lambda": 0.718181818181818,
     "sliver_width": 0.31421356237309506,
-    "reach_from_endpoints": 0.8888194417315588
+    "reach_from_endpoints": 0.8888194417315588,
+    "leftover_past_mid": 0.5040833264451426,
+    "centre_reach_past_mid": 0.8888194417315588
   },
   {
     "a": 2.449489742783178,
@@ -57,6 +65,8 @@
     "h_area": 0.8164965809277261,
     "two_h_area_minus_lambda": 0.40824829046386335,
     "sliver_width": 0.1894686909815062,
-    "reach_from_endpoints": 0.7071067811865477
+    "reach_from_endpoints": 0.7071067811865477,
+    "leftover_past_mid": 0.8660254037844384,
+    "centre_reach_past_mid": 0.7071067811865477
   }
 ]

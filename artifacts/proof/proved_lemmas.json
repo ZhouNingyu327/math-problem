@@ -13,5 +13,7 @@
   "F-sliver: \u221a2-\u03bb>0, \u221a(2-\u03bb\u00b2)<\u03bb, 2\u03bb-\u221a2>0": "proved",
   "2\u221a(2-\u03bb\u00b2)\u2265\u03bb on standing interval (no forced inner-side gap)": "proved",
   "2l(\u03bb)<\u03bb iff a>\u221a5; \u03bb+l(\u03bb)>\u221a2 on standing interval": "proved",
+  "centre cannot cover far leftover iff a>2^{5/4}": "proved",
+  "opposite inner stub escapes a \u03bb-chord through c iff a>8\u221a2/5": "proved",
   "l(1)=1 and l(\u221a2)=0": "proved"
 }

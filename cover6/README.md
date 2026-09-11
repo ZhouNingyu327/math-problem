@@ -1,7 +1,7 @@
 # cover6
 
 Numerical toolkit (secondary to the proof attempt in
-[`PROOF_ATTEMPT.md`](../PROOF_ATTEMPT.md)) for
+[`PROOF/ATTEMPT.md`](../PROOF/ATTEMPT.md)) for
 
 > \(S(n)\): the largest edge length of a square coverable by \(n\) unit squares,
 > allowing rigid motions (translation + rotation) and overlaps.
