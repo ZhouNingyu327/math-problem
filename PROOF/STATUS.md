@@ -95,3 +95,8 @@ No clean linear lower bound, so no interval-certified local kill was attempted. 
   cover needs >=3 items, while the counting leaves only 2. This needs the item-assignment step (which items can reach the column), i.e. a 5-item
   (15-dim) residual B&B. Not built yet.
 - Core kill fraction: unchanged (~2-4% of Theta x [0,1]^2). No case closed.
+
+## Round 2026-10-08 ~00:50 CST: two-square strip lemma (strip/STRIP.md)
+Reduction proved: covering w x h (h>2) by 2 squares forces a trapezoid of average height >1. Numerically T(w)<=1 iff w>=~0.51 (not certified).
+Applying it to the core FAILS as stated: F reaches the right column (3 items there), the columns are within sqrt2 of each other, and C overlaps them.
+Core kill fraction unchanged. No case closed.
