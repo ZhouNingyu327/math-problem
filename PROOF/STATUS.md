@@ -107,3 +107,7 @@ Core kill fraction unchanged. No case closed.
 Lemma 2 of 2609.15876 is false under its own definitions (exact sympy check, n=4, including a positive-length side contact). The proof
 misses the parallel interior grid line. Theorem 1 does not follow as written; a joint-bound repair fails narrowly (numerical).
 Also: that paper miscites DLT as proving S(6)=2 (DLT state it as a conjecture).
+
+## Round 2026-10-08 ~00:35 CST: 15-dim B&B prototype (bnb15/RESULTS.md)
+One tiny C-subcell at a=2.005: 22% / 52% / 68% of the volume killed after 1 / 5 / 20 min; open fraction ~t^-0.29, memory-bound.
+Projected total time: infeasible (astronomical), even for one subcell, with ~7e4 subcells per slice. No closure.
