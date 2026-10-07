@@ -102,3 +102,8 @@ Applying it to the core FAILS as stated: F reaches the right column (3 items the
 Core kill fraction unchanged. No case closed.
 
 ## Round 2026-10-08 ~01:00 CST: six structural ideas tested (ideas/VERDICTS.md). None viable; no case closed.
+
+## Round 2026-10-08 ~01:20 CST: L2 audit (gridlen/L2_AUDIT.md)
+Lemma 2 of 2609.15876 is false under its own definitions (exact sympy check, n=4, including a positive-length side contact). The proof
+misses the parallel interior grid line. Theorem 1 does not follow as written; a joint-bound repair fails narrowly (numerical).
+Also: that paper miscites DLT as proving S(6)=2 (DLT state it as a conjecture).
