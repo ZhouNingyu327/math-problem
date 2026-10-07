@@ -81,3 +81,17 @@ No clean linear lower bound, so no interval-certified local kill was attempted. 
   for both n=2 and n=4). That also opens a gap in that paper's n=4 Theorem 1: extra type-mixes survive.
 - GridLen conclusions for n=6 are robust, but they are implied by the existing taxonomy, so they add no new B&B cut.
   Kill fraction unchanged. Grid refinement offers no help (spacing <1). No case closed.
+
+## Round 2026-10-08 ~00:30 CST: core probe + L2 exact
+- gridlen/L2_COUNTEREXAMPLE.md + l2_exact.py: sympy-exact. Total 3sqrt2-2-2eps/n > 1.5sqrt2 for eps<0.1213n, for all n>=2.
+- rigidity/core_probe.py: a=2.005, delta=0.01 dfit, C fixed at the core pose (alpha=beta=0.55, theta=35/45/60 deg); the other 5 squares
+  free (meet constraints on V_i NOT imposed), 16 Powell restarts.
+  Min uncovered area is 3.4e-3 to 4.1e-3 (about 2*0.7*(a-2), i.e. LINEAR in a-2). The uncovered set is always two thin horizontal strips
+  of height a-2 (y in [0,eps] and [1,1+eps]), spanning a column of width ~0.7 on one side of C (x in ~[1.3,a] or [0,0.82]),
+  covered by two stacked axis-aligned squares.
+  Reading: once C is pinned in the core, the deficit comes from a column of height a>2 and width ~0.7 next to C that gets only
+  two items (a vertical-stacking obstruction), not from anything near p_top or Gamma.
+  Candidate invariant (NOT proved): with C in the core, S\C contains a rectangle of width w>=w0 and height a whose
+  cover needs >=3 items, while the counting leaves only 2. This needs the item-assignment step (which items can reach the column), i.e. a 5-item
+  (15-dim) residual B&B. Not built yet.
+- Core kill fraction: unchanged (~2-4% of Theta x [0,1]^2). No case closed.
