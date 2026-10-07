@@ -100,3 +100,5 @@ No clean linear lower bound, so no interval-certified local kill was attempted. 
 Reduction proved: covering w x h (h>2) by 2 squares forces a trapezoid of average height >1. Numerically T(w)<=1 iff w>=~0.51 (not certified).
 Applying it to the core FAILS as stated: F reaches the right column (3 items there), the columns are within sqrt2 of each other, and C overlaps them.
 Core kill fraction unchanged. No case closed.
+
+## Round 2026-10-08 ~01:00 CST: six structural ideas tested (ideas/VERDICTS.md). None viable; no case closed.
