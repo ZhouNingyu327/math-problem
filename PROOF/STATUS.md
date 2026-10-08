@@ -146,6 +146,8 @@ Small core subcell: 90.2% of the volume killed, 39/64 roots cleared in ~5.3 CPU-
   Exact DFS verified: a0=2.15 (7x7 grid), 2.10 (11x11), 2.06 (15x15), **2.05** (13x13 + 3 D4-orbits, 253 pts, 6.3e8 nodes).
   **a0=2.04** (15x15 + 7 orbits, 281 pts): HiGHS optimum 7, exact DFS NO 6-cover (1.68e9 nodes).
   Consequence: the G2-G5 range that is actually open shrinks from (2,2.06) to **(2,2.04)**.
+  **a0=2.03 candidate** (lazysym_2.03_1440_17.json, 401 pts, K=1440): HiGHS optimum 7; exact DFS pending. If it verifies, G2-G5 shrink to (2,2.03)
+  and Open B C-on-top to (2,2.03).
   Cost grows steeply (DFS nodes 3e8 → 6.3e8 → ~2e9 for 2.06 → 2.05 → 2.04; lazy runs at 2.035 and 2.03 did not certify within ~1 h each).
   The near-cover gaps are thin strips of width ~(a-2), so |P| must grow like 1/(a-2). This route cannot reach a→2+. It shrinks ranges from above only.
 - **Direction 2, Crofton/X-ray (crofton/CROFTON.md).** Integrated line-section counts are weighted-area arguments, so the LP obstruction applies (fails).

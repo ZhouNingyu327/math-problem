@@ -30,6 +30,7 @@ smaller audit trail for that range. The aim was to push a0 below 2.03617 (lazysy
 
 ## Lower a (not certified)
 * a=2.035, K=360, 15x15 base: after 2 lazy rounds (253 pts) still 6-coverable as a set system; the HiGHS round on 281 pts did not finish within 1 h (process lost).
-* a=2.03, K=1440 (s=1.00055), 17x17 base: 373 pts, 95621 sets, still 6-coverable after 4 rounds; each round takes 5-20 min.
+* **a=2.03, K=1440 (s=1.00055), 17x17 base + 4 lazy rounds: 401 pts, 109633 sets, HiGHS min cover = 7 (dual bound 7) -> candidate certificate S(6)<2.03.**
+  Exact DFS verification running (pardfs_2.03.log). Until it finishes this is SOLVER-ONLY evidence (HiGHS MIP), not a proof.
 * The witness points the lazy rounds add sit near the corners on the diagonal ((0.015,0.015)-type) and next to the midlines ((0.2, a/2±0.005)-type).
   So a designed set (base grid + rows hugging the midlines + corner-diagonal points) is the natural next attempt.
