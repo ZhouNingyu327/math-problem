@@ -34,3 +34,9 @@ smaller audit trail for that range. The aim was to push a0 below 2.03617 (lazysy
   Exact DFS verification running (pardfs_2.03.log). Until it finishes this is SOLVER-ONLY evidence (HiGHS MIP), not a proof.
 * The witness points the lazy rounds add sit near the corners on the diagonal ((0.015,0.015)-type) and next to the midlines ((0.2, a/2±0.005)-type).
   So a designed set (base grid + rows hugging the midlines + corner-diagonal points) is the natural next attempt.
+
+## Verification in progress (2026-10-08 20:05 CST)
+`nohup python3 pardfs.py lazysym_2.03_1440_17.json 1440 1e-9 7 > pardfs_2.03.log` is running on the box. 315 root branches,
+~150 s per branch at first, so an estimated 2-4 h wall. Done when the last line reads `EXACT PARALLEL DFS: NO 6 SETS COVER P` (=> S(6)<2.03 rigorously,
+modulo the float-slack argument above) or `A 6-COVER OF P EXISTS` (then the HiGHS result was wrong). 28/315 branches had no cover at 20:05.
+To reproduce any certificate: `python3 verify_cert.py <cert.json> <K> 1e-9` (serial) or `pardfs.py <cert.json> <K> 1e-9 <nproc>`.
