@@ -138,3 +138,18 @@ which no forced-overlap lemma can bound. No case closed.
 
 ## Round 2026-10-08 ~17:00 CST: bnb15 v2 structured B&B (bnb15/RESULTS.md)
 Small core subcell: 90.2% of the volume killed, 39/64 roots cleared in ~5.3 CPU-h; the remaining roots stall (finite-witness relaxation). Not convergent. Full core infeasible. No case closed.
+
+## Round 2026-10-08 ~18:00-20:00 CST: new directions (fps/, crofton/). S(6)=2 NOT proved
+- **Direction 3, finite point-set certificates (fps/RESULTS.md).** These are case-independent and monotone in a: "no 6 unit squares cover P ⊂ [0,a0]^2"
+  implies S(6) < a0, which closes **every** case (G1 to G5, Open A/B/C) on [a0, sqrt6]. Superset family of coverable subsets via angle frames
+  (side bound s=1.00218, slack 1e-9), plus an exact solver-independent bitset DFS.
+  Exact DFS verified: a0=2.15 (7x7 grid), 2.10 (11x11), 2.06 (15x15), **2.05** (13x13 + 3 D4-orbits, 253 pts, 6.3e8 nodes).
+  a0=2.04 (15x15 + 7 orbits, 281 pts): HiGHS optimum 7, exact DFS see fps/RESULTS.md.
+  Consequence: the G2-G5 range that is actually open shrinks from (2,2.06) to (2,2.05) (to (2,2.04) once that DFS completes).
+  Cost grows steeply (DFS nodes 3e8 → 6.3e8 → ~2e9 for 2.06 → 2.05 → 2.04; lazy runs at 2.035 and 2.03 did not certify within ~1 h each).
+  The near-cover gaps are thin strips of width ~(a-2), so |P| must grow like 1/(a-2). This route cannot reach a→2+. It shrinks ranges from above only.
+- **Direction 2, Crofton/X-ray (crofton/CROFTON.md).** Integrated line-section counts are weighted-area arguments, so the LP obstruction applies (fails).
+  Axis-direction pointwise X-ray: an exact rational construction satisfies it at a=11/5, so it is useless below 2.2. All-direction pointwise: inconclusive numerics,
+  and no dual certificate exists. Not a proof route.
+- **Direction 1, a=2 classification + local non-extendability (fps/DIRECTION1.md).** Equivalent to the conjecture via E2, and the a=2 cover set is
+  positive-dimensional with many components. Not viable separately.
