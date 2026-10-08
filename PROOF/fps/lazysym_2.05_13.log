@@ -1,0 +1,4 @@
+{'it': 0, 'n': 169, 'nsets': 8133, 't': 18.6, 'lb': 6.0, 'status': 'feasible', 'unc_raw': 0.2985, 'unc_pol': 0.012}
+{'it': 1, 'n': 197, 'nsets': 10629, 't': 38.3, 'lb': 6.0, 'status': 'feasible', 'unc_raw': 0.15738, 'unc_pol': 0.014017}
+{'it': 2, 'n': 225, 'nsets': 14349, 't': 54.5, 'lb': 6.0, 'status': 'feasible', 'unc_raw': 0.106507, 'unc_pol': 0.01195}
+{'it': 3, 'n': 253, 'nsets': 18561, 't': 134.8, 'lb': 7.0, 'status': 'CERT'}

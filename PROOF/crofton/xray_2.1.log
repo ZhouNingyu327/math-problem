@@ -1,0 +1,3 @@
+a=2.1 restart 0: sumsq=4.101e-01 maxdeficit=1.056e-01
+a=2.1 restart 1: sumsq=1.093e+00 maxdeficit=1.610e-01
+a=2.1 restart 2: sumsq=1.711e+00 maxdeficit=4.924e-01
