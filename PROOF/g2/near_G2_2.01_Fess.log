@@ -1,3 +1,6 @@
 a=2.01 mode=Fess round 0: uncovered=3.621e-02 penalty=3.1e+00 F-essential length on bd(Q4)=1.147
 a=2.01 mode=Fess round 1: uncovered=1.150e-01 penalty=2.8e+00 F-essential length on bd(Q4)=1.187
 a=2.01 mode=Fess round 2: uncovered=1.108e-01 penalty=2.6e+00 F-essential length on bd(Q4)=1.184
+a=2.01 mode=Fess round 3: uncovered=8.466e-02 penalty=8.9e-01 F-essential length on bd(Q4)=0.826
+a=2.01 mode=Fess round 4: uncovered=8.754e-02 penalty=6.8e-01 F-essential length on bd(Q4)=0.653
+a=2.01 mode=Fess round 5: uncovered=8.754e-02 penalty=6.8e-01 F-essential length on bd(Q4)=0.653

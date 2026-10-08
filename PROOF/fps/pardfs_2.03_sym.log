@@ -1,2 +1,7 @@
 a=2.03 n=401 |F|=109633 s=1.000545268 mirror-closed=True
 root point 0 [0. 0.]: 315 candidates, 158 mirror classes, 120 still to search (skipped 38 done)
+  [1/120] set 60634: no cover nodes=59976375 370.4s
+  [2/120] set 60482: no cover nodes=61301585 373.0s
+  [3/120] set 60470: no cover nodes=59798033 392.4s
+  [4/120] set 60481: no cover nodes=67217902 403.1s
+  [5/120] set 60527: no cover nodes=67479685 417.9s

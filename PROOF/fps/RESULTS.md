@@ -40,3 +40,9 @@ smaller audit trail for that range. The aim was to push a0 below 2.03617 (lazysy
 ~150 s per branch at first, so an estimated 2-4 h wall. Done when the last line reads `EXACT PARALLEL DFS: NO 6 SETS COVER P` (=> S(6)<2.03 rigorously,
 modulo the float-slack argument above) or `A 6-COVER OF P EXISTS` (then the HiGHS result was wrong). 28/315 branches had no cover at 20:05.
 To reproduce any certificate: `python3 verify_cert.py <cert.json> <K> 1e-9` (serial) or `pardfs.py <cert.json> <K> 1e-9 <nproc>`.
+
+### Update 20:50 CST: mirror reduction
+pardfs_sym.py checks that the diagonal reflection maps P and the family F onto themselves (exact index/bitset check; True for the 2.03 instance),
+so only one of {T, sigma(T)} is searched at the root (158 classes instead of 315), and branches finished in pardfs_2.03_part1.log (38) are skipped.
+Remaining: 120 root branches (pardfs_2.03_sym.log, 6 processes).
+Seeded lazy run at a=2.025 (K=1440, 17x17 + scaled 2.03 points): lazysym_2.025_seeded.log (background, nice 5).

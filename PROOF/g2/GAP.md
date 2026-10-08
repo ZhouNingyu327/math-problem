@@ -22,3 +22,24 @@ a<=2^{5/4}. The large-a parts (forced gap Γ nonempty, a>a_*) are fine, because 
 (EJ) In the G2/G3/G4 labellings with a in (2, 2.04): (F ∪ V1 ∪ V3) ∩ bd(Q4) ⊂ V4 ∪ C,
 i.e. the other items contribute nothing to bd(Q4) that V4 ∪ C does not already cover. (EJ) plus Prop L closes the case.
 The strong form "F ∩ bd(Q4) = ∅" is more than is needed.
+
+## Is (EJ) true? Result: it cannot be proved by any argument that survives the limit a->2+ (explicit configuration)
+**G2 is sharp at a=2.** The grid cover V1=[0,1]^2, V2=[1,2]x[0,1], V3=[1,2]^2, V4=[0,1]x[1,2], C=[0,1]x[0.4,1.4] covers [0,2]^2 and satisfies
+all closed G2 incidences (v_i ∈ V_i, m1 ∈ V1, m2 ∈ V3, m3 ∈ V4, c, m4 ∈ C). So every valid G2 argument must be tight at a=2.
+**(EJ) fails at a=2** (a2_G2.py, a2_G2_check.py/.log; shapely, floating point). Keep V1, V2, V3, C as above. Take
+V4 = unit square centred (0.553609, 1.653758) rotated 8.292° (it contains v4=(0,2) and m3=(1,2)), and
+F = unit square centred (-0.318034, 1.600000) rotated 21.885°.
+F stays at Chebyshev distance >= 0.175 from every midpoint, so F holds no midpoint (strictly).
+The six squares cover [0,2]^2 (uncovered area 0.0). The segment {0} x [1.400, 1.985] of bd(Q4), of length 0.585, lies in **no item except F**.
+So "bd(Q4) ⊂ V4 ∪ C", and even "bd(Q4) ⊂ V1∪V2∪V3∪V4∪C", is false for limits of G2 configurations. Any proof of (EJ)
+on (2, 2+δ) must use a > 2 quantitatively. Every closed-condition or compactness-stable argument (reach bounds, CR, L-bounds, diameter windows) fails.
+Numerical near-cover search at a=2.01/2.02 with strict incidences (near_G2.py): the penalised Powell search did not converge (penalties stayed
+large), so there is no quantitative near-cover statement yet.
+
+## What weaker statement suffices
+Three items easily cover bd(Q4) under the local constraints (S_bd(3)=1.272 > mu), so no purely local statement about Q4 can work. A
+sufficient statement has to tie F to a second place where it is needed:
+(EJ') for a in (2, 2.04), in the G2/G4 labellings, F cannot meet bd(Q4) \ (V4 ∪ C) and also cover the part of S that V1,V2,V3,V4,C miss outside Q4.
+In the a=2 example the five-item leftover lies entirely in Q4 (F is needed only there). So (EJ') too must exploit the eps-strips that appear only for a>2,
+for example the vertical/horizontal mid-strips of width a-2 that the near-grid vertex items cannot cover. This is the same sharpness
+obstruction as in the open G1 cases. Status: **(EJ) is not proved. It is refuted as a limit-stable lemma, and G2-G5 remain open on (2, 2.04).**

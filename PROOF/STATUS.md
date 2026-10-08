@@ -155,3 +155,11 @@ Small core subcell: 90.2% of the volume killed, 39/64 roots cleared in ~5.3 CPU-
   and no dual certificate exists. Not a proof route.
 - **Direction 1, a=2 classification + local non-extendability (fps/DIRECTION1.md).** Equivalent to the conjecture via E2, and the a=2 cover set is
   positive-dimensional with many components. Not viable separately.
+
+## Round 2026-10-08 ~20:15-21:00 CST: G2-G5 eject-F gap (g2/GAP.md). NOT closed
+- Exact gap: in ATTEMPT §4-§6 the step "bd(Q4) ⊂ V4 ∪ C" uses CR/L-reach upper bounds as if they were coverage. What is actually proved is
+  bd(Q4) ⊂ V4 ∪ C ∪ F ∪ V1 (∪V3), so Prop L does not apply. G3 also misapplies CR-mid to F (F need not contain c).
+- Missing lemma (EJ): (F ∪ V1 ∪ V3) ∩ bd(Q4) ⊂ V4 ∪ C. **It fails in the limit a=2**: there is an explicit cover of [0,2]^2 with all closed G2
+  incidences in which F (holding no midpoint, margin 0.175) alone covers {0}x[1.400,1.985] of bd(Q4). G2 is itself sharp at a=2 (grid cover).
+  So (EJ) can only be proved by an argument that uses a>2 quantitatively. What suffices instead is a statement tying F to a second place it is needed (EJ').
+- G2-G5 ranges unchanged: open on (2, 2.04) (case-independent FPS bound). 2.03 exact check: running, now mirror-reduced (fps/pardfs_2.03_sym.log).

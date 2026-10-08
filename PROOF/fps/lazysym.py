@@ -11,6 +11,14 @@ def orbit(p):
     return list(pts)
 g = np.linspace(0, a, k)
 P = [(float(x), float(y)) for x in g for y in g]
+import os
+if os.environ.get('SEED_JSON'):   # seed with a previous certificate's points, scaled to side a, D4-closed
+    sd = json.load(open(os.environ['SEED_JSON'])); sc = a / sd['a']
+    have0 = set((round(x, 12), round(y, 12)) for x, y in P)
+    for (x, y) in sd['P']:
+        for o in orbit((x*sc, y*sc)):
+            if o not in have0: P.append(o); have0.add(o)
+    out = out.replace('.json', '_seeded.json')
 log = []; t0 = time.time(); rng = np.random.default_rng(0)
 for it in range(maxit):
     Pa = np.array(P)
