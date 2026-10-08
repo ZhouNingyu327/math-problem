@@ -27,3 +27,8 @@ a=2.03 n=401 |F|=109633 s=1.000545268 root point 0 [0. 0.] with 315 candidate se
   [26/315] set 58642: no cover nodes=47474993 310.0s
   [27/315] set 58643: no cover nodes=42071381 305.8s
   [28/315] set 60350: no cover nodes=26801158 85.4s
+  [29/315] set 60354: no cover nodes=27659781 150.5s
+  [30/315] set 60371: no cover nodes=28480707 156.7s
+  [31/315] set 60372: no cover nodes=29707234 158.9s
+  [32/315] set 58653: no cover nodes=62409072 422.6s
+  [33/315] set 58681: no cover nodes=63680816 421.9s
