@@ -144,8 +144,8 @@ Small core subcell: 90.2% of the volume killed, 39/64 roots cleared in ~5.3 CPU-
   implies S(6) < a0, which closes **every** case (G1 to G5, Open A/B/C) on [a0, sqrt6]. Superset family of coverable subsets via angle frames
   (side bound s=1.00218, slack 1e-9), plus an exact solver-independent bitset DFS.
   Exact DFS verified: a0=2.15 (7x7 grid), 2.10 (11x11), 2.06 (15x15), **2.05** (13x13 + 3 D4-orbits, 253 pts, 6.3e8 nodes).
-  a0=2.04 (15x15 + 7 orbits, 281 pts): HiGHS optimum 7, exact DFS see fps/RESULTS.md.
-  Consequence: the G2-G5 range that is actually open shrinks from (2,2.06) to (2,2.05) (to (2,2.04) once that DFS completes).
+  **a0=2.04** (15x15 + 7 orbits, 281 pts): HiGHS optimum 7, exact DFS NO 6-cover (1.68e9 nodes).
+  Consequence: the G2-G5 range that is actually open shrinks from (2,2.06) to **(2,2.04)**.
   Cost grows steeply (DFS nodes 3e8 → 6.3e8 → ~2e9 for 2.06 → 2.05 → 2.04; lazy runs at 2.035 and 2.03 did not certify within ~1 h each).
   The near-cover gaps are thin strips of width ~(a-2), so |P| must grow like 1/(a-2). This route cannot reach a→2+. It shrinks ranges from above only.
 - **Direction 2, Crofton/X-ray (crofton/CROFTON.md).** Integrated line-section counts are weighted-area arguments, so the LP obstruction applies (fails).

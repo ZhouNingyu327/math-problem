@@ -22,7 +22,7 @@ a finite point set P in [0,a0]^2 that no 6 unit squares cover.
 | 2.10 | 11x11 grid (121)           | 4556   | 7         | NO 6-cover, 4.4e6 nodes, 5s (also K=1440, slack 1e-6) |
 | 2.06 | 15x15 grid (225)           | 27387  | 7         | NO 6-cover, 3.0e8 nodes, 722s |
 | 2.05 | 13x13 grid + 3 orbits (253)| 18561  | 7         | NO 6-cover, 6.3e8 nodes, 510s wall (pardfs, 3 procs; 136/136 root branches) |
-| 2.04 | 15x15 grid + 7 orbits (281)| 40185  | 7         | 179/181 root branches done, no cover so far (pardfs_2.04.log); final line pending |
+| 2.04 | 15x15 grid + 7 orbits (281)| 40185  | 7         | NO 6-cover, 1.68e9 nodes, 2297s wall (pardfs, 3 procs; 181/181 root branches) |
 Uniform odd grids: k=15 is coverable at 2.05 (cover found), but certifies 2.06. Even k is useless (4 squares cover any even grid up to
 about 2.1, since no points lie on the midlines).
 These bounds are weaker than the existing case analysis (all a > 2.03617 already closed). They are an independent and much
