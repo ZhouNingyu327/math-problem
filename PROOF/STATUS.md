@@ -111,3 +111,7 @@ Also: that paper miscites DLT as proving S(6)=2 (DLT state it as a conjecture).
 ## Round 2026-10-08 ~00:35 CST: 15-dim B&B prototype (bnb15/RESULTS.md)
 One tiny C-subcell at a=2.005: 22% / 52% / 68% of the volume killed after 1 / 5 / 20 min; open fraction ~t^-0.29, memory-bound.
 Projected total time: infeasible (astronomical), even for one subcell, with ~7e4 subcells per slice. No closure.
+
+## Round 2026-10-08 ~15:40 CST: spill+overlap accounting (spill/SPILL.md): NOT viable
+spill+overcount = 6-a^2 is an identity. Near-covers have spill ~0.003-0.075 and overcount ~1.9, so the slack lives in the overlap of the spare squares,
+which no forced-overlap lemma can bound. No case closed.

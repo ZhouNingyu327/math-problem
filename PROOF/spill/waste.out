@@ -1,0 +1,25 @@
+grid a=2.0005 slack6-a2=1.9980 spill=0.0350 overcount=1.9630 uncovered=4.40e-05
+grid a=2.0010 slack6-a2=1.9960 spill=0.0749 overcount=1.9213 uncovered=2.70e-04
+grid a=2.0020 slack6-a2=1.9920 spill=0.0259 overcount=1.9663 uncovered=1.91e-04
+grid a=2.0040 slack6-a2=1.9840 spill=0.0656 overcount=1.9187 uncovered=3.10e-04
+grid a=2.0080 slack6-a2=1.9679 spill=0.0187 overcount=1.9496 uncovered=3.72e-04
+grid a=2.0160 slack6-a2=1.9357 spill=0.0417 overcount=1.8961 uncovered=2.13e-03
+tilt a=2.0005 slack6-a2=1.9980 spill=0.0332 overcount=1.9648 uncovered=5.23e-05
+tilt a=2.0010 slack6-a2=1.9960 spill=0.0203 overcount=1.9758 uncovered=1.03e-04
+tilt a=2.0020 slack6-a2=1.9920 spill=0.0479 overcount=1.9442 uncovered=1.55e-04
+tilt a=2.0040 slack6-a2=1.9840 spill=0.0029 overcount=1.9812 uncovered=6.53e-05
+tilt a=2.0080 slack6-a2=1.9679 spill=0.0154 overcount=1.9531 uncovered=5.41e-04
+tilt a=2.0160 slack6-a2=1.9357 spill=0.0107 overcount=1.9260 uncovered=9.40e-04
+random a=2 cover: spill=1.005 overcount=0.995
+random a=2 cover: spill=0.724 overcount=1.276
+random a=2 cover: spill=1.127 overcount=0.873
+random a=2 cover: spill=0.197 overcount=1.803
+random a=2 cover: spill=0.944 overcount=1.056
+random a=2 cover: spill=0.528 overcount=1.472
+random a=2 cover: spill=1.043 overcount=0.957
+random a=2 cover: spill=0.852 overcount=1.148
+random a=2 cover: spill=0.550 overcount=1.450
+random a=2 cover: spill=0.220 overcount=1.780
+random a=2 cover: spill=0.849 overcount=1.151
+random a=2 cover: spill=0.579 overcount=1.421
+random a=2 cover: spill=0.744 overcount=1.256
