@@ -115,3 +115,13 @@ Projected total time: infeasible (astronomical), even for one subcell, with ~7e4
 ## Round 2026-10-08 ~15:40 CST: spill+overlap accounting (spill/SPILL.md): NOT viable
 spill+overcount = 6-a^2 is an identity. Near-covers have spill ~0.003-0.075 and overcount ~1.9, so the slack lives in the overlap of the spare squares,
 which no forced-overlap lemma can bound. No case closed.
+
+## Round 2026-10-08 ~17:00 CST: extremal/jammed-optimum approach + shape relaxations (extremal/EXTREMAL.md)
+- Framework for a hypothetical optimum a*>2 (attained; by closed cases a* in (2,2.0362]): exact depth identity mu*(a)=(1-a/S(6))/2
+  (so S(6)=2 iff six OPEN unit squares never cover the closed [0,2]^2); every tile essential; Gordan/KKT jamming; **no self-stress**;
+  tension identity a = tile tension / boundary pull; per-tile opposite-edge equilibrium rule. Sketched proofs, no closure: a proof would need
+  a classification of jammed tight-point patterns, which is at least as large as the B&B.
+- Numerics: 106 random-start local maximisations of the coverable side give max 1.9999979. No local max >2. Near-2 optima converge to the grid+2-spares family.
+- **NEW negative (D5):** 5 unit squares + a disk of diameter sqrt2 cover side 2.01/2.03/2.06, and 5 squares + (disk ∩ width-1 strip) cover 2.01/2.03
+  (the lens a=2.01 cover survives a 1e-7 shrink). So "uncovered set of 5 tiles has diam > sqrt2" is FALSE, and no diameter/width/area witness argument can work.
+- Private-region / S(5)-equality reduction: fails (brick-type 5-covers stick out). Literature: no new n=6 tool. No case closed.
