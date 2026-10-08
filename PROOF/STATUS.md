@@ -145,9 +145,8 @@ Small core subcell: 90.2% of the volume killed, 39/64 roots cleared in ~5.3 CPU-
   (side bound s=1.00218, slack 1e-9), plus an exact solver-independent bitset DFS.
   Exact DFS verified: a0=2.15 (7x7 grid), 2.10 (11x11), 2.06 (15x15), **2.05** (13x13 + 3 D4-orbits, 253 pts, 6.3e8 nodes).
   **a0=2.04** (15x15 + 7 orbits, 281 pts): HiGHS optimum 7, exact DFS NO 6-cover (1.68e9 nodes).
-  Consequence: the G2-G5 range that is actually open shrinks from (2,2.06) to **(2,2.04)**.
-  **a0=2.03 candidate** (lazysym_2.03_1440_17.json, 401 pts, K=1440): HiGHS optimum 7; exact DFS pending. If it verifies, G2-G5 shrink to (2,2.03)
-  and Open B C-on-top to (2,2.03).
+  **a0=2.03 VERIFIED** (17x17 + 112 pts = 401, K=1440): exact mirror-reduced DFS NO 6-cover (7.995e9 nodes, 11795.7s).
+  Consequence: G2–G5 open only on **(2,2.03)**; Open B C-on-top shrinks to **(2,2.03)**; all cases closed for a≥2.03 (float caveat).
   Cost grows steeply (DFS nodes 3e8 → 6.3e8 → ~2e9 for 2.06 → 2.05 → 2.04; lazy runs at 2.035 and 2.03 did not certify within ~1 h each).
   The near-cover gaps are thin strips of width ~(a-2), so |P| must grow like 1/(a-2). This route cannot reach a→2+. It shrinks ranges from above only.
 - **Direction 2, Crofton/X-ray (crofton/CROFTON.md).** Integrated line-section counts are weighted-area arguments, so the LP obstruction applies (fails).
@@ -162,4 +161,16 @@ Small core subcell: 90.2% of the volume killed, 39/64 roots cleared in ~5.3 CPU-
 - Missing lemma (EJ): (F ∪ V1 ∪ V3) ∩ bd(Q4) ⊂ V4 ∪ C. **It fails in the limit a=2**: there is an explicit cover of [0,2]^2 with all closed G2
   incidences in which F (holding no midpoint, margin 0.175) alone covers {0}x[1.400,1.985] of bd(Q4). G2 is itself sharp at a=2 (grid cover).
   So (EJ) can only be proved by an argument that uses a>2 quantitatively. What suffices instead is a statement tying F to a second place it is needed (EJ').
-- G2-G5 ranges unchanged: open on (2, 2.04) (case-independent FPS bound). 2.03 exact check: running, now mirror-reduced (fps/pardfs_2.03_sym.log).
+- G2-G5 ranges: were open on (2, 2.04); after the 2.03 FPS certificate (below), open only on **(2, 2.03)**.
+
+## Round 2026-10-08 ~23:40 CST: FPS a=2.03 exact DFS VERIFIED (fps/RESULTS.md)
+- `pardfs_2.03_sym.log` final line: `EXACT PARALLEL DFS (mirror-reduced, resumed): NO 6 SETS COVER P nodes 7995493457, wall 11795.7s`.
+- Point set: 17×17 grid + 112 added points = **401 points** (`lazysym_2.03_1440_17.json`, K=1440).
+- Diagonal-mirror reduction: validity checked exactly in code (P and F closed under sigma:(x,y)->(y,x)); ~8.0e9 nodes.
+- Same float-enumeration caveat as prior FPS rows: written error bound (rounding ~1e-15 << 1e-9 slack), **not** interval arithmetic.
+- **S(6) < 2.03** 【computer-verified】. Case-independent, so:
+  - **all cases closed for a ≥ 2.03** (subject to that caveat);
+  - **G2–G5 open only on (2, 2.03)**;
+  - **Open B C-on-top** shrinks from (2, 2.03617] to **(2, 2.03)**;
+  - other open cases unchanged (meet deep-δ on (2, a_φ], Open B C-on-right on (2, a_cr], razor on (2, a_ψ]).
+- S(6)=2 is still NOT proved.
