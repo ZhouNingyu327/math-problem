@@ -1,0 +1,667 @@
+{
+  "n": 7,
+  "s_targets": [
+    2.0,
+    2.05,
+    2.1
+  ],
+  "n_trials": 84,
+  "best_covered_s": 2.0,
+  "any_s_gt_2_covered": false,
+  "best_trial": {
+    "s": 2.0,
+    "n": 7,
+    "area": 4.0,
+    "poses": [
+      {
+        "cx": 0.5,
+        "cy": 0.5,
+        "theta": 0.0,
+        "theta_deg": 0.0
+      },
+      {
+        "cx": 1.5,
+        "cy": 0.5,
+        "theta": 0.0,
+        "theta_deg": 0.0
+      },
+      {
+        "cx": 0.5,
+        "cy": 1.5,
+        "theta": 0.0,
+        "theta_deg": 0.0
+      },
+      {
+        "cx": 1.5,
+        "cy": 1.5,
+        "theta": 0.0,
+        "theta_deg": 0.0
+      },
+      {
+        "cx": 1.0,
+        "cy": 1.0,
+        "theta": 0.0,
+        "theta_deg": 0.0
+      },
+      {
+        "cx": 1.0,
+        "cy": 1.0,
+        "theta": 0.5235987755982988,
+        "theta_deg": 29.999999999999996
+      },
+      {
+        "cx": 1.0,
+        "cy": 1.0,
+        "theta": 1.0471975511965976,
+        "theta_deg": 59.99999999999999
+      }
+    ],
+    "coverage": {
+      "s": 2.0,
+      "n": 7,
+      "uncovered_area": 0.0,
+      "uncovered_boundary": 0.0,
+      "sample_uncovered_frac": 0.0,
+      "sample_n_points": 25600,
+      "sample_n_uncovered": 0,
+      "boundary_sample_uncovered": 0,
+      "corners_uncovered": 0,
+      "max_outside": 0.0,
+      "covered": true,
+      "covered_strict": true,
+      "notes": ""
+    },
+    "method": "local:trivial_grid",
+    "seed": 0
+  },
+  "trials": [
+    {
+      "method": "local:trivial_grid",
+      "s": 2.0,
+      "uncovered_area": 0.0,
+      "covered": true,
+      "notes": ""
+    },
+    {
+      "method": "local:corners",
+      "s": 2.0,
+      "uncovered_area": 0.0,
+      "covered": true,
+      "notes": ""
+    },
+    {
+      "method": "local:midpoints",
+      "s": 2.0,
+      "uncovered_area": 0.0,
+      "covered": true,
+      "notes": ""
+    },
+    {
+      "method": "local:type_i",
+      "s": 2.0,
+      "uncovered_area": 0.0,
+      "covered": true,
+      "notes": ""
+    },
+    {
+      "method": "local:green7",
+      "s": 2.0,
+      "uncovered_area": 0.0,
+      "covered": true,
+      "notes": ""
+    },
+    {
+      "method": "local:green7_at_s",
+      "s": 2.0,
+      "uncovered_area": 0.0,
+      "covered": true,
+      "notes": ""
+    },
+    {
+      "method": "local:n7_midpoints",
+      "s": 2.0,
+      "uncovered_area": 0.0,
+      "covered": true,
+      "notes": ""
+    },
+    {
+      "method": "green_seed_polish",
+      "s": 2.15,
+      "uncovered_area": 0.10710949260990957,
+      "covered": false,
+      "notes": "uncovered_area=1.071e-01; uncovered_boundary=2.009e-01; sample_uncovered=604/25600"
+    },
+    {
+      "method": "local:jitter1",
+      "s": 2.1,
+      "uncovered_area": 0.02801411697449211,
+      "covered": false,
+      "notes": "uncovered_area=2.801e-02; uncovered_boundary=2.769e-02; sample_uncovered=171/25600"
+    },
+    {
+      "method": "local:type_i",
+      "s": 2.1,
+      "uncovered_area": 0.034779914472974724,
+      "covered": false,
+      "notes": "uncovered_area=3.478e-02; uncovered_boundary=6.866e-02; sample_uncovered=206/25600"
+    },
+    {
+      "method": "local:green7",
+      "s": 2.1,
+      "uncovered_area": 0.034779914472974724,
+      "covered": false,
+      "notes": "uncovered_area=3.478e-02; uncovered_boundary=6.866e-02; sample_uncovered=206/25600"
+    },
+    {
+      "method": "local:green7_at_s",
+      "s": 2.1,
+      "uncovered_area": 0.034779914472974724,
+      "covered": false,
+      "notes": "uncovered_area=3.478e-02; uncovered_boundary=6.866e-02; sample_uncovered=206/25600"
+    },
+    {
+      "method": "local:jitter5",
+      "s": 2.1,
+      "uncovered_area": 0.038363523661339986,
+      "covered": false,
+      "notes": "uncovered_area=3.836e-02; uncovered_boundary=1.995e-01; sample_uncovered=227/25600"
+    },
+    {
+      "method": "local:rotated_corners_steep",
+      "s": 2.1,
+      "uncovered_area": 0.041398335654350346,
+      "covered": false,
+      "notes": "uncovered_area=4.140e-02; uncovered_boundary=3.589e-03; sample_uncovered=245/25600"
+    },
+    {
+      "method": "local:random",
+      "s": 2.1,
+      "uncovered_area": 0.04503369914695317,
+      "covered": false,
+      "notes": "uncovered_area=4.503e-02; uncovered_boundary=1.086e-01; sample_uncovered=270/25600"
+    },
+    {
+      "method": "local:rotated_corner_mid",
+      "s": 2.1,
+      "uncovered_area": 0.04610379854077565,
+      "covered": false,
+      "notes": "uncovered_area=4.610e-02; uncovered_boundary=9.471e-02; sample_uncovered=278/25600"
+    },
+    {
+      "method": "local:random2",
+      "s": 2.1,
+      "uncovered_area": 0.05479840546479769,
+      "covered": false,
+      "notes": "uncovered_area=5.480e-02; uncovered_boundary=1.819e-01; sample_uncovered=322/25600"
+    },
+    {
+      "method": "local:jitter0",
+      "s": 2.1,
+      "uncovered_area": 0.06617896731787955,
+      "covered": false,
+      "notes": "uncovered_area=6.618e-02; uncovered_boundary=5.867e-03; sample_uncovered=378/25600"
+    },
+    {
+      "method": "local:midpoints",
+      "s": 2.1,
+      "uncovered_area": 0.08649202950121357,
+      "covered": false,
+      "notes": "uncovered_area=8.649e-02; uncovered_boundary=1.569e+00; sample_uncovered=541/25600"
+    },
+    {
+      "method": "local:n7_midpoints",
+      "s": 2.1,
+      "uncovered_area": 0.08649202950121357,
+      "covered": false,
+      "notes": "uncovered_area=8.649e-02; uncovered_boundary=1.569e+00; sample_uncovered=541/25600"
+    },
+    {
+      "method": "local:trivial_grid",
+      "s": 2.1,
+      "uncovered_area": 0.09602230671819237,
+      "covered": false,
+      "notes": "uncovered_area=9.602e-02; uncovered_boundary=4.906e-01; sample_uncovered=557/25600"
+    },
+    {
+      "method": "green_seed_polish",
+      "s": 2.1,
+      "uncovered_area": 0.09866776918374996,
+      "covered": false,
+      "notes": "uncovered_area=9.867e-02; uncovered_boundary=9.351e-02; sample_uncovered=572/25600"
+    },
+    {
+      "method": "local:jitter2",
+      "s": 2.1,
+      "uncovered_area": 0.09869379101469249,
+      "covered": false,
+      "notes": "uncovered_area=9.869e-02; uncovered_boundary=6.588e-02; sample_uncovered=573/25600"
+    },
+    {
+      "method": "anneal:0",
+      "s": 2.1,
+      "uncovered_area": 0.11501379644485554,
+      "covered": false,
+      "notes": "uncovered_area=1.150e-01; uncovered_boundary=5.156e-01; sample_uncovered=697/25600"
+    },
+    {
+      "method": "local:mid_jitter",
+      "s": 2.1,
+      "uncovered_area": 0.11918697069969787,
+      "covered": false,
+      "notes": "uncovered_area=1.192e-01; uncovered_boundary=3.304e-02; sample_uncovered=691/25600"
+    },
+    {
+      "method": "anneal_c4:2",
+      "s": 2.1,
+      "uncovered_area": 0.1284842273016624,
+      "covered": false,
+      "notes": "uncovered_area=1.285e-01; uncovered_boundary=8.438e-01; sample_uncovered=803/25600"
+    },
+    {
+      "method": "local:corners_jitter",
+      "s": 2.1,
+      "uncovered_area": 0.13786011456931277,
+      "covered": false,
+      "notes": "uncovered_area=1.379e-01; uncovered_boundary=2.895e-01; sample_uncovered=810/25600"
+    },
+    {
+      "method": "local:jitter3",
+      "s": 2.1,
+      "uncovered_area": 0.15366161043044207,
+      "covered": false,
+      "notes": "uncovered_area=1.537e-01; uncovered_boundary=4.033e-01; sample_uncovered=907/25600"
+    },
+    {
+      "method": "anneal:2",
+      "s": 2.1,
+      "uncovered_area": 0.16056052765426163,
+      "covered": false,
+      "notes": "uncovered_area=1.606e-01; uncovered_boundary=1.056e+00; sample_uncovered=1018/25600"
+    },
+    {
+      "method": "anneal:1",
+      "s": 2.1,
+      "uncovered_area": 0.1668526615119227,
+      "covered": false,
+      "notes": "uncovered_area=1.669e-01; uncovered_boundary=5.754e-01; sample_uncovered=1002/25600"
+    },
+    {
+      "method": "local:corners",
+      "s": 2.1,
+      "uncovered_area": 0.2319213707848188,
+      "covered": false,
+      "notes": "uncovered_area=2.319e-01; uncovered_boundary=1.551e+00; sample_uncovered=1417/25600"
+    },
+    {
+      "method": "anneal_c4:1",
+      "s": 2.1,
+      "uncovered_area": 0.23743043116401213,
+      "covered": false,
+      "notes": "uncovered_area=2.374e-01; uncovered_boundary=1.102e+00; sample_uncovered=1452/25600"
+    },
+    {
+      "method": "local:rotated_corners",
+      "s": 2.1,
+      "uncovered_area": 0.2494194877992565,
+      "covered": false,
+      "notes": "uncovered_area=2.494e-01; uncovered_boundary=2.505e-01; sample_uncovered=1458/25600"
+    },
+    {
+      "method": "local:rotated_jitter",
+      "s": 2.1,
+      "uncovered_area": 0.38821307537933947,
+      "covered": false,
+      "notes": "uncovered_area=3.882e-01; uncovered_boundary=1.828e+00; sample_uncovered=2290/25600"
+    },
+    {
+      "method": "local:jitter4",
+      "s": 2.1,
+      "uncovered_area": 0.5696936958777158,
+      "covered": false,
+      "notes": "uncovered_area=5.697e-01; uncovered_boundary=2.222e+00; sample_uncovered=3347/25600"
+    },
+    {
+      "method": "anneal_c4:0",
+      "s": 2.1,
+      "uncovered_area": 0.5923542613552001,
+      "covered": false,
+      "notes": "uncovered_area=5.924e-01; uncovered_boundary=1.187e+00; sample_uncovered=3444/25600"
+    },
+    {
+      "method": "local:type_i",
+      "s": 2.05,
+      "uncovered_area": 0.00391795954030102,
+      "covered": false,
+      "notes": "uncovered_area=3.918e-03; uncovered_boundary=3.186e-02; sample_uncovered=24/25600"
+    },
+    {
+      "method": "local:green7",
+      "s": 2.05,
+      "uncovered_area": 0.00391795954030102,
+      "covered": false,
+      "notes": "uncovered_area=3.918e-03; uncovered_boundary=3.186e-02; sample_uncovered=24/25600"
+    },
+    {
+      "method": "local:green7_at_s",
+      "s": 2.05,
+      "uncovered_area": 0.00391795954030102,
+      "covered": false,
+      "notes": "uncovered_area=3.918e-03; uncovered_boundary=3.186e-02; sample_uncovered=24/25600"
+    },
+    {
+      "method": "local:rotated_corners",
+      "s": 2.05,
+      "uncovered_area": 0.0069797375041163855,
+      "covered": false,
+      "notes": "uncovered_area=6.980e-03; uncovered_boundary=3.640e-02; sample_uncovered=45/25600"
+    },
+    {
+      "method": "local:jitter5",
+      "s": 2.05,
+      "uncovered_area": 0.011463016828448079,
+      "covered": false,
+      "notes": "uncovered_area=1.146e-02; uncovered_boundary=5.652e-02; sample_uncovered=71/25600"
+    },
+    {
+      "method": "local:jitter1",
+      "s": 2.05,
+      "uncovered_area": 0.03343802712318179,
+      "covered": false,
+      "notes": "uncovered_area=3.344e-02; uncovered_boundary=2.772e-02; sample_uncovered=204/25600"
+    },
+    {
+      "method": "anneal:1",
+      "s": 2.05,
+      "uncovered_area": 0.03366475387111281,
+      "covered": false,
+      "notes": "uncovered_area=3.366e-02; uncovered_boundary=1.434e-01; sample_uncovered=211/25600"
+    },
+    {
+      "method": "local:mid_jitter",
+      "s": 2.05,
+      "uncovered_area": 0.040537834941238714,
+      "covered": false,
+      "notes": "uncovered_area=4.054e-02; uncovered_boundary=4.249e-02; sample_uncovered=249/25600"
+    },
+    {
+      "method": "local:trivial_grid",
+      "s": 2.05,
+      "uncovered_area": 0.04210814684122725,
+      "covered": false,
+      "notes": "uncovered_area=4.211e-02; uncovered_boundary=3.603e-01; sample_uncovered=274/25600"
+    },
+    {
+      "method": "local:jitter0",
+      "s": 2.05,
+      "uncovered_area": 0.05677002790549261,
+      "covered": false,
+      "notes": "uncovered_area=5.677e-02; uncovered_boundary=1.246e-02; sample_uncovered=349/25600"
+    },
+    {
+      "method": "anneal:2",
+      "s": 2.05,
+      "uncovered_area": 0.06067544074011411,
+      "covered": false,
+      "notes": "uncovered_area=6.068e-02; uncovered_boundary=1.434e-01; sample_uncovered=373/25600"
+    },
+    {
+      "method": "local:rotated_corners_steep",
+      "s": 2.05,
+      "uncovered_area": 0.06152435102809861,
+      "covered": false,
+      "notes": "uncovered_area=6.152e-02; uncovered_boundary=4.136e-01; sample_uncovered=379/25600"
+    },
+    {
+      "method": "anneal_c4:1",
+      "s": 2.05,
+      "uncovered_area": 0.06639272187032937,
+      "covered": false,
+      "notes": "uncovered_area=6.639e-02; uncovered_boundary=8.656e-01; sample_uncovered=470/25600"
+    },
+    {
+      "method": "local:rotated_corner_mid",
+      "s": 2.05,
+      "uncovered_area": 0.0676952877331962,
+      "covered": false,
+      "notes": "uncovered_area=6.770e-02; uncovered_boundary=1.894e-01; sample_uncovered=414/25600"
+    },
+    {
+      "method": "local:jitter2",
+      "s": 2.05,
+      "uncovered_area": 0.07120832168649353,
+      "covered": false,
+      "notes": "uncovered_area=7.121e-02; uncovered_boundary=7.022e-02; sample_uncovered=425/25600"
+    },
+    {
+      "method": "local:corners_jitter",
+      "s": 2.05,
+      "uncovered_area": 0.07459617603540156,
+      "covered": false,
+      "notes": "uncovered_area=7.460e-02; uncovered_boundary=2.111e-01; sample_uncovered=455/25600"
+    },
+    {
+      "method": "local:random2",
+      "s": 2.05,
+      "uncovered_area": 0.07760347275961327,
+      "covered": false,
+      "notes": "uncovered_area=7.760e-02; uncovered_boundary=3.339e-02; sample_uncovered=468/25600"
+    },
+    {
+      "method": "anneal_c4:0",
+      "s": 2.05,
+      "uncovered_area": 0.07802771588917226,
+      "covered": false,
+      "notes": "uncovered_area=7.803e-02; uncovered_boundary=1.798e-01; sample_uncovered=481/25600"
+    },
+    {
+      "method": "local:midpoints",
+      "s": 2.05,
+      "uncovered_area": 0.08544231247421291,
+      "covered": false,
+      "notes": "uncovered_area=8.544e-02; uncovered_boundary=5.775e-01; sample_uncovered=534/25600"
+    },
+    {
+      "method": "local:n7_midpoints",
+      "s": 2.05,
+      "uncovered_area": 0.08544231247421291,
+      "covered": false,
+      "notes": "uncovered_area=8.544e-02; uncovered_boundary=5.775e-01; sample_uncovered=534/25600"
+    },
+    {
+      "method": "anneal_c4:2",
+      "s": 2.05,
+      "uncovered_area": 0.0943527848293492,
+      "covered": false,
+      "notes": "uncovered_area=9.435e-02; uncovered_boundary=4.214e-01; sample_uncovered=587/25600"
+    },
+    {
+      "method": "green_seed_polish",
+      "s": 2.05,
+      "uncovered_area": 0.0985328912317809,
+      "covered": false,
+      "notes": "uncovered_area=9.853e-02; uncovered_boundary=9.326e-02; sample_uncovered=607/25600"
+    },
+    {
+      "method": "local:jitter3",
+      "s": 2.05,
+      "uncovered_area": 0.12712708844633447,
+      "covered": false,
+      "notes": "uncovered_area=1.271e-01; uncovered_boundary=2.159e+00; sample_uncovered=774/25600"
+    },
+    {
+      "method": "anneal:0",
+      "s": 2.05,
+      "uncovered_area": 0.15875641873850393,
+      "covered": false,
+      "notes": "uncovered_area=1.588e-01; uncovered_boundary=3.695e-01; sample_uncovered=983/25600"
+    },
+    {
+      "method": "local:corners",
+      "s": 2.05,
+      "uncovered_area": 0.174790712670364,
+      "covered": false,
+      "notes": "uncovered_area=1.748e-01; uncovered_boundary=4.965e-01; sample_uncovered=1091/25600"
+    },
+    {
+      "method": "local:jitter4",
+      "s": 2.05,
+      "uncovered_area": 0.23310600656786956,
+      "covered": false,
+      "notes": "uncovered_area=2.331e-01; uncovered_boundary=1.216e+00; sample_uncovered=1452/25600"
+    },
+    {
+      "method": "local:rotated_jitter",
+      "s": 2.05,
+      "uncovered_area": 0.37464877135726093,
+      "covered": false,
+      "notes": "uncovered_area=3.746e-01; uncovered_boundary=1.523e+00; sample_uncovered=2319/25600"
+    },
+    {
+      "method": "local:random",
+      "s": 2.05,
+      "uncovered_area": 0.4330717864249556,
+      "covered": false,
+      "notes": "uncovered_area=4.331e-01; uncovered_boundary=2.004e+00; sample_uncovered=2682/25600"
+    },
+    {
+      "method": "local:rotated_corners_steep",
+      "s": 2.0,
+      "uncovered_area": 0.00036055391970467803,
+      "covered": false,
+      "notes": "uncovered_area=3.606e-04; sample_uncovered=2/25600"
+    },
+    {
+      "method": "local:mid_jitter",
+      "s": 2.0,
+      "uncovered_area": 0.0007380709162102876,
+      "covered": false,
+      "notes": "uncovered_area=7.381e-04; uncovered_boundary=1.050e-04; sample_uncovered=4/25600"
+    },
+    {
+      "method": "local:rotated_corners",
+      "s": 2.0,
+      "uncovered_area": 0.004219743519106639,
+      "covered": false,
+      "notes": "uncovered_area=4.220e-03; sample_uncovered=20/25600"
+    },
+    {
+      "method": "local:jitter2",
+      "s": 2.0,
+      "uncovered_area": 0.006226764788786985,
+      "covered": false,
+      "notes": "uncovered_area=6.227e-03; uncovered_boundary=2.086e-03; sample_uncovered=38/25600"
+    },
+    {
+      "method": "local:jitter3",
+      "s": 2.0,
+      "uncovered_area": 0.007194400199778089,
+      "covered": false,
+      "notes": "uncovered_area=7.194e-03; uncovered_boundary=3.545e-02; sample_uncovered=44/25600"
+    },
+    {
+      "method": "local:rotated_corner_mid",
+      "s": 2.0,
+      "uncovered_area": 0.007245325694967607,
+      "covered": false,
+      "notes": "uncovered_area=7.245e-03; uncovered_boundary=6.768e-01; sample_uncovered=98/25600"
+    },
+    {
+      "method": "anneal_c4:0",
+      "s": 2.0,
+      "uncovered_area": 0.008278159192188364,
+      "covered": false,
+      "notes": "uncovered_area=8.278e-03; uncovered_boundary=1.407e-02; sample_uncovered=43/25600"
+    },
+    {
+      "method": "local:jitter4",
+      "s": 2.0,
+      "uncovered_area": 0.008930897899835193,
+      "covered": false,
+      "notes": "uncovered_area=8.931e-03; sample_uncovered=56/25600"
+    },
+    {
+      "method": "local:jitter5",
+      "s": 2.0,
+      "uncovered_area": 0.010898522294960428,
+      "covered": false,
+      "notes": "uncovered_area=1.090e-02; uncovered_boundary=2.512e-02; sample_uncovered=69/25600"
+    },
+    {
+      "method": "anneal:1",
+      "s": 2.0,
+      "uncovered_area": 0.011265051673865496,
+      "covered": false,
+      "notes": "uncovered_area=1.127e-02; uncovered_boundary=1.111e-02; sample_uncovered=67/25600"
+    },
+    {
+      "method": "anneal:2",
+      "s": 2.0,
+      "uncovered_area": 0.014217411494067047,
+      "covered": false,
+      "notes": "uncovered_area=1.422e-02; uncovered_boundary=2.526e-02; sample_uncovered=79/25600"
+    },
+    {
+      "method": "local:jitter1",
+      "s": 2.0,
+      "uncovered_area": 0.014993946302290999,
+      "covered": false,
+      "notes": "uncovered_area=1.499e-02; uncovered_boundary=1.382e-01; sample_uncovered=98/25600"
+    },
+    {
+      "method": "anneal_c4:2",
+      "s": 2.0,
+      "uncovered_area": 0.016255352153599727,
+      "covered": false,
+      "notes": "uncovered_area=1.626e-02; uncovered_boundary=3.599e+00; sample_uncovered=390/25600"
+    },
+    {
+      "method": "local:rotated_jitter",
+      "s": 2.0,
+      "uncovered_area": 0.016816760536647476,
+      "covered": false,
+      "notes": "uncovered_area=1.682e-02; uncovered_boundary=5.090e-01; sample_uncovered=152/25600"
+    },
+    {
+      "method": "anneal_c4:1",
+      "s": 2.0,
+      "uncovered_area": 0.01785167386216171,
+      "covered": false,
+      "notes": "uncovered_area=1.785e-02; uncovered_boundary=2.195e-02; sample_uncovered=138/25600"
+    },
+    {
+      "method": "local:random2",
+      "s": 2.0,
+      "uncovered_area": 0.019793876347370072,
+      "covered": false,
+      "notes": "uncovered_area=1.979e-02; uncovered_boundary=3.571e-02; sample_uncovered=123/25600"
+    },
+    {
+      "method": "local:jitter0",
+      "s": 2.0,
+      "uncovered_area": 0.02801561470890375,
+      "covered": false,
+      "notes": "uncovered_area=2.802e-02; uncovered_boundary=1.345e-02; sample_uncovered=172/25600"
+    },
+    {
+      "method": "anneal:0",
+      "s": 2.0,
+      "uncovered_area": 0.02812690424444106,
+      "covered": false,
+      "notes": "uncovered_area=2.813e-02; uncovered_boundary=1.998e+00; sample_uncovered=312/25600"
+    },
+    {
+      "method": "local:corners_jitter",
+      "s": 2.0,
+      "uncovered_area": 0.051556410014268195,
+      "covered": false,
+      "notes": "uncovered_area=5.156e-02; uncovered_boundary=1.284e-01; sample_uncovered=327/25600"
+    },
+    {
+      "method": "local:random",
+      "s": 2.0,
+      "uncovered_area": 0.07464674558605833,
+      "covered": false,
+      "notes": "uncovered_area=7.465e-02; uncovered_boundary=2.629e-03; sample_uncovered=448/25600"
+    }
+  ]
+}

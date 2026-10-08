@@ -1,0 +1,4 @@
+a=21/10 (c,s)=(15/17,8/17) tilt=28.072deg centres=['37/200', '123/625', '10351/10000', '5287/5000', '1187/625', '9529/5000']
+EXACT min over [0,a] of sum of chords minus a = 1/6 = 0.16666666666666666 -> AXIS X-RAY SATISFIED
+a=11/5 (c,s)=(15/17,8/17) tilt=28.072deg centres=['2077/10000', '2159/10000', '1093/1000', '1107/1000', '9933/5000', '19899/10000']
+EXACT min over [0,a] of sum of chords minus a = 11449/300000 = 0.038163333333333334 -> AXIS X-RAY SATISFIED

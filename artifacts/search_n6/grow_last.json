@@ -1,0 +1,60 @@
+{
+  "s": 2.01,
+  "n": 6,
+  "area": 4.040099999999999,
+  "poses": [
+    {
+      "cx": 0.4760706628180227,
+      "cy": 0.4760738569607442,
+      "theta": 0.0,
+      "theta_deg": 0.0
+    },
+    {
+      "cx": 1.586837424878563,
+      "cy": 0.4258786388468555,
+      "theta": 0.05308457752190556,
+      "theta_deg": 3.041522249240227
+    },
+    {
+      "cx": 0.47844011465567354,
+      "cy": 1.525171224883855,
+      "theta": 0.0,
+      "theta_deg": 0.0
+    },
+    {
+      "cx": 1.510003786241585,
+      "cy": 1.5100041262767745,
+      "theta": 0.0,
+      "theta_deg": 0.0
+    },
+    {
+      "cx": 1.0,
+      "cy": 1.0000000006310215,
+      "theta": 1.7840962258267834e-10,
+      "theta_deg": 1.0222118398509371e-08
+    },
+    {
+      "cx": 1.0055565893958818,
+      "cy": 1.0018737888232259,
+      "theta": 0.78506177147674,
+      "theta_deg": 44.980726162681115
+    }
+  ],
+  "coverage": {
+    "s": 2.01,
+    "n": 6,
+    "uncovered_area": 0.08900228928794328,
+    "uncovered_boundary": 0.2742869632287157,
+    "sample_uncovered_frac": 0.0210546875,
+    "sample_n_points": 25600,
+    "sample_n_uncovered": 539,
+    "boundary_sample_uncovered": 55,
+    "corners_uncovered": 0,
+    "max_outside": 0.06588605453532259,
+    "covered": false,
+    "covered_strict": false,
+    "notes": "uncovered_area=8.900e-02; uncovered_boundary=2.743e-01; sample_uncovered=539/25600"
+  },
+  "construction": "adiabatic_growth",
+  "covered": false
+}
