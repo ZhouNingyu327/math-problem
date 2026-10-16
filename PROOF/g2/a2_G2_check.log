@@ -1,0 +1,3 @@
+uncovered area of [0,2]^2 by all six: 0.0
+length of bd(Q4) covered by NO item except F: 0.5853506572235672  pieces: [[(0.0, 1.9854), (0.0, 1.4)]]
+uncovered area of [0,2]^2 by the five items other than F: 0.02496819485952751

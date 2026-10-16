@@ -1,0 +1,47 @@
+{
+  "s": 2.0,
+  "n": 4,
+  "area": 4.0,
+  "poses": [
+    {
+      "cx": 0.5,
+      "cy": 0.5,
+      "theta": 0.0,
+      "theta_deg": 0.0
+    },
+    {
+      "cx": 1.5,
+      "cy": 0.5,
+      "theta": 0.0,
+      "theta_deg": 0.0
+    },
+    {
+      "cx": 0.5,
+      "cy": 1.5,
+      "theta": 0.0,
+      "theta_deg": 0.0
+    },
+    {
+      "cx": 1.5,
+      "cy": 1.5,
+      "theta": 0.0,
+      "theta_deg": 0.0
+    }
+  ],
+  "coverage": {
+    "s": 2.0,
+    "n": 4,
+    "uncovered_area": 0.0,
+    "uncovered_boundary": 0.0,
+    "sample_uncovered_frac": 0.0,
+    "sample_n_points": 25600,
+    "sample_n_uncovered": 0,
+    "boundary_sample_uncovered": 0,
+    "corners_uncovered": 0,
+    "max_outside": 0.0,
+    "covered": true,
+    "covered_strict": true,
+    "notes": ""
+  },
+  "construction": "trivial_2x2"
+}

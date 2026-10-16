@@ -1,0 +1,2 @@
+{'it': 0, 'n': 225, 'nsets': 27325, 't': 55.5, 'lb': 6.0, 'status': 'feasible', 'unc_raw': 0.077143, 'unc_pol': 0.007514}
+{'it': 1, 'n': 253, 'nsets': 33521, 't': 100.2, 'lb': 6.0, 'status': 'feasible', 'unc_raw': 0.08878, 'unc_pol': 0.010481}
